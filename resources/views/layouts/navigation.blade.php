@@ -23,18 +23,14 @@
     <div class="navigation-btn">
         <a class="btn tippy_stock" href="{{ route('stock_menu.index') }}"><i class="las la-boxes"></i></a>
     </div>
-    @can('warm_check')
-        <!-- 設定 -->
-        <div class="navigation-btn">
-            <a class="btn tippy_setting" href="{{ route('setting_menu.index') }}"><i class="las la-cog"></i></a>
-        </div>
-    @endcan
-    @can('warm_check')
-        <!-- システム管理 -->
-        <div class="navigation-btn">
-            <a class="btn tippy_system_admin" href="{{ route('system_admin_menu.index') }}"><i class="las la-robot"></i></a>
-        </div>
-    @endcan
+    <!-- 設定 -->
+    <div class="navigation-btn">
+        <a class="btn tippy_setting" href="{{ route('setting_menu.index') }}"><i class="las la-cog"></i></a>
+    </div>
+    <!-- システム管理 -->
+    <div class="navigation-btn">
+        <a class="btn tippy_system_admin" href="{{ route('system_admin_menu.index') }}"><i class="las la-robot"></i></a>
+    </div>
     <!-- プロフィール -->
     <div class="navigation-btn">
         <a class="btn tippy_profile" href="{{ route('profile.index') }}"><img id="profile" class="profile_image_navigation" src="{{ asset('storage/profile_images/' . Auth::user()->profile_image_file_name) }}"></a>

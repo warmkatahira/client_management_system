@@ -1,4 +1,9 @@
 .welcome_logo {
-    width: 500px;
+    width: 250px;
     display: inline-block;
+}
+
+#animated-background {
+    background: linear-gradient(-45deg, #ffe4e6, #ede9fe, #dbeafe, #fce7f3);
+    background-size: 400% 400%;
 }

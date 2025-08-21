@@ -8,7 +8,6 @@ use Illuminate\Auth\Middleware\Authenticate;
 use App\Http\Middleware\CheckUserStatusMiddleware;
 use App\Http\Middleware\AdminCheckMiddleware;
 use App\Http\Middleware\OperationLogRecordMiddleware;
-use App\Http\Middleware\WarmCheckMiddleware;
 
 return Application::configure(basePath: dirname(__DIR__))
     ->withRouting(
@@ -30,8 +29,6 @@ return Application::configure(basePath: dirname(__DIR__))
         $middleware->alias([
             // 権限「admin」チェック
             'admin_check' => AdminCheckMiddleware::class,
-            // 会社「warm」チェック
-            'warm_check' => WarmCheckMiddleware::class,
         ]);
     })
     ->withExceptions(function (Exceptions $exceptions){

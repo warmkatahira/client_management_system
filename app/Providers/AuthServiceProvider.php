@@ -32,10 +32,6 @@ class AuthServiceProvider extends BaseServiceProvider
         Gate::define('admin_check', function (User $user){
             return ($user->role_id === 'admin');
         });
-        // 会社が「warm」の場合のみ許可
-        Gate::define('warm_check', function (User $user){
-            return ($user->company_id === 'warm');
-        });
         // 出荷検品実績削除が可能な受注である場合のみ許可
         // 会社IDがwarmかつ、出荷検品済みかつ、注文ステータスが作業中である
         Gate::define('shipping_inspection_actual_deletable_check', function (User $user, Order $order){

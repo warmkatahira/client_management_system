@@ -1,1 +1,1 @@
-<img src="{{ asset('image/smooth_logo.svg') }}" class="inline-block w-52">
+<img src="{{ asset('image/warm_logo.svg') }}" class="inline-block w-52">

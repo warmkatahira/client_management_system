@@ -23,6 +23,7 @@
         <!-- Scripts -->
         @vite([
             'resources/js/app.js',
+            'resources/js/welcome.js',
         ])
 
         <!-- LINE AWESOME -->
@@ -42,17 +43,16 @@
         <script src="https://unpkg.com/@popperjs/core@2"></script>
         <script src="https://unpkg.com/tippy.js@6"></script>
     </head>
-    <body>
-        <!-- アラート表示 -->
-        <x-alert/>
-        <div class="flex mt-3">
-            @guest
-                <a href="{{ route('login') }}" class="ml-auto"><img src="{{ asset('image/login_button.svg') }}" class="w-32"></a>
-                <a href="{{ route('register') }}" class="ml-10 mr-10"><img src="{{ asset('image/register_button.svg') }}" class="w-32"></a>
-            @endauth
-        </div>
-        <div class="text-center">
-            <img src="{{ asset('image/smooth_logo.svg') }}" class="welcome_logo">
+    <body class="min-h-screen flex items-center justify-center">
+        <div id="animated-background" class="bg-gradient-to-r from-pink-100 via-purple-100 to-blue-100 min-h-screen w-full flex items-center justify-center">
+            <div class="bg-white bg-opacity-80 rounded-3xl shadow-xl p-12 text-center max-w-md w-full">
+                <img src="{{ asset('image/warm_logo.svg') }}" class="welcome_logo mb-5">
+                <p class="text-gray-600 mb-8 text-3xl">顧客管理システム</p>
+                <div class="flex flex-col gap-5">
+                    <a href="{{ route('login') }}" class="btn bg-pink-400 text-white py-3 rounded-lg">ログイン</a>
+                    <a href="{{ route('register') }}" class="btn bg-purple-400 text-white py-3 rounded-lg">ユーザー登録</a>
+                </div>
+            </div>
         </div>
     </body>
 </html>

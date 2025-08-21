@@ -19,12 +19,14 @@
             'resources/sass/theme.scss',
             'resources/sass/loading.scss',
             'resources/sass/common.scss',
+            'resources/sass/welcome.scss',
         ])
 
         <!-- Scripts -->
         @vite([
             'resources/js/app.js',
             'resources/js/loading.js',
+            'resources/js/welcome.js',
         ])
 
         <!-- LINE AWESOME -->
@@ -44,19 +46,22 @@
         <script src="https://unpkg.com/@popperjs/core@2"></script>
         <script src="https://unpkg.com/tippy.js@6"></script>
     </head>
-    <body>
-        <div class="flex flex-col items-center my-5">
-            <!-- アラート表示 -->
-            <x-alert/>
-            <!-- ローディング -->
-            <x-loading />
-            <div>
-                <a href="{{ route('welcome.index') }}">
-                    <x-application-logo class="w-20 h-20 fill-current text-gray-500" />
-                </a>
-            </div>
-            <div class="w-full sm:max-w-md mt-6 px-6 py-4 shadow-md overflow-hidden sm:rounded-lg bg-white">
-                {{ $slot }}
+    <body class="min-h-screen flex items-center justify-center">
+        <div id="animated-background" class="bg-gradient-to-r from-pink-100 via-purple-100 to-blue-100 min-h-screen w-full flex flex-col items-center justify-center">
+            <div class="bg-white bg-opacity-80 rounded-3xl shadow-xl p-12 max-w-md w-full">
+                <!-- アラート表示 -->
+                <x-alert/>
+                <!-- ローディング -->
+                <x-loading />
+                <div class="text-center">
+                    <a href="{{ route('welcome.index') }}">
+                        <x-application-logo class="w-20 h-20 fill-current text-gray-500" />
+                    </a>
+                    <p class="text-gray-600 mt-3 text-3xl text-center ">顧客管理システム</p>
+                </div>
+                <div class="w-full px-6 py-4">
+                    {{ $slot }}
+                </div>
             </div>
         </div>
     </body>

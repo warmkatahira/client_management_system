@@ -8,7 +8,7 @@
     "name": "checkbox"
   },
   "resources/css/app.css": {
-    "file": "assets/app-C1nnJC6W.css",
+    "file": "assets/app-BZhaslxK.css",
     "src": "resources/css/app.css",
     "isEntry": true
   },
@@ -289,7 +289,7 @@
     "isEntry": true
   },
   "resources/sass/dropdown.scss": {
-    "file": "assets/dropdown-vrpWzODa.css",
+    "file": "assets/dropdown-CwQ_imJH.css",
     "src": "resources/sass/dropdown.scss",
     "isEntry": true
   },
@@ -304,7 +304,7 @@
     "isEntry": true
   },
   "resources/sass/navigation.scss": {
-    "file": "assets/navigation-CExLqLPe.css",
+    "file": "assets/navigation-DDCjhvAI.css",
     "src": "resources/sass/navigation.scss",
     "isEntry": true
   },
@@ -349,7 +349,7 @@
     "isEntry": true
   },
   "resources/sass/welcome.scss": {
-    "file": "assets/welcome-B1j0PQwc.css",
+    "file": "assets/welcome-BJ-bJEoD.css",
     "src": "resources/sass/welcome.scss",
     "isEntry": true
   }

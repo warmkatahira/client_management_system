@@ -19,10 +19,9 @@ export default {
             },
             colors: {
                 theme: {
-                    'main'          : "#FEA4A4",
-                    'sub'           : "#FFDEDE",
+                    'main'          : "#6495ed",
+                    'sub'           : "#FFD700",
                     'body'          : "#ebe6e6",
-                    'merge'         : "#99f6e4",
                 },
                 btn: {
                     'enter'         : "#3b82f6",
