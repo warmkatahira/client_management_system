@@ -4,21 +4,21 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Company extends Model
+class Client extends Model
 {
     // 主キーカラムを変更
-    protected $primaryKey = 'company_id';
-    // オートインクリメント無効化
-    public $incrementing = false;
+    protected $primaryKey = 'client_id';
     // 操作可能なカラムを定義
     protected $fillable = [
-        'company_id',
-        'company_name',
+        'client_code',
+        'client_name',
+        'client_image_file_name',
+        'base_id',
         'sort_order',
     ];
     // 全てのレコードを取得
     public static function getAll()
     {
-        return self::orderBy('company_id', 'asc');
+        return self::orderBy('sort_order', 'asc');
     }
 }

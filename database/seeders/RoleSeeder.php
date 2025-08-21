@@ -22,7 +22,7 @@ class RoleSeeder extends Seeder
         Role::create([
             'role_id' => 'user',
             'role_name' => '一般',
-            'sort_order' => 2,
+            'sort_order' => 10,
         ]);
     }
 }

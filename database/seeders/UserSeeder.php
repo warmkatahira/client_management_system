@@ -22,7 +22,6 @@ class UserSeeder extends Seeder
             'password' => bcrypt('katahira134'),
             'status' => 1,
             'role_id' => 'admin',
-            'company_id' => 'warm',
         ]);
     }
 }
