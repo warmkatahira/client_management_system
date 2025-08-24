@@ -29,6 +29,7 @@ class ClientSearchService
         session(['back_url_1' => url()->full()]);
         // 変数が存在しない場合は検索が実行されていないので、初期条件をセット
         if(!isset($request->search_type)){
+            session(['search_is_active' => '1']);
         }
         // 「search」なら検索が実行されているので、検索条件をセット
         if($request->search_type === 'search'){
@@ -43,11 +44,12 @@ class ClientSearchService
     public function getSearchResult()
     {
         // クエリをセット
-        $query = Client::query();
+        $query = Client::with('base')
+                    ->join('bases', 'bases.base_id', 'clients.base_id');
         // 管轄倉庫の条件がある場合
         if(session('search_base_id') != null){
             // 条件を指定して取得
-            $query = $query->where('base_id', session('search_base_id'));
+            $query = $query->where('clients.base_id', session('search_base_id'));
         }
         // 顧客コードの条件がある場合
         if(session('search_client_code') != null){
@@ -65,6 +67,6 @@ class ClientSearchService
             $query = $query->where('is_active', session('search_is_active'));
         }
         // 並び替えを実施
-        return $query->orderBy('clients.sort_order', 'asc')->orderBy('clients.client_id', 'asc');
+        return $query->orderBy('bases.sort_order', 'asc')->orderBy('clients.sort_order', 'asc')->orderBy('clients.client_id', 'asc');
     }
 }

@@ -15,6 +15,11 @@ return new class extends Migration
             $table->increments('client_id');
             $table->string('client_code', 50)->unique();
             $table->string('client_name', 100)->unique();
+            $table->string('client_postal_code', 8)->nullable();
+            $table->string('client_address', 255)->nullable();
+            $table->string('client_tel', 13)->nullable();
+            $table->string('client_url', 255)->nullable();
+            $table->string('client_invoice_number', 13)->nullable();
             $table->string('client_image_file_name', 50)->default('no_image.png');
             $table->string('base_id', 10);
             $table->unsignedInteger('sort_order')->default(10000);

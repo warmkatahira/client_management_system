@@ -12,6 +12,11 @@ class Client extends Model
     protected $fillable = [
         'client_code',
         'client_name',
+        'client_postal_code',
+        'client_address',
+        'client_tel',
+        'client_url',
+        'client_invoice_number',
         'client_image_file_name',
         'base_id',
         'sort_order',
