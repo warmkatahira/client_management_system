@@ -7,6 +7,7 @@ export default defineConfig({
             input: [
                 // 共通
                 'resources/js/app.js',
+                'resources/js/welcome.js',
                 'resources/css/app.css',
                 'resources/sass/theme.scss',
                 'resources/js/loading.js',
@@ -26,11 +27,8 @@ export default defineConfig({
                 // 認証
                 'resources/js/auth/register.js',
                 // ダッシュボード
-                'resources/js/dashboard/chart.js',
-                // 受注
-                'resources/js/order/order_import/order_import.js',
-                'resources/js/order/order_mgt/order_mgt.js',
-                'resources/js/order/order_detail/order_detail.js',
+                // 顧客管理
+                'resources/js/client_management/client_list/client_list.js',
                 // 出荷
                 'resources/js/shipping/shipping_mgt/shipping_mgt.js',
                 'resources/js/shipping/shipping_inspection/shipping_inspection.js',

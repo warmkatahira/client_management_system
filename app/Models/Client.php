@@ -15,10 +15,21 @@ class Client extends Model
         'client_image_file_name',
         'base_id',
         'sort_order',
+        'is_active',
     ];
     // 全てのレコードを取得
     public static function getAll()
     {
         return self::orderBy('sort_order', 'asc');
+    }
+    // basesテーブルとのリレーション
+    public function base()
+    {
+        return $this->belongsTo(Base::class, 'base_id', 'base_id');
+    }
+    // is_activeの値によって文字列を返すアクセサ
+    public function getIsActiveTextAttribute()
+    {
+        return $this->is_active ? '有効' : '無効';
     }
 }

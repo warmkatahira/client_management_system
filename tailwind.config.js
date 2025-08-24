@@ -19,7 +19,7 @@ export default {
             },
             colors: {
                 theme: {
-                    'main'          : "#6495ed",
+                    'main'          : "#20b2aa",
                     'sub'           : "#FFD700",
                     'body'          : "#ebe6e6",
                 },
@@ -36,7 +36,7 @@ export default {
                 'modal-window'      : "700px",
             },
             width: {
-                '1/7'               : '14.2857143%', // 100 ÷ 7
+                '1/7'               : '14.2857143%',
             }
         },
     },

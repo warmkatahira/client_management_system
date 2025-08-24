@@ -3,12 +3,8 @@
     "file": "assets/audio-BXh7UfBs.js",
     "name": "audio"
   },
-  "_checkbox-DhnS4dE9.js": {
-    "file": "assets/checkbox-DhnS4dE9.js",
-    "name": "checkbox"
-  },
   "resources/css/app.css": {
-    "file": "assets/app-BZhaslxK.css",
+    "file": "assets/app-u8X1fizS.css",
     "src": "resources/css/app.css",
     "isEntry": true
   },
@@ -33,10 +29,10 @@
     "src": "resources/js/chart_color.js",
     "isEntry": true
   },
-  "resources/js/dashboard/chart.js": {
-    "file": "assets/chart-B3XDSYPd.js",
-    "name": "chart",
-    "src": "resources/js/dashboard/chart.js",
+  "resources/js/client_management/client_list/client_list.js": {
+    "file": "assets/client_list-l0sNRNKZ.js",
+    "name": "client_list",
+    "src": "resources/js/client_management/client_list/client_list.js",
     "isEntry": true
   },
   "resources/js/dropdown.js": {
@@ -91,38 +87,10 @@
     "isEntry": true
   },
   "resources/js/navigation.js": {
-    "file": "assets/navigation-wdlW3Ebr.js",
+    "file": "assets/navigation-BbIU3Rd4.js",
     "name": "navigation",
     "src": "resources/js/navigation.js",
     "isEntry": true
-  },
-  "resources/js/order/order_detail/order_detail.js": {
-    "file": "assets/order_detail-CyrnytkY.js",
-    "name": "order_detail",
-    "src": "resources/js/order/order_detail/order_detail.js",
-    "isEntry": true,
-    "imports": [
-      "resources/js/loading.js"
-    ]
-  },
-  "resources/js/order/order_import/order_import.js": {
-    "file": "assets/order_import-C2kJSxJt.js",
-    "name": "order_import",
-    "src": "resources/js/order/order_import/order_import.js",
-    "isEntry": true,
-    "imports": [
-      "resources/js/loading.js"
-    ]
-  },
-  "resources/js/order/order_mgt/order_mgt.js": {
-    "file": "assets/order_mgt-C7E2bFBw.js",
-    "name": "order_mgt",
-    "src": "resources/js/order/order_mgt/order_mgt.js",
-    "isEntry": true,
-    "imports": [
-      "resources/js/loading.js",
-      "_checkbox-DhnS4dE9.js"
-    ]
   },
   "resources/js/profile/profile.js": {
     "file": "assets/profile-Bn2X8iwu.js",
@@ -213,13 +181,12 @@
     ]
   },
   "resources/js/shipping/shipping_mgt/shipping_mgt.js": {
-    "file": "assets/shipping_mgt-L5hjk0e5.js",
+    "file": "assets/shipping_mgt-LvOAVVP2.js",
     "name": "shipping_mgt",
     "src": "resources/js/shipping/shipping_mgt/shipping_mgt.js",
     "isEntry": true,
     "imports": [
-      "resources/js/loading.js",
-      "_checkbox-DhnS4dE9.js"
+      "resources/js/loading.js"
     ]
   },
   "resources/js/shipping/shipping_work_end/shipping_work_end.js": {
@@ -283,18 +250,24 @@
       "resources/js/loading.js"
     ]
   },
+  "resources/js/welcome.js": {
+    "file": "assets/welcome-B6pcsNeU.js",
+    "name": "welcome",
+    "src": "resources/js/welcome.js",
+    "isEntry": true
+  },
   "resources/sass/common.scss": {
     "file": "assets/common-O9j3xxAZ.css",
     "src": "resources/sass/common.scss",
     "isEntry": true
   },
   "resources/sass/dropdown.scss": {
-    "file": "assets/dropdown-CwQ_imJH.css",
+    "file": "assets/dropdown-D4g0ibpL.css",
     "src": "resources/sass/dropdown.scss",
     "isEntry": true
   },
   "resources/sass/height_adjustment.scss": {
-    "file": "assets/height_adjustment-s4N5BTS3.css",
+    "file": "assets/height_adjustment-DG8P-Sci.css",
     "src": "resources/sass/height_adjustment.scss",
     "isEntry": true
   },
@@ -304,7 +277,7 @@
     "isEntry": true
   },
   "resources/sass/navigation.scss": {
-    "file": "assets/navigation-DDCjhvAI.css",
+    "file": "assets/navigation-BUs7DK4o.css",
     "src": "resources/sass/navigation.scss",
     "isEntry": true
   },

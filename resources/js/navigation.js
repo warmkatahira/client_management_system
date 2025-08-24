@@ -6,9 +6,9 @@ tippy('.tippy_dashboard', {
     placement: 'right',
 });
 
-// 受注のツールチップ
-tippy('.tippy_order', {
-    content: "受注",
+// 顧客管理のツールチップ
+tippy('.tippy_client_management', {
+    content: "顧客管理",
     duration: 500,
     allowHTML: true,
     placement: 'right',
