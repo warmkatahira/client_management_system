@@ -28,7 +28,7 @@ class UserSeeder extends Seeder
             'last_name' => 'テストユーザー',
             'first_name' => '',
             'email' => 'test@warm.co.jp',
-            'password' => bcrypt('test1111'),
+            'password' => bcrypt('user1111'),
             'status' => 1,
             'role_id' => 'admin',
         ]);
