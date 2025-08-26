@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 // モデル
 use App\Models\Base;
+use App\Models\Industry;
 // サービス
 use App\Services\ClientManagement\ClientList\ClientSearchService;
 use App\Services\Common\CommonService;
@@ -32,9 +33,12 @@ class ClientListController extends Controller
         $clients = $this->setPagination($result);
         // 倉庫を取得
         $bases = Base::getAll()->get();
+        // 業種を取得
+        $industries = Industry::getAll()->get();
         return view('client_management.client_list.index')->with([
             'clients' => $clients,
             'bases' => $bases,
+            'industries' => $industries,
         ]);
     }
 }

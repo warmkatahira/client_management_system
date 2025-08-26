@@ -21,12 +21,14 @@ return new class extends Migration
             $table->string('client_url', 255)->nullable();
             $table->string('client_invoice_number', 13)->nullable();
             $table->string('client_image_file_name', 50)->default('no_image.png');
+            $table->unsignedInteger('industry_id');
             $table->string('base_id', 10);
             $table->unsignedInteger('sort_order')->default(10000);
             $table->boolean('is_active')->default(1);
             $table->timestamps();
             // 外部キー
             $table->foreign('base_id')->references('base_id')->on('bases')->cascadeOnUpdate();
+            $table->foreign('industry_id')->references('industry_id')->on('industries')->cascadeOnUpdate();
         });
     }
 

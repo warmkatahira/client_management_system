@@ -7,6 +7,7 @@
                     <th class="font-thin py-1 px-2 text-center">操作</th>
                     <th class="font-thin py-1 px-2 text-center">有効/無効</th>
                     <th class="font-thin py-1 px-2 text-center">管轄倉庫</th>
+                    <th class="font-thin py-1 px-2 text-center">業種名</th>
                     <th class="font-thin py-1 px-2 text-center">顧客コード</th>
                     <th class="font-thin py-1 px-2 text-center">顧客名</th>
                     <th class="font-thin py-1 px-2 text-center">顧客HP</th>
@@ -26,6 +27,7 @@
                         </td>
                         <td class="py-1 px-2 border text-center">{{ $client->is_active_text }}</td>
                         <td class="py-1 px-2 border text-center">{{ $client->base->base_name }}</td>
+                        <td class="py-1 px-2 border text-center">{{ $client->industry->industry_name }}</td>
                         <td class="py-1 px-2 border">{{ $client->client_code }}</td>
                         <td class="py-1 px-2 border">
                             <div class="flex flex-row gap-5 items-center">

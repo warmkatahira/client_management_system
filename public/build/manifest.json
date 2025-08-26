@@ -29,6 +29,12 @@
     "src": "resources/js/chart_color.js",
     "isEntry": true
   },
+  "resources/js/checkbox.js": {
+    "file": "assets/checkbox-DhnS4dE9.js",
+    "name": "checkbox",
+    "src": "resources/js/checkbox.js",
+    "isEntry": true
+  },
   "resources/js/client_management/client_list/client_list.js": {
     "file": "assets/client_list-l0sNRNKZ.js",
     "name": "client_list",
@@ -181,12 +187,13 @@
     ]
   },
   "resources/js/shipping/shipping_mgt/shipping_mgt.js": {
-    "file": "assets/shipping_mgt-LvOAVVP2.js",
+    "file": "assets/shipping_mgt-L5hjk0e5.js",
     "name": "shipping_mgt",
     "src": "resources/js/shipping/shipping_mgt/shipping_mgt.js",
     "isEntry": true,
     "imports": [
-      "resources/js/loading.js"
+      "resources/js/loading.js",
+      "resources/js/checkbox.js"
     ]
   },
   "resources/js/shipping/shipping_work_end/shipping_work_end.js": {

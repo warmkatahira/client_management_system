@@ -32,6 +32,11 @@ class Client extends Model
     {
         return $this->belongsTo(Base::class, 'base_id', 'base_id');
     }
+    // industriesテーブルとのリレーション
+    public function industry()
+    {
+        return $this->belongsTo(Industry::class, 'industry_id', 'industry_id');
+    }
     // is_activeの値によって文字列を返すアクセサ
     public function getIsActiveTextAttribute()
     {

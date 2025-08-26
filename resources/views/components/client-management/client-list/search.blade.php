@@ -3,6 +3,7 @@
     <div class="flex flex-col gap-y-2 p-3 bg-white min-w-60 text-xs border border-black">
         <x-search.select-boolean label="有効/無効" id="search_is_active" label0="無効" label1="有効" />
         <x-search.select label="管轄倉庫" id="search_base_id" :selectItems="$bases" optionValue="base_id" optionText="base_name" />
+        <x-search.select label="業種名" id="search_industry_id" :selectItems="$industries" optionValue="industry_id" optionText="industry_name" />
         <x-search.input type="text" label="顧客コード" id="search_client_code" />
         <x-search.input type="text" label="顧客名" id="search_client_name" />
         <input type="hidden" id="search_type" name="search_type" value="default">
