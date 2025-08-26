@@ -23,5 +23,14 @@ class UserSeeder extends Seeder
             'status' => 1,
             'role_id' => 'admin',
         ]);
+        User::create([
+            'user_id' => 'user',
+            'last_name' => 'テストユーザー',
+            'first_name' => '',
+            'email' => 'test@warm.co.jp',
+            'password' => bcrypt('test1111'),
+            'status' => 1,
+            'role_id' => 'admin',
+        ]);
     }
 }
