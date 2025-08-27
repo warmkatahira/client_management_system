@@ -17,6 +17,7 @@ class ClientSearchService
         session()->forget([
             'search_base_id',
             'search_industry_id',
+            'search_account_type_id',
             'search_client_code',
             'search_client_name',
             'search_is_active',
@@ -36,6 +37,7 @@ class ClientSearchService
         if($request->search_type === 'search'){
             session(['search_base_id' => $request->search_base_id]);
             session(['search_industry_id' => $request->search_industry_id]);
+            session(['search_account_type_id' => $request->search_account_type_id]);
             session(['search_client_code' => $request->search_client_code]);
             session(['search_client_name' => $request->search_client_name]);
             session(['search_is_active' => $request->search_is_active]);
@@ -57,6 +59,11 @@ class ClientSearchService
         if(session('search_industry_id') != null){
             // 条件を指定して取得
             $query = $query->where('clients.industry_id', session('search_industry_id'));
+        }
+        // 取引種別の条件がある場合
+        if(session('search_account_type_id') != null){
+            // 条件を指定して取得
+            $query = $query->where('clients.account_type_id', session('search_account_type_id'));
         }
         // 顧客コードの条件がある場合
         if(session('search_client_code') != null){

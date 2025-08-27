@@ -8,6 +8,7 @@
                     <th class="font-thin py-1 px-2 text-center">有効/無効</th>
                     <th class="font-thin py-1 px-2 text-center">管轄倉庫</th>
                     <th class="font-thin py-1 px-2 text-center">業種名</th>
+                    <th class="font-thin py-1 px-2 text-center">取引種別名</th>
                     <th class="font-thin py-1 px-2 text-center">顧客コード</th>
                     <th class="font-thin py-1 px-2 text-center">顧客名</th>
                     <th class="font-thin py-1 px-2 text-center">顧客HP</th>
@@ -28,17 +29,18 @@
                         <td class="py-1 px-2 border text-center">{{ $client->is_active_text }}</td>
                         <td class="py-1 px-2 border text-center">{{ $client->base->base_name }}</td>
                         <td class="py-1 px-2 border text-center">{{ $client->industry->industry_name }}</td>
+                        <td class="py-1 px-2 border text-center">{{ $client->account_type->account_type_name }}</td>
                         <td class="py-1 px-2 border">{{ $client->client_code }}</td>
                         <td class="py-1 px-2 border">
                             <div class="flex flex-row gap-5 items-center">
                                 <img src="{{ asset('storage/client_images/'.$client->client_image_file_name) }}" class="w-20 h-10 object-contain image_fade_in_modal_open">
-                                <p>{{ $client->client_name }}</p>
+                                <p>{{ $client->full_client_name }}</p>
                             </div>
                         </td>
                         <td class="py-1 px-2 border text-center">
                             @if($client->client_url)
                                 <a href="{{ $client->client_url }}" target="_blank" rel="noopener noreferrer" class="text-blue-500 hover:underline">
-                                    <i class="las la-globe-americas la-2x"></i>
+                                    <i class="las la-external-link-alt la-2x"></i>
                                 </a>
                             @endif
                         </td>

@@ -18,6 +18,8 @@ class DatabaseSeeder extends Seeder
             BaseSeeder::class,
             UserSeeder::class,
             IndustrySeeder::class,
+            CompanyTypeSeeder::class,
+            AccountTypeSeeder::class,
             ClientSeeder::class,
         ]);
     }
