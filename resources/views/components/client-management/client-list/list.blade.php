@@ -6,7 +6,7 @@
                     <th id="all_check" class="font-thin py-1 px-2"><i class="las la-check-square la-lg"></i></th>
                     <th class="font-thin py-1 px-2 text-center">操作</th>
                     <th class="font-thin py-1 px-2 text-center">有効/無効</th>
-                    <th class="font-thin py-1 px-2 text-center">管轄倉庫</th>
+                    <th class="font-thin py-1 px-2 text-center">管轄倉庫名</th>
                     <th class="font-thin py-1 px-2 text-center">業種名</th>
                     <th class="font-thin py-1 px-2 text-center">取引種別名</th>
                     <th class="font-thin py-1 px-2 text-center">顧客コード</th>

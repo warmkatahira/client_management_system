@@ -72,7 +72,7 @@ class Client extends Model
     {
         return [
             '有効/無効',
-            '管轄倉庫',
+            '管轄倉庫名',
             '業種名',
             '取引種別名',
             '顧客コード',
