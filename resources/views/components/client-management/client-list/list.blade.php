@@ -27,7 +27,7 @@
                             </div>
                         </td>
                         <td class="py-1 px-2 border text-center">{{ $client->is_active_text }}</td>
-                        <td class="py-1 px-2 border">{{ $client->base->base_name }}</td>
+                        <td class="py-1 px-2 border">{{ $client->bases->pluck('base_name')->implode(' / ') }}</td>
                         <td class="py-1 px-2 border text-center">{{ $client->industry->industry_name }}</td>
                         <td class="py-1 px-2 border text-center">{{ $client->account_type->account_type_name }}</td>
                         <td class="py-1 px-2 border">{{ $client->client_code }}</td>

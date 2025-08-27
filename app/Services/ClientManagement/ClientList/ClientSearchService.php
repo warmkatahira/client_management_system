@@ -47,40 +47,49 @@ class ClientSearchService
     // 検索結果を取得
     public function getSearchResult()
     {
-        // クエリをセット
-        $query = Client::with('base')
-                    ->join('bases', 'bases.base_id', 'clients.base_id');
+        // クエリをセット(basesのsort_orderが一番小さい値を取得している)
+        $query = Client::query()
+                ->select('clients.*')
+                ->selectSub(function ($q) {
+                    $q->from('base_client')
+                    ->join('bases', 'base_client.base_id', 'bases.base_id')
+                    ->selectRaw('MIN(bases.sort_order)')
+                    ->whereColumn('base_client.client_id', 'clients.client_id');
+                }, 'min_base_sort_order')
+                ->with('bases');
         // 管轄倉庫の条件がある場合
         if(session('search_base_id') != null){
             // 条件を指定して取得
-            $query = $query->where('clients.base_id', session('search_base_id'));
+            $query->whereHas('bases', function ($q){
+                $q->where('bases.base_id', session('search_base_id'));
+            });
         }
         // 業種の条件がある場合
         if(session('search_industry_id') != null){
             // 条件を指定して取得
-            $query = $query->where('clients.industry_id', session('search_industry_id'));
+            $query->where('clients.industry_id', session('search_industry_id'));
         }
         // 取引種別の条件がある場合
         if(session('search_account_type_id') != null){
             // 条件を指定して取得
-            $query = $query->where('clients.account_type_id', session('search_account_type_id'));
+            $query->where('clients.account_type_id', session('search_account_type_id'));
         }
         // 顧客コードの条件がある場合
         if(session('search_client_code') != null){
             // 条件を指定して取得
-            $query = $query->where('client_code', 'LIKE', '%'.session('search_client_code').'%');
+            $query->where('client_code', 'LIKE', '%'.session('search_client_code').'%');
         }
         // 顧客名の条件がある場合
         if(session('search_client_name') != null){
             // 条件を指定して取得
-            $query = $query->where('client_name', 'LIKE', '%'.session('search_client_name').'%');
+            $query->where('client_name', 'LIKE', '%'.session('search_client_name').'%');
         }
         // 有効/無効の条件がある場合
         if(session('search_is_active') != null){
             // 条件を指定して取得
-            $query = $query->where('is_active', session('search_is_active'));
+            $query->where('is_active', session('search_is_active'));
         }
         // 並び替えを実施
-        return $query->orderBy('bases.sort_order', 'asc')->orderBy('clients.sort_order', 'asc')->orderBy('clients.client_id', 'asc');
+        return $query->orderBy('min_base_sort_order', 'asc')->orderBy('clients.sort_order', 'asc')->orderBy('clients.client_id', 'asc');
     }
 }

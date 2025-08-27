@@ -21,6 +21,7 @@ class DatabaseSeeder extends Seeder
             CompanyTypeSeeder::class,
             AccountTypeSeeder::class,
             ClientSeeder::class,
+            BaseClientSeeder::class,
         ]);
     }
 }

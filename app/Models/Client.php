@@ -21,7 +21,6 @@ class Client extends Model
         'company_type_id',
         'industry_id',
         'account_type_id',
-        'base_id',
         'sort_order',
         'is_active',
     ];
@@ -30,10 +29,11 @@ class Client extends Model
     {
         return self::orderBy('sort_order', 'asc');
     }
-    // basesテーブルとのリレーション
-    public function base()
+    // base_clientテーブルとのリレーション
+    public function bases()
     {
-        return $this->belongsTo(Base::class, 'base_id', 'base_id');
+        return $this->belongsToMany(Base::class, 'base_client', 'client_id', 'base_id')
+                    ->orderBy('bases.sort_order', 'asc');
     }
     // company_typesテーブルとのリレーション
     public function company_type()

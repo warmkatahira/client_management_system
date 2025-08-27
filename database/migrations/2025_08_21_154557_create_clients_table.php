@@ -24,12 +24,10 @@ return new class extends Migration
             $table->unsignedInteger('company_type_id');
             $table->unsignedInteger('industry_id');
             $table->unsignedInteger('account_type_id');
-            $table->string('base_id', 10);
             $table->unsignedInteger('sort_order')->default(10000);
             $table->boolean('is_active')->default(1);
             $table->timestamps();
-            // 外部キー
-            $table->foreign('base_id')->references('base_id')->on('bases')->cascadeOnUpdate();
+            // 外部キー制約
             $table->foreign('industry_id')->references('industry_id')->on('industries')->cascadeOnUpdate();
             $table->foreign('company_type_id')->references('company_type_id')->on('company_types')->cascadeOnUpdate();
             $table->foreign('account_type_id')->references('account_type_id')->on('account_types')->cascadeOnUpdate();
