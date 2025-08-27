@@ -67,4 +67,18 @@ class Client extends Model
     {
         return $this->is_active ? '有効' : '無効';
     }
+    // ダウンロード時のヘッダーを定義
+    public static function downloadHeader()
+    {
+        return [
+            '有効/無効',
+            '管轄倉庫',
+            '業種名',
+            '取引種別名',
+            '顧客コード',
+            '顧客名',
+            '顧客HP',
+            '最終更新日時',
+        ];
+    }
 }
