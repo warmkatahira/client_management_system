@@ -15,5 +15,6 @@ $(document).on('click', function(e){
         // 追加
         $('#image_fade_in_div').empty().append($img);
         $('#image_fade_in_modal').removeClass('hidden');
+        $('#image_fade_in_modal').addClass('flex');
     }
 });
