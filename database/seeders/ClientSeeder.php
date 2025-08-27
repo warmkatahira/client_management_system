@@ -69,5 +69,16 @@ class ClientSeeder extends Seeder
             'industry_id'               => 2,
             'sort_order'                => 5,
         ]);
+        Client::create([
+            'client_code'               => 'C-00006',
+            'client_name'               => 'バナナスピリッツ',
+            'client_url'                => 'https://banana-spirits.com/',
+            'client_image_file_name'    => 'banana.png',
+            'base_id'                   => 'ls',
+            'account_type_id'           => 1,
+            'company_type_id'           => 2,
+            'industry_id'               => 2,
+            'sort_order'                => 6,
+        ]);
     }
 }
