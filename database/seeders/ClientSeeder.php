@@ -36,5 +36,27 @@ class ClientSeeder extends Seeder
             'industry_id'               => 2,
             'sort_order'                => 2,
         ]);
+        Client::create([
+            'client_code'               => 'C-00003',
+            'client_name'               => 'フロムアイズ',
+            'client_url'                => 'https://refrear.jp',
+            'client_image_file_name'    => 'fromeyes.png',
+            'base_id'                   => 'lc',
+            'account_type_id'           => 1,
+            'company_type_id'           => 2,
+            'industry_id'               => 2,
+            'sort_order'                => 3,
+        ]);
+        Client::create([
+            'client_code'               => 'C-00004',
+            'client_name'               => 'PIA',
+            'client_url'                => 'https://www.pia-corp.co.jp/index.html',
+            'client_image_file_name'    => 'pia.png',
+            'base_id'                   => 'lp',
+            'account_type_id'           => 1,
+            'company_type_id'           => 2,
+            'industry_id'               => 2,
+            'sort_order'                => 4,
+        ]);
     }
 }
