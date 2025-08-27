@@ -58,5 +58,16 @@ class ClientSeeder extends Seeder
             'industry_id'               => 2,
             'sort_order'                => 4,
         ]);
+        Client::create([
+            'client_code'               => 'C-00005',
+            'client_name'               => 'インタービア',
+            'client_url'                => 'https://intervia.co.jp/',
+            'client_image_file_name'    => 'intervia.png',
+            'base_id'                   => 'lsp',
+            'account_type_id'           => 1,
+            'company_type_id'           => 1,
+            'industry_id'               => 2,
+            'sort_order'                => 5,
+        ]);
     }
 }
