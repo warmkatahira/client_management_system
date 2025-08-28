@@ -28,6 +28,7 @@ export default defineConfig({
                 // 認証
                 'resources/js/auth/register.js',
                 // ダッシュボード
+                'resources/js/dashboard/chart.js',
                 // 顧客管理
                 'resources/js/client_management/client_list/client_list.js',
                 // 出荷

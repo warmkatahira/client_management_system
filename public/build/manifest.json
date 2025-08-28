@@ -4,7 +4,7 @@
     "name": "audio"
   },
   "resources/css/app.css": {
-    "file": "assets/app-C1d76NU5.css",
+    "file": "assets/app-BS8IbWWx.css",
     "src": "resources/css/app.css",
     "isEntry": true
   },
@@ -39,6 +39,12 @@
     "file": "assets/client_list-l0sNRNKZ.js",
     "name": "client_list",
     "src": "resources/js/client_management/client_list/client_list.js",
+    "isEntry": true
+  },
+  "resources/js/dashboard/chart.js": {
+    "file": "assets/chart-DFIMB4zJ.js",
+    "name": "chart",
+    "src": "resources/js/dashboard/chart.js",
     "isEntry": true
   },
   "resources/js/dropdown.js": {

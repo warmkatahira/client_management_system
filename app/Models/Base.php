@@ -27,4 +27,10 @@ class Base extends Model
     {
         return self::where('base_id', $base_id);
     }
+    // base_clientテーブルとのリレーション
+    public function clients()
+    {
+        return $this->belongsToMany(Client::class, 'base_client', 'base_id', 'client_id')
+                    ->orderBy('bases.sort_order', 'asc');
+    }
 }

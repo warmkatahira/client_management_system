@@ -18,4 +18,9 @@ class Prefecture extends Model
     {
         return self::orderBy('prefecture_id', 'asc');
     }
+    // clientsテーブルとのリレーション
+    public function clients()
+    {
+        return $this->hasMany(Client::class, 'prefecture_id', 'prefecture_id');
+    }
 }
