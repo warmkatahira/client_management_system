@@ -99,7 +99,7 @@ class ClientSeeder extends Seeder
             'client_image_file_name'    => 'hodaka.png',
             'account_type_id'           => 1,
             'company_type_id'           => 2,
-            'industry_id'               => 2,
+            'industry_id'               => 1,
             'sort_order'                => 8,
         ]);
     }
