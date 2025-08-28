@@ -41,6 +41,12 @@
     "src": "resources/js/client_management/client_list/client_list.js",
     "isEntry": true
   },
+  "resources/js/client_management/client_sales_list/client_sales_list.js": {
+    "file": "assets/client_sales_list-w10jqpsL.js",
+    "name": "client_sales_list",
+    "src": "resources/js/client_management/client_sales_list/client_sales_list.js",
+    "isEntry": true
+  },
   "resources/js/dashboard/chart.js": {
     "file": "assets/chart-DFIMB4zJ.js",
     "name": "chart",

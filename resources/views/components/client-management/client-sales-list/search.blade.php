@@ -6,6 +6,7 @@
         <x-search.select label="倉庫名" id="search_base_id" :selectItems="$bases" optionValue="base_id" optionText="base_name" />
         <x-search.input type="text" label="顧客コード" id="search_client_code" />
         <x-search.input type="text" label="顧客名" id="search_client_name" />
+        <input type="hidden" name="sort_condition" value="{{ session('sort_condition') }}" >
         <input type="hidden" id="search_type" name="search_type" value="default">
         <div class="flex flex-row">
             <!-- 検索ボタン -->

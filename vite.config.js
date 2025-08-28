@@ -31,6 +31,7 @@ export default defineConfig({
                 'resources/js/dashboard/chart.js',
                 // 顧客管理
                 'resources/js/client_management/client_list/client_list.js',
+                'resources/js/client_management/client_sales_list/client_sales_list.js',
                 // 出荷
                 'resources/js/shipping/shipping_mgt/shipping_mgt.js',
                 'resources/js/shipping/shipping_inspection/shipping_inspection.js',

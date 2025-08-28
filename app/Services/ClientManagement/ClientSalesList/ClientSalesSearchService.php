@@ -47,6 +47,19 @@ class ClientSalesSearchService
         }
     }
 
+    // セッションに並び替え条件を格納
+    public function setSortCondition($sort_condition)
+    {
+        // 並び替え条件がある場合
+        if(isset($sort_condition)){
+            session(['sort_condition' => $sort_condition]);
+        }
+        // 並び替え条件がない場合
+        if(!isset($sort_condition)){
+            session(['sort_condition' => 'amount']);
+        }
+    }
+
     // 検索結果を取得
     public function getSearchResult()
     {
@@ -78,10 +91,14 @@ class ClientSalesSearchService
             // 条件を指定して取得
             $query->where('is_active', session('search_is_active'));
         }
-        // 並び替えを実施
+        // 並び替え条件が売上金額順の場合
+        if(session('sort_condition') === 'amount') {
+            $query->orderBy('amount', 'desc');
+        }
+        // 共通の並び替えを実施
         return $query->orderBy('bases.sort_order', 'asc')
-                ->orderBy('clients.sort_order', 'asc')
-                ->orderBy('clients.client_id', 'asc')
-                ->orderBy('year_month', 'asc');
+            ->orderBy('clients.sort_order', 'asc')
+            ->orderBy('clients.client_id', 'asc')
+            ->orderBy('year_month', 'asc');
     }
 }

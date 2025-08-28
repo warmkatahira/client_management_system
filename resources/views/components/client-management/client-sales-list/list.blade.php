@@ -21,7 +21,7 @@
                         </td>
                         <td class="py-1 px-2 border">
                             <div class="flex flex-row gap-5">
-                                <a href="{{ route('client_list.index', ['client_id' => $client->client_id]) }}" class="btn bg-btn-enter text-white py-1 px-2">詳細</a>
+                                <a href="" class="btn bg-btn-enter text-white py-1 px-2">詳細</a>
                             </div>
                         </td>
                         <td class="py-1 px-2 border text-center">{{ $client->is_active_text }}</td>

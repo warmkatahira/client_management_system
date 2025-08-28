@@ -22,10 +22,15 @@ class ClientSalesListController extends Controller
         session(['page_header' => '顧客売上リスト']);
         // インスタンス化
         $ClientSalesSearchService = new ClientSalesSearchService;
-        // セッションを削除
-        $ClientSalesSearchService->deleteSession();
-        // セッションに検索条件を格納
-        $ClientSalesSearchService->setSearchCondition($request);
+        // 並び替えのみを意味するパラメータが、True以外の場合
+        if(!$request->sort_only){
+            // セッションを削除
+            $ClientSalesSearchService->deleteSession();
+            // セッションに検索条件を格納
+            $ClientSalesSearchService->setSearchCondition($request);
+        }
+        // セッションに並び替え条件を格納
+        $ClientSalesSearchService->setSortCondition($request->sort_condition);
         // 検索結果を取得
         $result = $ClientSalesSearchService->getSearchResult();
         // ページネーションを実施
