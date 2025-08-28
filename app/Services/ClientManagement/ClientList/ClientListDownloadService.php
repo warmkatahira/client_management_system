@@ -37,6 +37,10 @@ class ClientListDownloadService
                         $client->account_type->account_type_name,
                         $client->client_code,
                         $client->full_client_name,
+                        $client->client_postal_code,
+                        $client->prefecture->prefecture_name,
+                        $client->client_address,
+                        $client->client_tel,
                         $client->client_url,
                         CarbonImmutable::parse($client->updated_at)->isoFormat('Y年MM月DD日(ddd) HH:mm:ss'),
                     ];
