@@ -41,6 +41,7 @@ class ClientListDownloadService
                         $client->prefecture->prefecture_name,
                         $client->client_address,
                         $client->client_tel,
+                        $client->client_invoice_number,
                         $client->client_url,
                         CarbonImmutable::parse($client->updated_at)->isoFormat('Y年MM月DD日(ddd) HH:mm:ss'),
                     ];
