@@ -16,6 +16,7 @@ return new class extends Migration
             $table->string('client_code', 50)->unique();
             $table->string('client_name', 100)->unique();
             $table->string('client_postal_code', 8)->nullable();
+            $table->unsignedInteger('prefecture_id')->nullable();
             $table->string('client_address', 255)->nullable();
             $table->string('client_tel', 13)->nullable();
             $table->string('client_url', 255)->nullable();
@@ -31,6 +32,7 @@ return new class extends Migration
             $table->foreign('industry_id')->references('industry_id')->on('industries')->cascadeOnUpdate();
             $table->foreign('company_type_id')->references('company_type_id')->on('company_types')->cascadeOnUpdate();
             $table->foreign('account_type_id')->references('account_type_id')->on('account_types')->cascadeOnUpdate();
+            $table->foreign('prefecture_id')->references('prefecture_id')->on('prefectures')->cascadeOnUpdate();
         });
     }
 

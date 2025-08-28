@@ -42,5 +42,13 @@ class BaseClientSeeder extends Seeder
             'client_id' => 6,
             'base_id'   => 'ls',
         ]);
+        BaseClient::create([
+            'client_id' => 7,
+            'base_id'   => 'lp',
+        ]);
+        BaseClient::create([
+            'client_id' => 8,
+            'base_id'   => '3rd',
+        ]);
     }
 }

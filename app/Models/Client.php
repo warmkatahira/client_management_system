@@ -13,6 +13,7 @@ class Client extends Model
         'client_code',
         'client_name',
         'client_postal_code',
+        'prefecture_id',
         'client_address',
         'client_tel',
         'client_url',
@@ -49,6 +50,11 @@ class Client extends Model
     public function account_type()
     {
         return $this->belongsTo(AccountType::class, 'account_type_id', 'account_type_id');
+    }
+    // prefecturesテーブルとのリレーション
+    public function prefecture()
+    {
+        return $this->belongsTo(Prefecture::class, 'prefecture_id', 'prefecture_id');
     }
     // is_activeの値によって文字列を返すアクセサ
     public function getFullClientNameAttribute()

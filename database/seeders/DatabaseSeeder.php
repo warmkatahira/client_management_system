@@ -20,6 +20,8 @@ class DatabaseSeeder extends Seeder
             IndustrySeeder::class,
             CompanyTypeSeeder::class,
             AccountTypeSeeder::class,
+            RegionSeeder::class,
+            PrefectureSeeder::class,
             ClientSeeder::class,
             BaseClientSeeder::class,
         ]);

@@ -11,6 +11,7 @@
                     <th class="font-thin py-1 px-2 text-center">取引種別名</th>
                     <th class="font-thin py-1 px-2 text-center">顧客コード</th>
                     <th class="font-thin py-1 px-2 text-center">顧客名</th>
+                    <th class="font-thin py-1 px-2 text-center">都道府県</th>
                     <th class="font-thin py-1 px-2 text-center">顧客HP</th>
                     <th class="font-thin py-1 px-2 text-center">更新日時</th>
                 </tr>
@@ -37,6 +38,7 @@
                                 <p>{{ $client->full_client_name }}</p>
                             </div>
                         </td>
+                        <td class="py-1 px-2 border text-center">{{ $client->prefecture->prefecture_name }}</td>
                         <td class="py-1 px-2 border text-center">
                             @if($client->client_url)
                                 <a href="{{ $client->client_url }}" target="_blank" rel="noopener noreferrer" class="text-blue-500 hover:underline">
