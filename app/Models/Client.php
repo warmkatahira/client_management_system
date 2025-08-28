@@ -74,7 +74,7 @@ class Client extends Model
         return $this->is_active ? '有効' : '無効';
     }
     // ダウンロード時のヘッダーを定義
-    public static function downloadHeader()
+    public static function downloadHeaderAtClientList()
     {
         return [
             '有効/無効',
@@ -90,6 +90,18 @@ class Client extends Model
             '顧客インボイス番号',
             '顧客HP',
             '最終更新日時',
+        ];
+    }
+    // ダウンロード時のヘッダーを定義
+    public static function downloadHeaderAtClientSalesList()
+    {
+        return [
+            '有効/無効',
+            '売上年月',
+            '倉庫名',
+            '顧客コード',
+            '顧客名',
+            '売上金額',
         ];
     }
 }

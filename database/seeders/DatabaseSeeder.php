@@ -24,6 +24,7 @@ class DatabaseSeeder extends Seeder
             PrefectureSeeder::class,
             ClientSeeder::class,
             BaseClientSeeder::class,
+            BaseClientSalesSeeder::class,
         ]);
     }
 }

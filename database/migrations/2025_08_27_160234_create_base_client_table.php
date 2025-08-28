@@ -12,11 +12,12 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('base_client', function (Blueprint $table) {
+            $table->increments('base_client_id');
             $table->unsignedInteger('client_id');
             $table->string('base_id', 10);
             $table->timestamps();
-            // 複合主キー
-            $table->primary(['client_id', 'base_id']);
+            // ユニーク制約
+            $table->unique(['client_id', 'base_id']);
             // 外部キー制約
             $table->foreign('client_id')->references('client_id')->on('clients')->cascadeOnDelete();
             $table->foreign('base_id')->references('base_id')->on('bases')->cascadeOnDelete();

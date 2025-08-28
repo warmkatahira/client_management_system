@@ -7,6 +7,9 @@ use App\Http\Controllers\ClientManagement\ClientManagementMenu\ClientManagementM
 // +-+-+-+-+-+-+-+- 顧客リスト +-+-+-+-+-+-+-+-
 use App\Http\Controllers\ClientManagement\ClientList\ClientListController;
 use App\Http\Controllers\ClientManagement\ClientList\ClientListDownloadController;
+// +-+-+-+-+-+-+-+- 顧客売上リスト +-+-+-+-+-+-+-+-
+use App\Http\Controllers\ClientManagement\ClientSalesList\ClientSalesListController;
+use App\Http\Controllers\ClientManagement\ClientSalesList\ClientSalesListDownloadController;
 
 Route::middleware('common')->group(function (){
     // +-+-+-+-+-+-+-+- 顧客管理メニュー +-+-+-+-+-+-+-+-
@@ -18,6 +21,13 @@ Route::middleware('common')->group(function (){
         Route::get('', 'index')->name('index');
     });
     Route::controller(ClientListDownloadController::class)->prefix('client_list_download')->name('client_list_download.')->group(function(){
+        Route::get('download', 'download')->name('download');
+    });
+    // +-+-+-+-+-+-+-+- 顧客売上リスト +-+-+-+-+-+-+-+-
+    Route::controller(ClientSalesListController::class)->prefix('client_sales_list')->name('client_sales_list.')->group(function(){
+        Route::get('', 'index')->name('index');
+    });
+    Route::controller(ClientSalesListDownloadController::class)->prefix('client_sales_list_download')->name('client_sales_list_download.')->group(function(){
         Route::get('download', 'download')->name('download');
     });
 });

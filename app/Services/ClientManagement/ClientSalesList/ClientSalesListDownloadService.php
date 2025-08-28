@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Services\ClientManagement\ClientList;
+namespace App\Services\ClientManagement\ClientSalesList;
 
 // モデル
 use App\Models\Client;
@@ -10,7 +10,7 @@ use Carbon\CarbonImmutable;
 // 列挙
 use App\Enums\SystemEnum;
 
-class ClientListDownloadService
+class ClientSalesListDownloadService
 {
     // ダウンロードするデータを取得
     public function getDownloadData($clients)
@@ -23,7 +23,7 @@ class ClientListDownloadService
             // BOMを書き込む
             fwrite($handle, "\xEF\xBB\xBF");
             // システムに定義してあるヘッダーを取得し、書き込む
-            $header = Client::downloadHeaderAtClientList();
+            $header = Client::downloadHeaderAtClientSalesList();
             fputcsv($handle, $header);
             // レコードをチャンクごとに書き込む
             $clients->chunk($chunk_size, function ($clients) use ($handle){
@@ -32,18 +32,11 @@ class ClientListDownloadService
                     // 変数に情報を格納
                     $row = [
                         $client->is_active_text,
-                        $client->bases->pluck('base_name')->implode(' / '),
-                        $client->industry->industry_name,
-                        $client->account_type->account_type_name,
+                        formatYearMonth($client->year_month),
+                        $client->base_name,
                         $client->client_code,
                         $client->full_client_name,
-                        $client->client_postal_code,
-                        $client->prefecture->prefecture_name,
-                        $client->client_address,
-                        $client->client_tel,
-                        $client->client_invoice_number,
-                        $client->client_url,
-                        CarbonImmutable::parse($client->updated_at)->isoFormat('Y年MM月DD日(ddd) HH:mm:ss'),
+                        $client->amount,
                     ];
                     // 書き込む
                     fputcsv($handle, $row);

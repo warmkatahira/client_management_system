@@ -33,7 +33,7 @@
         <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
 
         <!-- Google Fonts -->
-        <link href="https://fonts.googleapis.com/css2?family=Kosugi+Maru&family=Oleo+Script:wght@400;700&family=Zen+Maru+Gothic&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Kosugi+Maru&family=Oleo+Script:wght@400;700&family=Zen+Maru+Gothic&family=Merienda&display=swap" rel="stylesheet">
 
         <!-- Lordicon -->
         <script src="https://cdn.lordicon.com/pzdvqjsp.js"></script>
@@ -57,9 +57,14 @@
                     <a href="{{ route('welcome.index') }}">
                         <x-application-logo class="w-20 h-20 fill-current text-gray-500" />
                     </a>
-                    <p class="text-gray-600 mt-3 text-3xl text-center ">顧客管理システム</p>
+                    <p class="text-gray-600 mb-1 text-3xl mt-5">顧客管理システム</p>
+                    <p class="text-gray-600 mb-8 text-xl merienda">
+                        <span class="text-theme-main text-3xl">C</span>lient 
+                        <span class="text-theme-main text-3xl">M</span>anagement 
+                        <span class="text-theme-main text-3xl">S</span>ystem
+                    </p>
                 </div>
-                <div class="w-full px-6 py-4">
+                <div class="w-full px-6">
                     {{ $slot }}
                 </div>
             </div>

@@ -8,3 +8,7 @@
 .btn:hover {
     opacity: .7;
 }
+
+.merienda {
+    @include font.Merienda;
+}
