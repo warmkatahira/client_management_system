@@ -44,5 +44,15 @@ class BaseClientSalesSeeder extends Seeder
             'year_month'        => '2025-07',
             'amount'            => 6000000,
         ]);
+        BaseClientSale::create([
+            'base_client_id'    => 4,
+            'year_month'        => '2025-08',
+            'amount'            => 9800000,
+        ]);
+        BaseClientSale::create([
+            'base_client_id'    => 5,
+            'year_month'        => '2025-08',
+            'amount'            => 2000000,
+        ]);
     }
 }

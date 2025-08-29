@@ -5,6 +5,6 @@
     </a>
     <!-- 倉庫順 -->
     <a href="{{ route('client_sales_list.index', ['sort_condition' => 'base', 'sort_only' => true]) }}" class="btn display_switch tippy_sort_by_base px-2 py-1 {{ session('sort_condition') === 'base' ? 'bg-theme-sub' : 'bg-white' }}">
-        <i class="las la-sort-numeric-up la-2x"></i>
+        <i class="las la-sort-alpha-down la-2x"></i>
     </a>
 </div>
