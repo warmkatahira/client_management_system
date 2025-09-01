@@ -147,7 +147,7 @@ function createChart(){
                                     // パーセンテージを計算
                                     const percentage = (value / total * 100).toFixed(1); // 小数点1桁
                                     // 改行して表示
-                                    return value + '\n (' + percentage + '%)';
+                                    return value + '\n(' + percentage + '%)';
                                 },
                                 anchor: 'center',           // セグメント中心に表示
                                 align: 'center'
