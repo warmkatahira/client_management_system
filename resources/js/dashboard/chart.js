@@ -146,7 +146,8 @@ function createChart(){
                                     const total = dataArray.reduce((acc, val) => acc + val, 0);
                                     // パーセンテージを計算
                                     const percentage = (value / total * 100).toFixed(1); // 小数点1桁
-                                    return percentage + '%';
+                                    // 改行して表示
+                                    return value + ' (' + percentage + '%)';
                                 },
                                 anchor: 'center',           // セグメント中心に表示
                                 align: 'center'
