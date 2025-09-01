@@ -16,38 +16,6 @@ class DashboardController extends Controller
     {
         // ページヘッダーをセッションに格納
         session(['page_header' => 'ダッシュボード']);
-        // 指定月の売上を取得
-        $sales = BaseClientSale::where('year_month', '2025-08')->get();
-        // ランクマスタを min_amount の昇順で取得
-        $ranks = SalesRank::orderBy('min_amount', 'asc')->get();
-        // 
-        $salesWithRank = $sales->map(function ($sale) use ($ranks) {
-            // 
-            $rank = $ranks->first(function ($r) use ($sale) {
-                return $sale->amount >= $r->min_amount
-                    && (is_null($r->max_amount) || $sale->amount <= $r->max_amount);
-            });
-            // ランク名を結果に追加（DBは更新しない）
-            $sale->sales_rank_name = $rank ? $rank->sales_rank_name : null;
-            return $sale;
-        });
-        $rankLabels = $ranks->mapWithKeys(function ($rank) {
-            $label = $rank->sales_rank_name . ' (' . number_format($rank->min_amount) . '〜';
-            $label .= $rank->max_amount ? number_format($rank->max_amount) : '∞';
-            $label .= ')';
-            return [$rank->sales_rank_name => $label];
-        });
-        // 件数集計して、ラベルを付与
-        $rankCounts = $salesWithRank
-            ->groupBy('sales_rank_name')
-            ->map(function ($group, $rankName) use ($rankLabels) {
-                return [
-                    'sales_rank_name' => $rankLabels[$rankName] ?? $rankName,
-                    'count' => $group->count(),
-                ];
-            })
-            ->sortByDesc('count');
-        //dd($sales, $ranks, $salesWithRank, $rankCounts);
         return view('dashboard')->with([
         ]);
     }
@@ -61,7 +29,7 @@ class DashboardController extends Controller
 
 
         // 指定月の売上を取得
-        $sales = BaseClientSale::where('year_month', '2025-08')->get();
+        $sales = BaseClientSale::where('year_month', '2025-09')->get();
         // ランクマスタを min_amount の昇順で取得
         $ranks = SalesRank::orderBy('min_amount', 'asc')->get();
         // 
