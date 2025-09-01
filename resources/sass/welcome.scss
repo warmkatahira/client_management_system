@@ -7,3 +7,19 @@
     background: linear-gradient(-45deg, #ffe4e6, #ede9fe, #dbeafe, #fce7f3);
     background-size: 400% 400%;
 }
+/* スライダー用 */
+.logo-slider {
+    display: flex;
+    position: relative;
+    left: 0;
+}
+/* ロゴ用 */
+.logo-item {
+    height: 80px;
+    margin: 0 20px;
+    transition: transform 0.3s;
+}
+/* ホバーで少し拡大 */
+.logo-item:hover {
+    transform: scale(1.2);
+}

@@ -44,7 +44,7 @@
         <script src="https://unpkg.com/tippy.js@6"></script>
     </head>
     <body class="min-h-screen flex items-center justify-center">
-        <div id="animated-background" class="bg-gradient-to-r from-pink-100 via-purple-100 to-blue-100 min-h-screen w-full flex items-center justify-center">
+        <div id="animated-background" class="bg-gradient-to-r from-pink-100 via-purple-100 to-blue-100 min-h-screen w-full flex flex-col items-center justify-center">
             <div class="bg-white bg-opacity-80 rounded-3xl shadow-xl p-12 text-center max-w-md w-full">
                 <img src="{{ asset('image/warm_logo.svg') }}" class="welcome_logo mb-5">
                 <p class="text-gray-600 mb-1 text-3xl">顧客管理システム</p>
@@ -56,6 +56,28 @@
                 <div class="flex flex-col gap-5">
                     <a href="{{ route('login') }}" class="btn bg-pink-400 text-white py-3 rounded-lg">ログイン</a>
                     <a href="{{ route('register') }}" class="btn bg-purple-400 text-white py-3 rounded-lg">ユーザー登録</a>
+                </div>
+            </div>
+            @php
+                $imagePath = storage_path('app/public/client_images');
+                $images = [];
+                if(File::exists($imagePath)){
+                    $images = File::files($imagePath);
+                    // no_image.png を除外
+                    $images = array_filter($images, function($image) {
+                        return $image->getFilename() !== 'no_image.png';
+                    });
+                }
+            @endphp
+            <div class="logo-slider-wrapper" style="overflow:hidden; width:100%; padding:10px 0;">
+                <div class="logo-slider flex flex-row">
+                    @foreach ($images as $image)
+                        <img src="{{ asset('storage/client_images/' . $image->getFilename()) }}" class="logo-item w-28 h-20 object-contain mx-5">
+                    @endforeach
+                    {{-- 複製して無限ループ --}}
+                    @foreach ($images as $image)
+                        <img src="{{ asset('storage/client_images/' . $image->getFilename()) }}" class="logo-item w-28 h-20 object-contain mx-5">
+                    @endforeach
                 </div>
             </div>
         </div>

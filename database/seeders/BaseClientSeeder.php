@@ -50,5 +50,33 @@ class BaseClientSeeder extends Seeder
             'client_id' => 8,
             'base_id'   => '3rd',
         ]);
+        BaseClient::create([
+            'client_id' => 9,
+            'base_id'   => 'ls',
+        ]);
+        BaseClient::create([
+            'client_id' => 10,
+            'base_id'   => 'lsp',
+        ]);
+        BaseClient::create([
+            'client_id' => 10,
+            'base_id'   => 'lc',
+        ]);
+        BaseClient::create([
+            'client_id' => 11,
+            'base_id'   => 'lsp',
+        ]);
+        BaseClient::create([
+            'client_id' => 11,
+            'base_id'   => 'hiroshima',
+        ]);
+        BaseClient::create([
+            'client_id' => 12,
+            'base_id'   => 'lp',
+        ]);
+        BaseClient::create([
+            'client_id' => 13,
+            'base_id'   => 'lp',
+        ]);
     }
 }

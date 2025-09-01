@@ -11,3 +11,25 @@ function animateBackground() {
 }
 
 animateBackground();
+
+// ロゴスクロール用
+$(function() {
+    const $slider = $('.logo-slider');
+    const $items = $slider.children();
+    let totalWidth = 0;
+    // 元の画像幅合計を計算
+    $items.each(function() {
+        totalWidth += $(this).outerWidth(true);
+    });
+    let left = 0;
+    let speed = 1; // pxずつスクロール。値を大きくすると速くなる
+    function scrollSlider() {
+        left -= speed;
+        if (Math.abs(left) >= totalWidth / 2) { // 元画像分の幅でリセット
+            left = 0;
+        }
+        $slider.css('left', left + 'px');
+        requestAnimationFrame(scrollSlider);
+    }
+    scrollSlider();
+});
