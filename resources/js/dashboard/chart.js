@@ -138,7 +138,7 @@ function createChart(){
                                 color: '#000',              // 文字色
                                 font: {                     // 文字スタイル
                                     weight: 'bold',
-                                    size: 20,
+                                    size: 15,
                                 },
                                 formatter: (value, context) => {
                                     // 全データの合計を取得
