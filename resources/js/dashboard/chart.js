@@ -40,7 +40,7 @@ function createChart(){
                 // 倉庫の分だけループ処理
                 $.each(data['bases'], function(index, value) {
                     // 倉庫名を配列に格納
-                    clients_count_chart_by_base_labels.push(value['base_name']);
+                    clients_count_chart_by_base_labels.push(value['short_base_name']);
                 });
                 // 表示する情報や設定を配列に格納
                 const clients_count_chart_by_base_data = {
