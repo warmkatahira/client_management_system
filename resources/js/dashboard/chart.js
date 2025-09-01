@@ -1,11 +1,10 @@
 import Chart from "chart.js/auto";
+import ChartDataLabels from 'chartjs-plugin-datalabels';
 
 // 画面読み込み時の処理
 $(document).ready(function() {
     // グラフを作成
     createChart();
-    //createClientsCountChartByRegion();
-    //createClientsCountChartByBase();
 });
 
 // 
@@ -25,6 +24,7 @@ function createChart(){
                 // ラベルを格納する配列を初期化
                 let clients_count_chart_by_region_labels = [];
                 let clients_count_chart_by_base_labels = [];
+                let sales_rank_chart_labels = [];
                 // 地域の分だけループ処理
                 $.each(data['regions'], function(index, value) {
                     // 地域名を配列に格納
@@ -49,10 +49,23 @@ function createChart(){
                         getClientsCountByBase(data['bases']),
                     ]
                 };
+                // 売上ランクの分だけループ処理
+                $.each(data['sales_rank_counts'], function(index, value) {
+                    // 倉庫名を配列に格納
+                    sales_rank_chart_labels.push(value['sales_rank_name']);
+                });
+                // 表示する情報や設定を配列に格納
+                const sales_rank_chart_data = {
+                    labels: sales_rank_chart_labels,
+                    datasets: [
+                        getSalesRank(data['sales_rank_counts']),
+                    ]
+                };
                 // HTML内にある <canvas id="shipping_count_chart"> 要素を取得し、その2D描画コンテキストを取得する
                 // Chart.js はこのコンテキストを使ってグラフを描画する
                 const clients_count_chart_by_region_ctx = document.getElementById("clients_count_chart_by_region").getContext("2d");
                 const clients_count_chart_by_base_ctx = document.getElementById("clients_count_chart_by_base").getContext("2d");
+                const sales_rank_chart_ctx = document.getElementById("sales_rank_chart").getContext("2d");
                 // Chart.js を使って新しい折れ線グラフ(Line Chart)を作成する
                 const clients_count_chart_by_region = new Chart(clients_count_chart_by_region_ctx, {
                     // グラフに表示するデータ
@@ -108,6 +121,35 @@ function createChart(){
                         }
                     }
                 });
+                const sales_rank_chart = new Chart(sales_rank_chart_ctx, {
+                    // グラフに表示するデータ
+                    data: sales_rank_chart_data,
+                    // オプション設定
+                    options: {
+                        responsive: false,
+                        plugins: {
+                            legend: {
+                                labels: {
+                                    boxWidth: 0,            // 色の四角を非表示にする
+                                    usePointStyle: false    // 点スタイルも使わない
+                                }
+                            },
+                            datalabels: {
+                                color: '#000',              // 文字色
+                                font: {                     // 文字スタイル
+                                    weight: 'bold',
+                                    size: 25,
+                                },
+                                formatter: (value, context) => {
+                                    return value;           // セグメントの値を表示
+                                },
+                                anchor: 'center',           // セグメント中心に表示
+                                align: 'center'
+                            }
+                        }
+                    },
+                    //plugins: [ChartDataLabels],
+                });
             } catch (e) {
                 alert('グラフの生成に失敗しました。');
             }
@@ -123,9 +165,9 @@ function getClientsCountByRegion(regions)
 {
     // 地域別の情報を格納する配列を初期化
     let clients_count_arr = [];
-    // 日付の分だけループ処理
+    // 地域の分だけループ処理
     $.each(regions, function(index, value) {
-        // 出荷件数を配列に格納
+        // 顧客数を配列に格納
         clients_count_arr.push(value['clients_count']);
     });
     return {
@@ -145,11 +187,11 @@ function getClientsCountByRegion(regions)
 // 倉庫別の顧客数データを取得
 function getClientsCountByBase(bases)
 {
-    // 地域別の情報を格納する配列を初期化
+    // 倉庫別の情報を格納する配列を初期化
     let clients_count_arr = [];
-    // 日付の分だけループ処理
+    // 倉庫の分だけループ処理
     $.each(bases, function(index, value) {
-        // 出荷件数を配列に格納
+        // 顧客数を配列に格納
         clients_count_arr.push(value['clients_count']);
     });
     return {
@@ -163,5 +205,44 @@ function getClientsCountByBase(bases)
         pointHoverRadius: 7,
         yAxisID: "y-axis-1",
         borderRadius: 30,
+    };
+}
+
+// 売上ランク別の顧客数データを取得
+function getSalesRank(sales_rank_counts)
+{
+    // 売上ランク別の情報を格納する配列を初期化
+    let clients_count_arr = [];
+    // 売上ランクの分だけループ処理
+    $.each(sales_rank_counts, function(index, value) {
+        // 顧客数を配列に格納
+        clients_count_arr.push(value['count']);
+    });
+    return {
+        type: 'pie',
+        label: '顧客数(売上ランク別)',
+        data: clients_count_arr,
+        borderColor: [
+            '#FF6384', // 濃いめのレッド
+            '#36A2EB', // 濃いめのブルー
+            '#4BC0C0', // 濃いめのグリーン
+            '#FFCE56', // 濃いめのイエロー
+            '#9966FF'  // 濃いめのパープル
+        ],
+        backgroundColor: [
+                '#FFB3BA', // パステルレッド
+                '#BAE1FF', // パステルブルー
+                '#BAFFC9', // パステルグリーン
+                '#FFFFBA', // パステルイエロー
+                '#E3BAFF'  // パステルパープル
+        ],
+        pointBackgroundColor: [
+            '#FF6384', // 濃いめのレッド
+            '#36A2EB', // 濃いめのブルー
+            '#4BC0C0', // 濃いめのグリーン
+            '#FFCE56', // 濃いめのイエロー
+            '#9966FF'  // 濃いめのパープル
+        ],
+        yAxisID: "y-axis-pie",
     };
 }

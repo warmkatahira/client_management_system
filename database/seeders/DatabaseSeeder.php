@@ -23,6 +23,7 @@ class DatabaseSeeder extends Seeder
             RegionSeeder::class,
             PrefectureSeeder::class,
             ClientSeeder::class,
+            SalesRankSeeder::class,
             BaseClientSeeder::class,
             BaseClientSalesSeeder::class,
         ]);

@@ -5,7 +5,10 @@ namespace Database\Seeders;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 // モデル
+use App\Models\BaseClient;
 use App\Models\BaseClientSale;
+// その他
+use Carbon\CarbonImmutable;
 
 class BaseClientSalesSeeder extends Seeder
 {
@@ -14,45 +17,19 @@ class BaseClientSalesSeeder extends Seeder
      */
     public function run(): void
     {
-        BaseClientSale::create([
-            'base_client_id'    => 1,
-            'year_month'        => '2025-07',
-            'amount'            => 3000000,
-        ]);
-        BaseClientSale::create([
-            'base_client_id'    => 1,
-            'year_month'        => '2025-08',
-            'amount'            => 3200000,
-        ]);
-        BaseClientSale::create([
-            'base_client_id'    => 2,
-            'year_month'        => '2025-07',
-            'amount'            => 4000000,
-        ]);
-        BaseClientSale::create([
-            'base_client_id'    => 2,
-            'year_month'        => '2025-08',
-            'amount'            => 3900000,
-        ]);
-        BaseClientSale::create([
-            'base_client_id'    => 3,
-            'year_month'        => '2025-08',
-            'amount'            => 5430000,
-        ]);
-        BaseClientSale::create([
-            'base_client_id'    => 3,
-            'year_month'        => '2025-07',
-            'amount'            => 6000000,
-        ]);
-        BaseClientSale::create([
-            'base_client_id'    => 4,
-            'year_month'        => '2025-08',
-            'amount'            => 9800000,
-        ]);
-        BaseClientSale::create([
-            'base_client_id'    => 5,
-            'year_month'        => '2025-08',
-            'amount'            => 2000000,
-        ]);
+        $base_clients = BaseClient::pluck('base_client_id');
+        // Carbonを使って開始月と終了月を設定
+        $start = CarbonImmutable::create(2025, 5, 1);
+        $end   = CarbonImmutable::create(2025, 9, 1);
+        // 月ごとにループ
+        for($date = $start; $date->lte($end); $date = $date->addMonth()){
+            foreach($base_clients as $base_client_id){
+                BaseClientSale::create([
+                    'base_client_id' => $base_client_id,
+                    'year_month'     => $date->format('Y-m'),
+                    'amount'         => rand(100000, 10000000),
+                ]);
+            }
+        }
     }
 }

@@ -4,7 +4,7 @@
     "name": "audio"
   },
   "resources/css/app.css": {
-    "file": "assets/app-BBH80WK1.css",
+    "file": "assets/app-BUxmWlIE.css",
     "src": "resources/css/app.css",
     "isEntry": true
   },
@@ -48,7 +48,7 @@
     "isEntry": true
   },
   "resources/js/dashboard/chart.js": {
-    "file": "assets/chart-DFIMB4zJ.js",
+    "file": "assets/chart-BQJriCaw.js",
     "name": "chart",
     "src": "resources/js/dashboard/chart.js",
     "isEntry": true
