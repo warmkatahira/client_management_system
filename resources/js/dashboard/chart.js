@@ -138,17 +138,22 @@ function createChart(){
                                 color: '#000',              // 文字色
                                 font: {                     // 文字スタイル
                                     weight: 'bold',
-                                    size: 25,
+                                    size: 20,
                                 },
                                 formatter: (value, context) => {
-                                    return value;           // セグメントの値を表示
+                                    // 全データの合計を取得
+                                    const dataArray = context.chart.data.datasets[0].data;
+                                    const total = dataArray.reduce((acc, val) => acc + val, 0);
+                                    // パーセンテージを計算
+                                    const percentage = (value / total * 100).toFixed(1); // 小数点1桁
+                                    return percentage + '%';
                                 },
                                 anchor: 'center',           // セグメント中心に表示
                                 align: 'center'
                             }
                         }
                     },
-                    //plugins: [ChartDataLabels],
+                    plugins: [ChartDataLabels],
                 });
             } catch (e) {
                 alert('グラフの生成に失敗しました。');
