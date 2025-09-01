@@ -15,7 +15,7 @@
     <div class="navigation-btn">
         <a class="btn tippy_setting" href="{{ route('setting_menu.index') }}"><i class="las la-cog"></i></a>
     </div> --}}
-    @can('admin_check')
+    @can('system_admin_check')
         <!-- システム管理 -->
         <div class="navigation-btn">
             <a class="btn tippy_system_admin" href="{{ route('system_admin_menu.index') }}"><i class="las la-robot"></i></a>

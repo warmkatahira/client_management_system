@@ -23,7 +23,7 @@ use App\Http\Controllers\SystemAdmin\BillingData\BillingDataController;
 use App\Http\Controllers\SystemAdmin\BillingData\BillingDataDownloadController;
 
 Route::middleware('common')->group(function (){
-    Route::middleware(['admin_check'])->group(function () {
+    Route::middleware(['system_admin_check'])->group(function () {
         // +-+-+-+-+-+-+-+- システム管理メニュー +-+-+-+-+-+-+-+-
         Route::controller(SystemAdminMenuController::class)->prefix('system_admin_menu')->name('system_admin_menu.')->group(function(){
             Route::get('', 'index')->name('index');

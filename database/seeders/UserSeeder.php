@@ -21,7 +21,7 @@ class UserSeeder extends Seeder
             'email' => 't.katahira@warm.co.jp',
             'password' => bcrypt('katahira134'),
             'status' => 1,
-            'role_id' => 'admin',
+            'role_id' => 'system_admin',
         ]);
         User::create([
             'user_id' => 'user',
