@@ -69,7 +69,7 @@
                     });
                 }
             @endphp
-            <div class="logo-slider-wrapper" style="overflow:hidden; width:100%; padding:10px 0;">
+            <div class="logo-slider-wrapper overflow-hidden w-full py-2">
                 <div class="logo-slider flex flex-row">
                     @foreach($images as $image)
                         <img src="{{ asset('storage/client_images/' . $image->getFilename()) }}" class="logo-item w-28 h-20 object-contain mx-5">
