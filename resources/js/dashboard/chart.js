@@ -218,9 +218,13 @@ function getSalesRank(sales_rank_counts)
         // 顧客数を配列に格納
         clients_count_arr.push(value['count']);
     });
+    // 現在の年月を取得
+    const now = new Date();
+    const yyyy = now.getFullYear();
+    const mm = String(now.getMonth() + 1).padStart(2, '0');
     return {
         type: 'pie',
-        label: '顧客数(売上ランク別)',
+        label: `顧客数(売上ランク別) ${yyyy}年${mm}月`,
         data: clients_count_arr,
         borderColor: [
             '#FF6384', // 濃いめのレッド
