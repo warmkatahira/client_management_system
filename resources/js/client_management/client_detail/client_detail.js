@@ -91,7 +91,7 @@ function getClientsSalesChart(client_sales, target_base_client_id, base_name)
 {
     // 配列を初期化
     let client_sales_arr = [];
-
+    // 売上の分だけループ処理
     $.each(client_sales, function(base_client_id, sales) {
         // 対象のbase_client_idではない場合
         if(parseInt(base_client_id) !== parseInt(target_base_client_id)){
