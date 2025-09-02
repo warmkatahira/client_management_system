@@ -9,11 +9,11 @@
 </div>
 <div class="bg-white rounded-2xl shadow-md p-6">
     <p class="text-lg font-semibold text-gray-700 mb-4 flex items-center">
-        <span class="mr-2"><i class="las la-building la-lg"></i></span>顧客情報
+        <span class="mr-1"><i class="las la-building la-lg"></i></span>顧客情報
     </p>
     <div class="grid grid-cols-2 gap-6 text-gray-700">
         <div>
-            <p class="text-sm text-gray-500"><i class="las la-map-marked-alt la-lg mr-2"></i>住所</p>
+            <p class="text-sm text-gray-500"><i class="las la-map-marked-alt la-lg mr-1"></i>住所</p>
             <p class="ml-3">〒{{ $client->client_postal_code }}</p>
             <p class="ml-3">
                 <a href="https://www.google.com/maps/search/?api=1&query={{ urlencode($client->full_client_address) }}"
@@ -24,14 +24,18 @@
             </p>
         </div>
         <div>
-            <p class="text-sm text-gray-500"><i class="las la-phone la-lg mr-2"></i>電話番号</p>
+            <p class="text-sm text-gray-500"><i class="las la-phone la-lg mr-1"></i>電話番号</p>
             <p class="ml-3">{{ $client->client_tel ?? '未登録' }}</p>
         </div>
         <div>
-            <p class="text-sm text-gray-500"><i class="las la-link la-lg mr-2"></i>HP</p>
+            <p class="text-sm text-gray-500"><i class="las la-link la-lg mr-1"></i>HP</p>
             <p class="ml-3">
                 @if($client->client_url)
-                    <a href="{{ $client->client_url }}" target="_blank" rel="noopener noreferrer" class="link-btn">
+                    <a href="{{ $client->client_url }}" target="_blank" rel="noopener noreferrer"
+                        class="inline-flex items-center px-5 py-2.5 bg-gradient-to-r from-blue-500 to-indigo-600 
+                            text-white text-sm rounded-full shadow-md hover:from-blue-600 hover:to-indigo-700 
+                            focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-400 transition">
+                        <i class="las la-external-link-alt la-lg mr-1"></i>
                         HPへ移動
                     </a>
                 @else
