@@ -21,6 +21,8 @@ export default {
                 theme: {
                     'main'          : "#20b2aa",
                     'sub'           : "#FFD700",
+                    'pink'          : "#f472b6",
+                    'purple'        : "#c084fc",
                     'body'          : "#ebe6e6",
                 },
                 btn: {

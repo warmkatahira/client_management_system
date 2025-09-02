@@ -54,8 +54,8 @@
                     <span class="text-theme-main text-3xl">S</span>ystem
                 </p>
                 <div class="flex flex-col gap-5">
-                    <a href="{{ route('login') }}" class="btn bg-pink-400 text-white py-3 rounded-lg">ログイン</a>
-                    <a href="{{ route('register') }}" class="btn bg-purple-400 text-white py-3 rounded-lg">ユーザー登録</a>
+                    <a href="{{ route('login') }}" class="btn bg-theme-pink text-white py-3 rounded-lg">ログイン</a>
+                    <a href="{{ route('register') }}" class="btn bg-theme-purple text-white py-3 rounded-lg">ユーザー登録</a>
                 </div>
             </div>
             @php
