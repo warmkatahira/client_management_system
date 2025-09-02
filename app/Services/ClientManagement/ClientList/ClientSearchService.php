@@ -21,6 +21,8 @@ class ClientSearchService
             'search_client_code',
             'search_client_name',
             'search_is_active',
+            'search_client_item_id',
+            'search_client_service_id',
         ]);
     }
 
@@ -41,6 +43,8 @@ class ClientSearchService
             session(['search_client_code' => $request->search_client_code]);
             session(['search_client_name' => $request->search_client_name]);
             session(['search_is_active' => $request->search_is_active]);
+            session(['search_client_item_id' => $request->search_client_item_id]);
+            session(['search_client_service_id' => $request->search_client_service_id]);
         }
     }
 
@@ -92,6 +96,20 @@ class ClientSearchService
         if(session('search_is_active') != null){
             // 条件を指定して取得
             $query->where('is_active', session('search_is_active'));
+        }
+        // 取扱品目の条件がある場合
+        if(session('search_client_item_id') != null){
+            // 条件を指定して取得
+            $query->whereHas('client_items', function ($q){
+                $q->where('client_items.client_item_id', session('search_client_item_id'));
+            });
+        }
+        // 提供内容の条件がある場合
+        if(session('search_client_service_id') != null){
+            // 条件を指定して取得
+            $query->whereHas('client_services', function ($q){
+                $q->where('client_services.client_service_id', session('search_client_service_id'));
+            });
         }
         // 並び替えを実施
         return $query->orderBy('min_base_sort_order', 'asc')->orderBy('clients.sort_order', 'asc')->orderBy('clients.client_id', 'asc');

@@ -13,4 +13,9 @@ class ClientService extends Model
         'client_service_name',
         'sort_order',
     ];
+    // 全てのレコードを取得
+    public static function getAll()
+    {
+        return self::orderBy('sort_order', 'asc');
+    }
 }

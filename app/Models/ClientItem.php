@@ -13,4 +13,9 @@ class ClientItem extends Model
         'client_item_name',
         'sort_order',
     ];
+    // 全てのレコードを取得
+    public static function getAll()
+    {
+        return self::orderBy('sort_order', 'asc');
+    }
 }
