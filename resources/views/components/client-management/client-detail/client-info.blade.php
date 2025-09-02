@@ -32,9 +32,7 @@
             <p class="ml-3">
                 @if($client->client_url)
                     <a href="{{ $client->client_url }}" target="_blank" rel="noopener noreferrer"
-                        class="inline-flex items-center px-5 py-2.5 bg-gradient-to-r from-blue-500 to-indigo-600 
-                            text-white text-sm rounded-full shadow-md hover:from-blue-600 hover:to-indigo-700 
-                            focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-400 transition">
+                        class="btn inline-flex items-center px-5 py-2.5 bg-theme-main text-white text-sm rounded-full shadow-md">
                         <i class="las la-external-link-alt la-lg mr-1"></i>
                         HPへ移動
                     </a>
