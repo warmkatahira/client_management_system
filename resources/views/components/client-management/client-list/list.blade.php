@@ -1,12 +1,12 @@
 <div class="disable_scrollbar flex flex-grow overflow-scroll">
     <div class="client_list bg-white overflow-x-auto overflow-y-auto border border-gray-600">
         <table class="text-xs">
-            <thead>
-                <tr class="text-left text-white bg-black whitespace-nowrap sticky top-0">
+            <thead class="sticky top-0 z-[41] bg-black">
+                <tr class="text-left text-white bg-black whitespace-nowrap">
                     <th id="all_check" class="font-thin py-1 px-2"><i class="las la-check-square la-lg"></i></th>
                     <th class="font-thin py-1 px-2 text-center">操作</th>
                     <th class="font-thin py-1 px-2 text-center">有効/無効</th>
-                    <th class="font-thin py-1 px-2 text-center">顧客名</th>
+                    <th class="font-thin py-1 px-2 text-center sticky left-0 z-[41] bg-black">顧客名</th>
                     <th class="font-thin py-1 px-2 text-center">管轄倉庫名</th>
                     <th class="font-thin py-1 px-2 text-center">取扱品目</th>
                     <th class="font-thin py-1 px-2 text-center">提供内容</th>
@@ -31,7 +31,7 @@
                             </div>
                         </td>
                         <td class="py-1 px-2 border text-center">{{ $client->is_active_text }}</td>
-                        <td class="py-1 px-2 border">
+                        <td class="py-1 px-2 border sticky left-0 z-[40] bg-white">
                             <div class="flex flex-row gap-5 items-center">
                                 <img src="{{ asset('storage/client_images/'.$client->client_image_file_name) }}" class="w-20 h-10 object-contain flex-shrink-0 image_fade_in_modal_open">
                                 <p>{{ $client->full_client_name }}</p>
