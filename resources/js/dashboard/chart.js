@@ -92,6 +92,11 @@ function createChart(){
                                 }
                             },
                             tooltip: {
+                                callbacks: {
+                                    label: function(context) {
+                                        return context.formattedValue;
+                                    }
+                                },
                                 bodyFont: {
                                     size: 14,       // ツールチップ本文のフォントサイズ
                                 },
@@ -129,6 +134,11 @@ function createChart(){
                                 }
                             },
                             tooltip: {
+                                callbacks: {
+                                    label: function(context) {
+                                        return context.formattedValue;
+                                    }
+                                },
                                 bodyFont: {
                                     size: 14,       // ツールチップ本文のフォントサイズ
                                 },
@@ -155,6 +165,20 @@ function createChart(){
                                 }
                             },
                             tooltip: {
+                                callbacks: {
+                                    label: function(context) {
+                                        // 現在の値
+                                        const value = context.raw;
+                                        // 全データの配列
+                                        const dataArray = context.chart.data.datasets[context.datasetIndex].data;
+                                        // 合計
+                                        const total = dataArray.reduce((acc, val) => acc + val, 0);
+                                        // パーセンテージを計算
+                                        const percentage = ((value / total) * 100).toFixed(1);
+                                        // 表示形式
+                                        return value + ' (' + percentage + '%)';
+                                    }
+                                },
                                 bodyFont: {
                                     size: 14,       // ツールチップ本文のフォントサイズ
                                 },
