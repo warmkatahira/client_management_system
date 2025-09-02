@@ -8,7 +8,6 @@ use Illuminate\Http\Request;
 use App\Models\Base;
 // サービス
 use App\Services\ClientManagement\ClientSalesList\ClientSalesSearchService;
-use App\Services\Common\CommonService;
 // トレイト
 use App\Traits\PaginatesResults;
 

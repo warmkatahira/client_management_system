@@ -8,8 +8,8 @@ use App\Models\SalesRank;
 
 class ChartService
 {
-    // 
-    public function aaa()
+    // 売上ランク単位の顧客数を集計
+    public function getClientCountBySalesRank()
     {
         // 指定月の売上を取得
         $sales = BaseClientSale::where('year_month', '2025-09')->get();

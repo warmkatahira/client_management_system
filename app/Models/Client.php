@@ -30,6 +30,11 @@ class Client extends Model
     {
         return self::orderBy('sort_order', 'asc');
     }
+    // 指定したレコードを取得
+    public static function getSpecify($client_id)
+    {
+        return self::where('client_id', $client_id);
+    }
     // base_clientテーブルとのリレーション
     public function bases()
     {
@@ -56,6 +61,11 @@ class Client extends Model
     {
         return $this->belongsTo(Prefecture::class, 'prefecture_id', 'prefecture_id');
     }
+    // 完全な住所を返すアクセサ
+    public function getFullClientAddressAttribute()
+    {
+        return $this->prefecture->prefecture_name.$this->client_address;
+    }
     // is_activeの値によって文字列を返すアクセサ
     public function getFullClientNameAttribute()
     {
@@ -72,6 +82,25 @@ class Client extends Model
     public function getIsActiveTextAttribute()
     {
         return $this->is_active ? '有効' : '無効';
+    }
+    // base_client_salesを取得（中間テーブル経由）
+    public function base_client_sales()
+    {
+        return $this->hasManyThrough(
+            BaseClientSale::class, // 最終的に取得したいテーブル
+            BaseClient::class,     // 中間テーブル
+            'client_id',           // 中間テーブルの外部キー（Clientを参照）
+            'base_client_id',      // 最終テーブルの外部キー（BaseClientを参照）
+            'client_id',           // Clientのローカルキー
+            'base_client_id'       // BaseClientのローカルキー
+        )
+        ->join('bases', 'base_client.base_id', 'bases.base_id')
+        ->select('base_client_sales.*', 'bases.base_name')
+        ->selectRaw("DATE_FORMAT(CONCAT(base_client_sales.year_month,'-01'), '%Y年%m月') as year_month_jp")
+        ->whereBetween('base_client_sales.year_month', [
+            now()->year . '-01',
+            now()->year . '-12',
+        ]);
     }
     // ダウンロード時のヘッダーを定義
     public static function downloadHeaderAtClientList()

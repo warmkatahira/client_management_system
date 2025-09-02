@@ -1,0 +1,44 @@
+<div class="bg-white rounded-2xl shadow-md p-6 flex items-center space-x-6">
+    <div class="w-20 h-10 flex items-center justify-center">
+        <img src="{{ asset('storage/client_images/'.$client->client_image_file_name) }}" class="object-contain image_fade_in_modal_open">
+    </div>
+    <div>
+        <p class="text-2xl font-bold text-gray-800">{{ $client->full_client_name }}</p>
+        <p class="text-gray-500">顧客コード: {{ $client->client_code }}</p>
+    </div>
+</div>
+<div class="bg-white rounded-2xl shadow-md p-6">
+    <p class="text-lg font-semibold text-gray-700 mb-4 flex items-center">
+        <span class="mr-2"><i class="las la-building la-lg"></i></span>顧客情報
+    </p>
+    <div class="grid grid-cols-2 gap-6 text-gray-700">
+        <div>
+            <p class="text-sm text-gray-500"><i class="las la-map-marked-alt la-lg mr-2"></i>住所</p>
+            <p class="ml-3">〒{{ $client->client_postal_code }}</p>
+            <p class="ml-3">
+                <a href="https://www.google.com/maps/search/?api=1&query={{ urlencode($client->full_client_address) }}"
+                    target="_blank"
+                    class="link-btn">
+                    {{ $client->full_client_address }}
+                </a>
+            </p>
+        </div>
+        <div>
+            <p class="text-sm text-gray-500"><i class="las la-phone la-lg mr-2"></i>電話番号</p>
+            <p class="ml-3">{{ $client->client_tel ?? '未登録' }}</p>
+        </div>
+        <div>
+            <p class="text-sm text-gray-500"><i class="las la-link la-lg mr-2"></i>HP</p>
+            <p class="ml-3">
+                @if($client->client_url)
+                    <a href="{{ $client->client_url }}" target="_blank" rel="noopener noreferrer" class="link-btn">
+                        HPへ移動
+                    </a>
+                @else
+                    未登録
+                @endif
+            </p>
+        </div>
+    </div>
+</div>
+<input type="hidden" id="client_id" value="{{ $client->client_id }}">

@@ -10,7 +10,6 @@ use App\Models\Industry;
 use App\Models\AccountType;
 // サービス
 use App\Services\ClientManagement\ClientList\ClientSearchService;
-use App\Services\Common\CommonService;
 // トレイト
 use App\Traits\PaginatesResults;
 

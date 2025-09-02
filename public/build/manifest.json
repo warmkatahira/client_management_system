@@ -3,8 +3,12 @@
     "file": "assets/audio-BXh7UfBs.js",
     "name": "audio"
   },
+  "_chartjs-plugin-datalabels.esm-CglBOSix.js": {
+    "file": "assets/chartjs-plugin-datalabels.esm-CglBOSix.js",
+    "name": "chartjs-plugin-datalabels.esm"
+  },
   "resources/css/app.css": {
-    "file": "assets/app-DrcAv4qV.css",
+    "file": "assets/app-DRCDJVTF.css",
     "src": "resources/css/app.css",
     "isEntry": true
   },
@@ -35,6 +39,15 @@
     "src": "resources/js/checkbox.js",
     "isEntry": true
   },
+  "resources/js/client_management/client_detail/client_detail.js": {
+    "file": "assets/client_detail-B2AeixqE.js",
+    "name": "client_detail",
+    "src": "resources/js/client_management/client_detail/client_detail.js",
+    "isEntry": true,
+    "imports": [
+      "_chartjs-plugin-datalabels.esm-CglBOSix.js"
+    ]
+  },
   "resources/js/client_management/client_list/client_list.js": {
     "file": "assets/client_list-l0sNRNKZ.js",
     "name": "client_list",
@@ -48,10 +61,13 @@
     "isEntry": true
   },
   "resources/js/dashboard/chart.js": {
-    "file": "assets/chart-DwI7MEWb.js",
+    "file": "assets/chart-B9Rxz1LY.js",
     "name": "chart",
     "src": "resources/js/dashboard/chart.js",
-    "isEntry": true
+    "isEntry": true,
+    "imports": [
+      "_chartjs-plugin-datalabels.esm-CglBOSix.js"
+    ]
   },
   "resources/js/dropdown.js": {
     "file": "assets/dropdown-GO9xXqWO.js",
@@ -276,7 +292,7 @@
     "isEntry": true
   },
   "resources/sass/common.scss": {
-    "file": "assets/common-CFaO-CFa.css",
+    "file": "assets/common-oh-Jh-iY.css",
     "src": "resources/sass/common.scss",
     "isEntry": true
   },

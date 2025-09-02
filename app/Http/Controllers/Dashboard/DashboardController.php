@@ -28,8 +28,8 @@ class DashboardController extends Controller
         $regions = Region::withCount('clients')->get();
         // 倉庫単位の顧客数を集計
         $bases = Base::withCount('clients')->orderBy('sort_order', 'asc')->get();
-        // 
-        $sales_rank_counts = $ChartService->aaa();
+        // 売上ランク単位の顧客数を集計
+        $sales_rank_counts = $ChartService->getClientCountBySalesRank();
         return response()->json([
             'regions' => $regions,
             'bases' => $bases,

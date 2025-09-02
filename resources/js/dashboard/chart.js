@@ -7,7 +7,7 @@ $(document).ready(function() {
     createChart();
 });
 
-// 
+// グラフを作成
 function createChart(){
     // AJAX通信のURLを定義
     const ajax_url = '/dashboard/ajax_get_chart_data';

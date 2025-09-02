@@ -24,7 +24,7 @@
                         </td>
                         <td class="py-1 px-2 border">
                             <div class="flex flex-row gap-5">
-                                <a href="" class="btn bg-btn-enter text-white py-1 px-2">詳細</a>
+                                <a href="{{ route('client_detail.index', ['client_id' => $client->client_id]) }}" class="btn bg-btn-enter text-white py-1 px-2">詳細</a>
                             </div>
                         </td>
                         <td class="py-1 px-2 border text-center">{{ $client->is_active_text }}</td>
@@ -41,7 +41,7 @@
                         <td class="py-1 px-2 border text-center">{{ $client->prefecture->prefecture_name }}</td>
                         <td class="py-1 px-2 border text-center">
                             @if($client->client_url)
-                                <a href="{{ $client->client_url }}" target="_blank" rel="noopener noreferrer" class="text-blue-500 hover:underline">
+                                <a href="{{ $client->client_url }}" target="_blank" rel="noopener noreferrer" class="link-btn">
                                     <i class="las la-external-link-alt la-2x"></i>
                                 </a>
                             @endif
