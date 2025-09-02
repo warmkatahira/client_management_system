@@ -70,8 +70,16 @@ function createChart(){
                                         label: function(context) {
                                             return context.formattedValue + '円';
                                         }
-                                    }
-                                }
+                                    },
+                                    bodyFont: {
+                                        size: 14,       // ツールチップ本文のフォントサイズ
+                                    },
+                                    titleFont: {
+                                        size: 16,       // タイトルのフォントサイズ
+                                    },
+                                    padding: 12,        // 内側の余白
+                                    boxPadding: 6,      // カラーボックスの余白
+                                },
                             }
                         }
                     });

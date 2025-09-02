@@ -90,6 +90,16 @@ function createChart(){
                                     // 凡例がpointStyleに従う
                                     usePointStyle: true
                                 }
+                            },
+                            tooltip: {
+                                bodyFont: {
+                                    size: 14,       // ツールチップ本文のフォントサイズ
+                                },
+                                titleFont: {
+                                    size: 16,       // タイトルのフォントサイズ
+                                },
+                                padding: 12,        // 内側の余白
+                                boxPadding: 6,      // カラーボックスの余白
                             }
                         }
                     }
@@ -117,6 +127,16 @@ function createChart(){
                                     // 凡例がpointStyleに従う
                                     usePointStyle: true
                                 }
+                            },
+                            tooltip: {
+                                bodyFont: {
+                                    size: 14,       // ツールチップ本文のフォントサイズ
+                                },
+                                titleFont: {
+                                    size: 16,       // タイトルのフォントサイズ
+                                },
+                                padding: 12,        // 内側の余白
+                                boxPadding: 6,      // カラーボックスの余白
                             }
                         }
                     }
@@ -133,6 +153,16 @@ function createChart(){
                                     boxWidth: 0,            // 色の四角を非表示にする
                                     usePointStyle: false    // 点スタイルも使わない
                                 }
+                            },
+                            tooltip: {
+                                bodyFont: {
+                                    size: 14,       // ツールチップ本文のフォントサイズ
+                                },
+                                titleFont: {
+                                    size: 16,       // タイトルのフォントサイズ
+                                },
+                                padding: 12,        // 内側の余白
+                                boxPadding: 6,      // カラーボックスの余白
                             },
                             datalabels: {
                                 color: '#000',              // 文字色
