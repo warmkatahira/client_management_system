@@ -32,11 +32,13 @@ class ClientListDownloadService
                     // 変数に情報を格納
                     $row = [
                         $client->is_active_text,
+                        $client->full_client_name,
                         $client->bases->pluck('base_name')->implode(' / '),
+                        $client->client_items->pluck('client_item_name')->implode(' / '),
+                        $client->client_services->pluck('client_service_name')->implode(' / '),
                         $client->industry->industry_name,
                         $client->account_type->account_type_name,
                         $client->client_code,
-                        $client->full_client_name,
                         $client->client_postal_code,
                         $client->prefecture->prefecture_name,
                         $client->client_address,

@@ -22,10 +22,14 @@ class DatabaseSeeder extends Seeder
             AccountTypeSeeder::class,
             RegionSeeder::class,
             PrefectureSeeder::class,
+            ClientItemSeeder::class,
+            ClientServiceSeeder::class,
             ClientSeeder::class,
             SalesRankSeeder::class,
             BaseClientSeeder::class,
             BaseClientSalesSeeder::class,
+            ClientClientItemSeeder::class,
+            ClientClientServiceSeeder::class,
         ]);
     }
 }

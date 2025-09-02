@@ -6,11 +6,14 @@
                     <th id="all_check" class="font-thin py-1 px-2"><i class="las la-check-square la-lg"></i></th>
                     <th class="font-thin py-1 px-2 text-center">操作</th>
                     <th class="font-thin py-1 px-2 text-center">有効/無効</th>
+                    <th class="font-thin py-1 px-2 text-center">顧客名</th>
                     <th class="font-thin py-1 px-2 text-center">管轄倉庫名</th>
+                    <th class="font-thin py-1 px-2 text-center">取扱品目</th>
+                    <th class="font-thin py-1 px-2 text-center">提供内容</th>
                     <th class="font-thin py-1 px-2 text-center">業種名</th>
                     <th class="font-thin py-1 px-2 text-center">取引種別名</th>
                     <th class="font-thin py-1 px-2 text-center">顧客コード</th>
-                    <th class="font-thin py-1 px-2 text-center">顧客名</th>
+                    
                     <th class="font-thin py-1 px-2 text-center">都道府県</th>
                     <th class="font-thin py-1 px-2 text-center">顧客HP</th>
                     <th class="font-thin py-1 px-2 text-center">更新日時</th>
@@ -28,16 +31,18 @@
                             </div>
                         </td>
                         <td class="py-1 px-2 border text-center">{{ $client->is_active_text }}</td>
-                        <td class="py-1 px-2 border">{{ $client->bases->pluck('base_name')->implode(' / ') }}</td>
-                        <td class="py-1 px-2 border text-center">{{ $client->industry->industry_name }}</td>
-                        <td class="py-1 px-2 border text-center">{{ $client->account_type->account_type_name }}</td>
-                        <td class="py-1 px-2 border">{{ $client->client_code }}</td>
                         <td class="py-1 px-2 border">
                             <div class="flex flex-row gap-5 items-center">
-                                <img src="{{ asset('storage/client_images/'.$client->client_image_file_name) }}" class="w-20 h-10 object-contain image_fade_in_modal_open">
+                                <img src="{{ asset('storage/client_images/'.$client->client_image_file_name) }}" class="w-20 h-10 object-contain flex-shrink-0 image_fade_in_modal_open">
                                 <p>{{ $client->full_client_name }}</p>
                             </div>
                         </td>
+                        <td class="py-1 px-2 border">{{ $client->bases->pluck('base_name')->implode(' / ') }}</td>
+                        <td class="py-1 px-2 border">{{ $client->client_items->pluck('client_item_name')->implode(' / ') }}</td>
+                        <td class="py-1 px-2 border">{{ $client->client_services->pluck('client_service_name')->implode(' / ') }}</td>
+                        <td class="py-1 px-2 border text-center">{{ $client->industry->industry_name }}</td>
+                        <td class="py-1 px-2 border text-center">{{ $client->account_type->account_type_name }}</td>
+                        <td class="py-1 px-2 border">{{ $client->client_code }}</td>
                         <td class="py-1 px-2 border text-center">{{ $client->prefecture->prefecture_name }}</td>
                         <td class="py-1 px-2 border text-center">
                             @if($client->client_url)

@@ -56,7 +56,11 @@ class ClientSearchService
                     ->selectRaw('MIN(bases.sort_order)')
                     ->whereColumn('base_client.client_id', 'clients.client_id');
                 }, 'min_base_sort_order')
-                ->with('bases');
+                ->with([
+                    'bases',
+                    'client_items',
+                    'client_services',
+                ]);
         // 管轄倉庫の条件がある場合
         if(session('search_base_id') != null){
             // 条件を指定して取得

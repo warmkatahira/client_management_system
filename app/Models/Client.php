@@ -41,6 +41,18 @@ class Client extends Model
         return $this->belongsToMany(Base::class, 'base_client', 'client_id', 'base_id')
                     ->orderBy('bases.sort_order', 'asc');
     }
+    // client_client_itemテーブルとのリレーション
+    public function client_items()
+    {
+        return $this->belongsToMany(ClientItem::class, 'client_client_item', 'client_id', 'client_item_id')
+                    ->orderBy('client_items.sort_order', 'asc');
+    }
+    // client_client_serviceテーブルとのリレーション
+    public function client_services()
+    {
+        return $this->belongsToMany(ClientService::class, 'client_client_service', 'client_id', 'client_service_id')
+                    ->orderBy('client_services.sort_order', 'asc');
+    }
     // company_typesテーブルとのリレーション
     public function company_type()
     {
@@ -107,11 +119,13 @@ class Client extends Model
     {
         return [
             '有効/無効',
+            '顧客名',
             '管轄倉庫名',
+            '取扱品目',
+            '提供内容',
             '業種名',
             '取引種別名',
             '顧客コード',
-            '顧客名',
             '顧客郵便番号',
             '顧客都道府県',
             '顧客住所',
