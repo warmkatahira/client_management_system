@@ -25,10 +25,15 @@ class ClientListController extends Controller
         session(['page_header' => '顧客リスト']);
         // インスタンス化
         $ClientSearchService = new ClientSearchService;
-        // セッションを削除
-        $ClientSearchService->deleteSession();
-        // セッションに検索条件を格納
-        $ClientSearchService->setSearchCondition($request);
+        // 表示切り替えのみを意味するパラメータが、True以外の場合
+        if(!$request->display_change_only){
+            // セッションを削除
+            $ClientSearchService->deleteSession();
+            // セッションに検索条件を格納
+            $ClientSearchService->setSearchCondition($request);
+        }
+        // セッションに表示タイプを格納
+        $ClientSearchService->setDisplayType($request->display_type);
         // 検索結果を取得
         $result = $ClientSearchService->getSearchResult();
         // ページネーションを実施

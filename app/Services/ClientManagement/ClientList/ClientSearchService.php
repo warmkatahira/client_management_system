@@ -48,6 +48,19 @@ class ClientSearchService
         }
     }
 
+    // セッションに表示タイプを格納
+    public function setDisplayType($display_type)
+    {
+        // 表示タイプ条件がある場合
+        if(isset($display_type)){
+            session(['display_type' => $display_type]);
+        }
+        // 表示タイプ条件がない場合
+        if(!isset($display_type)){
+            session(['display_type' => 'list']);
+        }
+    }
+
     // 検索結果を取得
     public function getSearchResult()
     {
