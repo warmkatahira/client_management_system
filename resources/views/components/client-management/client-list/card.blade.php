@@ -8,9 +8,9 @@
             <p class="text-xs text-gray-500 mt-1">{{ $client->bases->pluck('short_base_name')->implode(' / ') }}</p>
             <p class="text-xs text-gray-500">{{ $client->client_items->pluck('client_item_name')->implode(' / ') }}</p>
             <div class="flex gap-5 mt-4">
-                <a href="{{ route('client_detail.index', ['client_id' => $client->client_id]) }}" class="btn bg-btn-enter text-white py-1 px-5 rounded-xl">詳細</a>
+                <a href="{{ route('client_detail.index', ['client_id' => $client->client_id]) }}" class="btn bg-theme-main text-white py-1 px-5 rounded-full">詳細</a>
                 @if($client->client_url)
-                    <a href="{{ $client->client_url }}" target="_blank" rel="noopener noreferrer" class="btn bg-btn-enter text-white py-1 px-5 rounded-xl">HP</a>
+                    <a href="{{ $client->client_url }}" target="_blank" rel="noopener noreferrer" class="btn bg-theme-main text-white py-1 px-5 rounded-full">HP</a>
                 @endif
             </div>
         </div>
