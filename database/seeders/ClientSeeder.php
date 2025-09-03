@@ -27,6 +27,7 @@ class ClientSeeder extends Seeder
             'company_type_id'           => 1,
             'industry_id'               => 2,
             'sort_order'                => 1,
+            'updated_by'                => 1,
         ]);
         Client::create([
             'client_code'               => 'C-00002',
@@ -41,6 +42,7 @@ class ClientSeeder extends Seeder
             'company_type_id'           => 2,
             'industry_id'               => 2,
             'sort_order'                => 2,
+            'updated_by'                => 1,
         ]);
         Client::create([
             'client_code'               => 'C-00003',
@@ -55,6 +57,7 @@ class ClientSeeder extends Seeder
             'company_type_id'           => 2,
             'industry_id'               => 2,
             'sort_order'                => 3,
+            'updated_by'                => 1,
         ]);
         Client::create([
             'client_code'               => 'C-00004',
@@ -69,6 +72,7 @@ class ClientSeeder extends Seeder
             'company_type_id'           => 2,
             'industry_id'               => 2,
             'sort_order'                => 4,
+            'updated_by'                => 1,
         ]);
         Client::create([
             'client_code'               => 'C-00005',
@@ -83,6 +87,7 @@ class ClientSeeder extends Seeder
             'company_type_id'           => 1,
             'industry_id'               => 2,
             'sort_order'                => 5,
+            'updated_by'                => 1,
         ]);
         Client::create([
             'client_code'               => 'C-00006',
@@ -97,6 +102,7 @@ class ClientSeeder extends Seeder
             'company_type_id'           => 2,
             'industry_id'               => 2,
             'sort_order'                => 6,
+            'updated_by'                => 1,
         ]);
         Client::create([
             'client_code'               => 'C-00007',
@@ -111,6 +117,7 @@ class ClientSeeder extends Seeder
             'company_type_id'           => 2,
             'industry_id'               => 2,
             'sort_order'                => 7,
+            'updated_by'                => 1,
         ]);
         Client::create([
             'client_code'               => 'C-00008',
@@ -125,6 +132,7 @@ class ClientSeeder extends Seeder
             'company_type_id'           => 2,
             'industry_id'               => 1,
             'sort_order'                => 8,
+            'updated_by'                => 1,
         ]);
         Client::create([
             'client_code'               => 'C-00009',
@@ -139,6 +147,7 @@ class ClientSeeder extends Seeder
             'company_type_id'           => 1,
             'industry_id'               => 2,
             'sort_order'                => 9,
+            'updated_by'                => 1,
         ]);
         Client::create([
             'client_code'               => 'C-00010',
@@ -153,6 +162,7 @@ class ClientSeeder extends Seeder
             'company_type_id'           => 1,
             'industry_id'               => 2,
             'sort_order'                => 10,
+            'updated_by'                => 1,
         ]);
         Client::create([
             'client_code'               => 'C-00011',
@@ -167,6 +177,7 @@ class ClientSeeder extends Seeder
             'company_type_id'           => 1,
             'industry_id'               => 2,
             'sort_order'                => 11,
+            'updated_by'                => 1,
         ]);
         Client::create([
             'client_code'               => 'C-00012',
@@ -181,6 +192,7 @@ class ClientSeeder extends Seeder
             'company_type_id'           => 1,
             'industry_id'               => 2,
             'sort_order'                => 12,
+            'updated_by'                => 1,
         ]);
         Client::create([
             'client_code'               => 'C-00013',
@@ -195,6 +207,7 @@ class ClientSeeder extends Seeder
             'company_type_id'           => 1,
             'industry_id'               => 2,
             'sort_order'                => 12,
+            'updated_by'                => 1,
         ]);
     }
 }

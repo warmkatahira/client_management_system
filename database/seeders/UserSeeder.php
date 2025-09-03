@@ -22,6 +22,7 @@ class UserSeeder extends Seeder
             'password' => bcrypt('katahira134'),
             'status' => 1,
             'role_id' => 'system_admin',
+            'profile_image_file_name' => 'katahira.png',
         ]);
         User::create([
             'user_id' => 'user',

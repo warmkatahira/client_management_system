@@ -24,6 +24,7 @@ class Client extends Model
         'account_type_id',
         'sort_order',
         'is_active',
+        'updated_by',
     ];
     // 全てのレコードを取得
     public static function getAll()
@@ -34,6 +35,11 @@ class Client extends Model
     public static function getSpecify($client_id)
     {
         return self::where('client_id', $client_id);
+    }
+    // usersテーブルとのリレーション
+    public function user()
+    {
+        return $this->belongsTo(User::class, 'updated_by', 'user_no');
     }
     // base_clientテーブルとのリレーション
     public function bases()
@@ -146,5 +152,25 @@ class Client extends Model
             '顧客名',
             '売上金額',
         ];
+    }
+    // モデルのイベントフックを定義
+    protected static function booted()
+    {
+        // レコード作成時
+        static::creating(function ($model) {
+            // 認証チェック
+            if(auth()->check()){
+                // updated_byを更新
+                $model->updated_by = auth()->user()->user_no;
+            }
+        });
+        // レコード更新時
+        static::updating(function ($model) {
+            // 認証チェック
+            if(auth()->check()){
+                // updated_byを更新
+                $model->updated_by = auth()->user()->user_no;
+            }
+        });
     }
 }

@@ -16,7 +16,7 @@
                     
                     <th class="font-thin py-1 px-2 text-center">都道府県</th>
                     <th class="font-thin py-1 px-2 text-center">顧客HP</th>
-                    <th class="font-thin py-1 px-2 text-center">更新日時</th>
+                    <th class="font-thin py-1 px-2 text-center">最終更新</th>
                 </tr>
             </thead>
             <tbody class="bg-white">
@@ -51,7 +51,14 @@
                                 </a>
                             @endif
                         </td>
-                        <td class="py-1 px-2 border text-center">{{ CarbonImmutable::parse($client->updated_at)->isoFormat('Y年MM月DD日(ddd) HH:mm:ss').' ('.CarbonImmutable::parse($client->updated_at)->diffForHumans().')' }}</td>
+                        <td class="py-1 px-2 border text-center">
+                            <div class="flex items-center justify-center gap-2">
+                                <img class="profile_image_normal flex-shrink-0 tippy_user_full_name image_fade_in_modal_open" src="{{ asset('storage/profile_images/'.$client->user->profile_image_file_name) }}" data-user-full-name="{{ $client->user->full_name }}">
+                                <span class="whitespace-nowrap text-xs">
+                                    {{ CarbonImmutable::parse($client->updated_at)->isoFormat('Y年MM月DD日(ddd) HH:mm:ss').' ('.CarbonImmutable::parse($client->updated_at)->diffForHumans().')' }}
+                                </dpan>
+                            </div>
+                        </td>
                     </tr>
                 @endforeach
             </tbody>
