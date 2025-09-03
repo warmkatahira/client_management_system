@@ -47,12 +47,12 @@ class Client extends Model
         return $this->belongsToMany(Base::class, 'base_client', 'client_id', 'base_id')
                     ->orderBy('bases.sort_order', 'asc');
     }
-    // client_client_itemテーブルとのリレーション
-    public function client_items()
+    /* // client_client_item_sub_categoryテーブルとのリレーション
+    public function client_item_sub_categories()
     {
-        return $this->belongsToMany(ClientItem::class, 'client_client_item', 'client_id', 'client_item_id')
-                    ->orderBy('client_items.sort_order', 'asc');
-    }
+        return $this->belongsToMany(ClientItemSubCategory::class, 'client_client_item_sub_category', 'client_id', 'client_item_sub_category_id')
+                    ->orderBy('client_item_sub_categories.sort_order', 'asc');
+    } */
     // client_client_serviceテーブルとのリレーション
     public function client_services()
     {
@@ -100,6 +100,16 @@ class Client extends Model
     public function getIsActiveTextAttribute()
     {
         return $this->is_active ? '有効' : '無効';
+    }
+    // 
+    public function client_item_sub_categories()
+    {
+        return $this->belongsToMany(
+            ClientItemSubCategory::class,       // 紐付けたい小分類モデル
+            'client_client_item_sub_category',  // 中間テーブル名
+            'client_id',                        // このモデル側の外部キー
+            'client_item_sub_category_id'       // 相手側モデルの外部キー
+        )->orderBy('client_item_sub_categories.sort_order', 'asc');
     }
     // base_client_salesを取得（中間テーブル経由）
     public function base_client_sales()
