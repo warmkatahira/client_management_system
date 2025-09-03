@@ -1,6 +1,6 @@
 <div class="w-full grid grid-cols-12 gap-4">
     @foreach($clients as $client)
-        <div class="col-span-3 border border-gray-300 rounded-2xl shadow-md p-4 flex flex-col items-center {{ $client->is_active ? 'bg-white' : 'bg-gray-300' }}">
+        <div class="col-span-3 border border-gray-300 rounded-2xl shadow-md p-4 flex flex-col items-center {{ $client->is_active ? 'bg-white' : 'bg-gray-300' }} transition duration-300 ease-in-out transform hover:-translate-y-2 hover:shadow-xl">
             <div class="w-full h-40 flex justify-center items-center {{ $client->is_active ? 'bg-gray-100' : 'bg-gray-300' }} rounded-xl overflow-hidden">
                 <img src="{{ asset('storage/client_images/'.$client->client_image_file_name) }}" class="w-40 h-28 object-contain image_fade_in_modal_open">
             </div>
