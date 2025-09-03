@@ -31,7 +31,7 @@
                             </div>
                         </td>
                         <td class="py-1 px-2 border text-center">{{ $client->is_active_text }}</td>
-                        <td class="py-1 px-2 border sticky left-0 z-[40] bg-white">
+                        <td class="py-1 px-2 border sticky left-0 z-[40] {{ $client->is_active ? 'bg-white' : 'bg-gray-300' }}">
                             <div class="flex flex-row gap-5 items-center">
                                 <img src="{{ asset('storage/client_images/'.$client->client_image_file_name) }}" class="w-20 h-10 object-contain flex-shrink-0 image_fade_in_modal_open">
                                 <p>{{ $client->full_client_name }}</p>
