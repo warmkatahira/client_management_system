@@ -44,7 +44,7 @@ class ClientListController extends Controller
         $industries = Industry::getAll()->get();
         // 取引種別を取得
         $account_types = AccountType::getAll()->get();
-        // 取扱品目を取得
+        // 取扱品目(大)を取得
         $client_item_categories = ClientItemCategory::getAll()->get();
         // 提供内容を取得
         $client_services = ClientService::getAll()->get();

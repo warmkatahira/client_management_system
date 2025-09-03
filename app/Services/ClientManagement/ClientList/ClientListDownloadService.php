@@ -34,7 +34,7 @@ class ClientListDownloadService
                         $client->is_active_text,
                         $client->full_client_name,
                         $client->bases->pluck('base_name')->implode(' / '),
-                        $client->client_items->pluck('client_item_name')->implode(' / '),
+                        $client->client_item_sub_categories->pluck('client_item_category.client_item_category_name')->unique()->implode(' / '),
                         $client->client_services->pluck('client_service_name')->implode(' / '),
                         $client->industry->industry_name,
                         $client->account_type->account_type_name,

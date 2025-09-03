@@ -111,7 +111,7 @@ class ClientSearchService
             // 条件を指定して取得
             $query->where('is_active', session('search_is_active'));
         }
-        // 取扱品目の条件がある場合
+        // 取扱品目(大)の条件がある場合
         if(session('search_client_item_category_id') != null){
             // 条件を指定して取得
             $query->whereHas('client_item_sub_categories', function ($q) {

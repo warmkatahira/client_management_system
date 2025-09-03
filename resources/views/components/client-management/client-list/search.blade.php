@@ -4,7 +4,7 @@
         <x-search.select-boolean label="有効/無効" id="search_is_active" label0="無効" label1="有効" />
         <x-search.input type="text" label="顧客名" id="search_client_name" />
         <x-search.select label="管轄倉庫名" id="search_base_id" :selectItems="$bases" optionValue="base_id" optionText="base_name" />
-        <x-search.select label="取扱品目" id="search_client_item_category_id" :selectItems="$clientItemCategories" optionValue="client_item_category_id" optionText="client_item_category_name" />
+        <x-search.select label="取扱品目(大)" id="search_client_item_category_id" :selectItems="$clientItemCategories" optionValue="client_item_category_id" optionText="client_item_category_name" />
         <x-search.select label="提供内容" id="search_client_service_id" :selectItems="$clientServices" optionValue="client_service_id" optionText="client_service_name" />
         <x-search.select label="業種名" id="search_industry_id" :selectItems="$industries" optionValue="industry_id" optionText="industry_name" />
         <x-search.select label="取引種別名" id="search_account_type_id" :selectItems="$accountTypes" optionValue="account_type_id" optionText="account_type_name" />
