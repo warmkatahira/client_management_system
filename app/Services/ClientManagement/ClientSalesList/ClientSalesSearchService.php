@@ -28,8 +28,6 @@ class ClientSalesSearchService
     // セッションに検索条件を格納
     public function setSearchCondition($request)
     {
-        // 現在のURLを取得
-        session(['back_url_1' => url()->full()]);
         // 変数が存在しない場合は検索が実行されていないので、初期条件をセット
         if(!isset($request->search_type)){
             session(['search_is_active' => '1']);
@@ -50,6 +48,8 @@ class ClientSalesSearchService
     // セッションに並び替え条件を格納
     public function setSortCondition($sort_condition)
     {
+        // 現在のURLを取得
+        session(['back_url_1' => url()->full()]);
         // 並び替え条件がある場合
         if(isset($sort_condition)){
             session(['sort_condition' => $sort_condition]);

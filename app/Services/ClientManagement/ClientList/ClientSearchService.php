@@ -29,8 +29,6 @@ class ClientSearchService
     // セッションに検索条件を格納
     public function setSearchCondition($request)
     {
-        // 現在のURLを取得
-        session(['back_url_1' => url()->full()]);
         // 変数が存在しない場合は検索が実行されていないので、初期条件をセット
         if(!isset($request->search_type)){
             session(['search_is_active' => '1']);
@@ -51,6 +49,8 @@ class ClientSearchService
     // セッションに表示タイプを格納
     public function setDisplayType($display_type)
     {
+        // 現在のURLを取得
+        session(['back_url_1' => url()->full()]);
         // 表示タイプ条件がある場合
         if(isset($display_type)){
             session(['display_type' => $display_type]);
