@@ -24,4 +24,9 @@ class ItemCategory extends Model
     {
         return $this->belongsTo(User::class, 'updated_by', 'user_no');
     }
+    // item_sub_categoriesテーブルとのリレーション
+    public function item_sub_categories()
+    {
+        return $this->hasMany(ItemSubCategory::class, 'item_category_id', 'item_category_id');
+    }
 }

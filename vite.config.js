@@ -34,6 +34,8 @@ export default defineConfig({
                 'resources/js/client_management/client_list/client_list.js',
                 'resources/js/client_management/client_sales_list/client_sales_list.js',
                 'resources/js/client_management/client_detail/client_detail.js',
+                // 設定
+                'resources/js/setting/master_management/item_category/item_category.js',
                 // プロフィール
                 'resources/js/profile/profile.js',
                 'resources/sass/profile/profile.scss',

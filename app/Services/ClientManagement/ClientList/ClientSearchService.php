@@ -74,6 +74,7 @@ class ClientSearchService
                     ->whereColumn('base_client.client_id', 'clients.client_id');
                 }, 'min_base_sort_order')
                 ->with([
+                    'user',
                     'base_clients.services',
                     'base_clients.item_sub_categories.item_category',
                 ]);

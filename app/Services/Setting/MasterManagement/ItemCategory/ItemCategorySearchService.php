@@ -35,7 +35,11 @@ class ItemCategorySearchService
     public function getSearchResult()
     {
         // クエリをセット
-        $query = ItemCategory::query();
+        $query = ItemCategory::query()
+                    ->with([
+                        'user',
+                        'item_sub_categories.user',
+                    ]);
         // の条件がある場合
         if(session('search_industry_id') != null){
             // 条件を指定して取得

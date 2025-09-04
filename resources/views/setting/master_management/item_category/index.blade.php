@@ -9,3 +9,4 @@
         <x-setting.master-management.item-category.list :itemCategories="$item_categories" />
     </div>
 </x-app-layout>
+@vite(['resources/js/setting/master_management/item_category/item_category.js'])
