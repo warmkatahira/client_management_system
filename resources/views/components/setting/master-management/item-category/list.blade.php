@@ -39,12 +39,12 @@
                                         <th class="font-thin py-1 px-2 text-center">最終更新</th>
                                     </tr>
                                 </thead>
-                                <tbody class="">
+                                <tbody class="bg-gray-200">
                                     @foreach($item_category->item_sub_categories as $item_sub_category)
                                         <tr>
-                                            <td class="py-1 px-2 border">{{ $item_sub_category->item_sub_category_name }}</td>
-                                            <td class="py-1 px-2 border text-right">{{ number_format($item_sub_category->sort_order) }}</td>
-                                            <td class="py-1 px-2 border">
+                                            <td class="py-1 px-2 border-b border-black">{{ $item_sub_category->item_sub_category_name }}</td>
+                                            <td class="py-1 px-2 border border-black text-right">{{ number_format($item_sub_category->sort_order) }}</td>
+                                            <td class="py-1 px-2 border-b border-black">
                                                 <div class="flex items-center justify-center gap-2">
                                                     <img class="profile_image_normal flex-shrink-0 tippy_user_full_name image_fade_in_modal_open" src="{{ asset('storage/profile_images/'.$item_sub_category->user->profile_image_file_name) }}" data-user-full-name="{{ $item_category->user->full_name }}">
                                                     <span class="whitespace-nowrap text-xs">
