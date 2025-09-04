@@ -4,7 +4,7 @@
     "name": "chartjs-plugin-datalabels.esm"
   },
   "resources/css/app.css": {
-    "file": "assets/app-Bwp9IcDv.css",
+    "file": "assets/app-iv016R2r.css",
     "src": "resources/css/app.css",
     "isEntry": true
   },
@@ -24,7 +24,7 @@
     ]
   },
   "resources/js/chart_color.js": {
-    "file": "assets/chart_color-l0sNRNKZ.js",
+    "file": "assets/chart_color-DSS5FTIa.js",
     "name": "chart_color",
     "src": "resources/js/chart_color.js",
     "isEntry": true
@@ -36,12 +36,13 @@
     "isEntry": true
   },
   "resources/js/client_management/client_detail/client_detail.js": {
-    "file": "assets/client_detail-CX5LYZ_3.js",
+    "file": "assets/client_detail-BW33-iRr.js",
     "name": "client_detail",
     "src": "resources/js/client_management/client_detail/client_detail.js",
     "isEntry": true,
     "imports": [
-      "_chartjs-plugin-datalabels.esm-CglBOSix.js"
+      "_chartjs-plugin-datalabels.esm-CglBOSix.js",
+      "resources/js/chart_color.js"
     ]
   },
   "resources/js/client_management/client_list/client_list.js": {
@@ -57,12 +58,13 @@
     "isEntry": true
   },
   "resources/js/dashboard/chart.js": {
-    "file": "assets/chart-lUoanSFQ.js",
+    "file": "assets/chart-vZVTiuUt.js",
     "name": "chart",
     "src": "resources/js/dashboard/chart.js",
     "isEntry": true,
     "imports": [
-      "_chartjs-plugin-datalabels.esm-CglBOSix.js"
+      "_chartjs-plugin-datalabels.esm-CglBOSix.js",
+      "resources/js/chart_color.js"
     ]
   },
   "resources/js/dropdown.js": {
@@ -138,7 +140,7 @@
     "isEntry": true
   },
   "resources/sass/common.scss": {
-    "file": "assets/common-oh-Jh-iY.css",
+    "file": "assets/common--rT3O2eS.css",
     "src": "resources/sass/common.scss",
     "isEntry": true
   },

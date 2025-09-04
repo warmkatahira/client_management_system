@@ -1,5 +1,6 @@
 import Chart from "chart.js/auto";
 import ChartDataLabels from 'chartjs-plugin-datalabels';
+import colorMap from '../../chart_color';
 
 // 画面読み込み時の処理
 $(document).ready(function() {
@@ -97,6 +98,8 @@ function createChart(){
 // 売上データを取得
 function getClientsSalesChart(client_sales, target_base_client_id, base_name)
 {
+    // 使用するカラーを取得
+    const colors = colorMap[0];
     // 配列を初期化
     let client_sales_arr = [];
     // 売上の分だけループ処理
@@ -115,9 +118,9 @@ function getClientsSalesChart(client_sales, target_base_client_id, base_name)
             type: 'line',
             label: '売上推移(' + base_name + ')',
             data: client_sales_arr,
-            borderColor: 'rgb(75, 192, 192)',
-            backgroundColor: 'rgba(75, 192, 192, 0.5)',
-            pointBackgroundColor: 'rgb(75, 192, 192)',
+            borderColor: colors.borderColor,
+            backgroundColor: colors.backgroundColor,
+            pointBackgroundColor: colors.borderColor,
             pointRadius: 5,
             pointHoverRadius: 7,
             yAxisID: "y-axis-1",

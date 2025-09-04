@@ -1,5 +1,6 @@
 import Chart from "chart.js/auto";
 import ChartDataLabels from 'chartjs-plugin-datalabels';
+import colorMap from '../chart_color';
 
 // 画面読み込み時の処理
 $(document).ready(function() {
@@ -223,6 +224,8 @@ function createChart(){
 // 地域別の顧客数データを取得
 function getClientsCountByRegion(regions)
 {
+    // 使用するカラーを取得
+    const colors = colorMap[0];
     // 地域別の情報を格納する配列を初期化
     let clients_count_arr = [];
     // 地域の分だけループ処理
@@ -234,9 +237,9 @@ function getClientsCountByRegion(regions)
         type: 'bar',
         label: '顧客数(地域別)',
         data: clients_count_arr,
-        borderColor: 'rgb(75, 192, 192)',
-        backgroundColor: 'rgba(75, 192, 192, 0.5)',
-        pointBackgroundColor: 'rgb(75, 192, 192)',
+        borderColor: colors.borderColor,
+        backgroundColor: colors.backgroundColor,
+        pointBackgroundColor: colors.borderColor,
         pointRadius: 5,
         pointHoverRadius: 7,
         yAxisID: "y-axis-1",
@@ -247,6 +250,8 @@ function getClientsCountByRegion(regions)
 // 倉庫別の顧客数データを取得
 function getClientsCountByBase(bases)
 {
+    // 使用するカラーを取得
+    const colors = colorMap[1];
     // 倉庫別の情報を格納する配列を初期化
     let clients_count_arr = [];
     // 倉庫の分だけループ処理
@@ -258,9 +263,9 @@ function getClientsCountByBase(bases)
         type: 'bar',
         label: '顧客数(倉庫別)',
         data: clients_count_arr,
-        borderColor: 'rgb(255, 153, 180)',
-        backgroundColor: 'rgba(255, 153, 180, 0.5)',
-        pointBackgroundColor: 'rgb(255, 153, 180)',
+        borderColor: colors.borderColor,
+        backgroundColor: colors.backgroundColor,
+        pointBackgroundColor: colors.borderColor,
         pointRadius: 5,
         pointHoverRadius: 7,
         yAxisID: "y-axis-1",
@@ -271,6 +276,8 @@ function getClientsCountByBase(bases)
 // 売上ランク別の顧客数データを取得
 function getSalesRank(sales_rank_counts)
 {
+    // 使用するカラーを取得
+    const colors = colorMap[0];
     // 売上ランク別の情報を格納する配列を初期化
     let clients_count_arr = [];
     // 売上ランクの分だけループ処理
@@ -287,25 +294,25 @@ function getSalesRank(sales_rank_counts)
         label: `顧客数(売上ランク別) ${yyyy}年${mm}月`,
         data: clients_count_arr,
         borderColor: [
-            '#FF6384', // 濃いめのレッド
-            '#36A2EB', // 濃いめのブルー
-            '#4BC0C0', // 濃いめのグリーン
-            '#FFCE56', // 濃いめのイエロー
-            '#9966FF'  // 濃いめのパープル
+            colorMap[0].borderColor,
+            colorMap[1].borderColor,
+            colorMap[5].borderColor,
+            colorMap[3].borderColor,
+            colorMap[4].borderColor,
         ],
         backgroundColor: [
-                '#FFB3BA', // パステルレッド
-                '#BAE1FF', // パステルブルー
-                '#BAFFC9', // パステルグリーン
-                '#FFFFBA', // パステルイエロー
-                '#E3BAFF'  // パステルパープル
+            colorMap[0].backgroundColor,
+            colorMap[1].backgroundColor,
+            colorMap[5].backgroundColor,
+            colorMap[3].backgroundColor,
+            colorMap[4].backgroundColor,
         ],
         pointBackgroundColor: [
-            '#FF6384', // 濃いめのレッド
-            '#36A2EB', // 濃いめのブルー
-            '#4BC0C0', // 濃いめのグリーン
-            '#FFCE56', // 濃いめのイエロー
-            '#9966FF'  // 濃いめのパープル
+            colorMap[0].borderColor,
+            colorMap[1].borderColor,
+            colorMap[5].borderColor,
+            colorMap[3].borderColor,
+            colorMap[4].borderColor,
         ],
         yAxisID: "y-axis-pie",
     };

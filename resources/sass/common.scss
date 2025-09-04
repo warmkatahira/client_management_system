@@ -18,3 +18,7 @@
 .merienda {
     @include font.Merienda;
 }
+
+tbody tr:hover {
+  background-color: #e2e8f0;
+}
