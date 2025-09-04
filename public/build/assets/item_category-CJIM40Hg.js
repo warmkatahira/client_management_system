@@ -1,0 +1,1 @@
+$(".toggle_detail_btn").on("click",function(){const l=$(this),s=l.closest("tr").next(".toggle_detail");s.toggleClass("hidden"),s.hasClass("hidden")?l.html('<i class="las la-plus"></i>').removeClass("bg-btn-cancel").addClass("bg-btn-enter"):l.html('<i class="las la-minus"></i>').removeClass("bg-btn-enter").addClass("bg-btn-cancel")});

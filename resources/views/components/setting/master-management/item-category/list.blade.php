@@ -14,7 +14,7 @@
                     <tr class="text-left cursor-default whitespace-nowrap">
                         <td class="py-1 px-2 border">
                             <div class="flex flex-row gap-5">
-                                <button type="button" class="btn toggle_components_btn bg-btn-enter text-white py-1 px-2"><i class="las la-plus"></i></button>
+                                <button type="button" class="btn toggle_detail_btn bg-btn-enter text-white py-1 px-2"><i class="las la-plus"></i></button>
                                 <a href="{{ route('client_detail.index', ['item_category_id' => $item_category->item_category_id]) }}" class="btn bg-btn-enter text-white py-1 px-2">詳細</a>
                             </div>
                         </td>
@@ -29,7 +29,7 @@
                             </div>
                         </td>
                     </tr>
-                    <tr class="order_item_components hidden">
+                    <tr class="toggle_detail hidden">
                         <td colspan="4" class="p-0">
                             <table class="w-full text-xs border-t border-gray-300">
                                 <thead>
@@ -39,7 +39,7 @@
                                         <th class="font-thin py-1 px-2 text-center">最終更新</th>
                                     </tr>
                                 </thead>
-                                <tbody class="bg-gray-200">
+                                <tbody class="bg-teal-100">
                                     @foreach($item_category->item_sub_categories as $item_sub_category)
                                         <tr>
                                             <td class="py-1 px-2 border-b border-black">{{ $item_sub_category->item_sub_category_name }}</td>
