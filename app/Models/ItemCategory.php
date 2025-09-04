@@ -12,10 +12,16 @@ class ItemCategory extends Model
     protected $fillable = [
         'item_category_name',
         'sort_order',
+        'updated_by',
     ];
     // 全てのレコードを取得
     public static function getAll()
     {
         return self::orderBy('sort_order', 'asc');
+    }
+    // usersテーブルとのリレーション
+    public function user()
+    {
+        return $this->belongsTo(User::class, 'updated_by', 'user_no');
     }
 }

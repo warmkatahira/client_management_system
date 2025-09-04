@@ -8,12 +8,11 @@
                     <th class="font-thin py-1 px-2 text-center">有効/無効</th>
                     <th class="font-thin py-1 px-2 text-center sticky left-0 z-[41] bg-black">顧客名</th>
                     <th class="font-thin py-1 px-2 text-center">管轄倉庫名</th>
-                    <th class="font-thin py-1 px-2 text-center">取扱品目(大)</th>
+                    <th class="font-thin py-1 px-2 text-center">取扱品目名(大)</th>
                     <th class="font-thin py-1 px-2 text-center">提供内容</th>
                     <th class="font-thin py-1 px-2 text-center">業種名</th>
                     <th class="font-thin py-1 px-2 text-center">取引種別名</th>
                     <th class="font-thin py-1 px-2 text-center">顧客コード</th>
-                    
                     <th class="font-thin py-1 px-2 text-center">都道府県</th>
                     <th class="font-thin py-1 px-2 text-center">顧客HP</th>
                     <th class="font-thin py-1 px-2 text-center">最終更新</th>

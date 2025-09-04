@@ -21,6 +21,7 @@ export default defineConfig({
                 'resources/js/image_fade_in.js',
                 'resources/js/chart_color.js',
                 'resources/js/checkbox.js',
+                'resources/js/tippy.js',
                 'resources/sass/dropdown.scss',
                 'resources/sass/height_adjustment.scss',
                 'resources/sass/welcome.scss',

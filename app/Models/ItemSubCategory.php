@@ -13,6 +13,7 @@ class ItemSubCategory extends Model
         'item_category_id',
         'item_sub_category_name',
         'sort_order',
+        'updated_by',
     ];
     // 全てのレコードを取得
     public static function getAll()
@@ -33,5 +34,10 @@ class ItemSubCategory extends Model
             'item_sub_category_id',
             'base_client_id'
         );
+    }
+    // usersテーブルとのリレーション
+    public function user()
+    {
+        return $this->belongsTo(User::class, 'updated_by', 'user_no');
     }
 }

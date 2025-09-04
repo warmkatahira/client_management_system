@@ -9,6 +9,18 @@
     height: calc(100vh - 120px);
 }
 
+// 顧客売上リスト用
+.client_sales_list {
+    width: 100%;
+    height: calc(100vh - 120px);
+}
+
+// 取扱品目リスト用
+.item_category_list {
+    width: 100%;
+    height: calc(100vh - 170px);
+}
+
 // 操作ログ用
 .operation_log_list {
     width: 100%;

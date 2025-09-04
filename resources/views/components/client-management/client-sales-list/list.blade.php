@@ -1,5 +1,5 @@
 <div class="disable_scrollbar flex flex-grow overflow-scroll">
-    <div class="client_list bg-white overflow-x-auto overflow-y-auto border border-gray-600">
+    <div class="client_sales_list bg-white overflow-x-auto overflow-y-auto border border-gray-600">
         <table class="text-xs">
             <thead>
                 <tr class="text-left text-white bg-black whitespace-nowrap sticky top-0">

@@ -16,6 +16,7 @@ return new class extends Migration
             $table->unsignedInteger('item_category_id');
             $table->string('item_sub_category_name', 50)->unique();
             $table->unsignedInteger('sort_order')->default(10000);
+            $table->unsignedInteger('updated_by')->default(1);
             $table->timestamps();
             // 外部キー制約
             $table->foreign('item_category_id')->references('item_category_id')->on('item_categories')->cascadeOnUpdate()->cascadeOnDelete();

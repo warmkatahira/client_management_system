@@ -15,6 +15,7 @@ return new class extends Migration
             $table->increments('item_category_id');
             $table->string('item_category_name', 50)->unique();
             $table->unsignedInteger('sort_order')->default(10000);
+            $table->unsignedInteger('updated_by')->default(1);
             $table->timestamps();
         });
     }
