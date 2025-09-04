@@ -4,7 +4,7 @@
     "name": "chartjs-plugin-datalabels.esm"
   },
   "resources/css/app.css": {
-    "file": "assets/app-BIVJq_tC.css",
+    "file": "assets/app-D-xOWYJN.css",
     "src": "resources/css/app.css",
     "isEntry": true
   },
@@ -36,7 +36,7 @@
     "isEntry": true
   },
   "resources/js/client_management/client_detail/client_detail.js": {
-    "file": "assets/client_detail-mlahcBcQ.js",
+    "file": "assets/client_detail-CX5LYZ_3.js",
     "name": "client_detail",
     "src": "resources/js/client_management/client_detail/client_detail.js",
     "isEntry": true,

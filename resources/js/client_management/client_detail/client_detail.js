@@ -32,7 +32,7 @@ function createChart(){
                     const canvas = document.createElement('canvas');
                     canvas.id = 'client_sales_chart_' + base_client_id;
                     // クラスを追加
-                    canvas.classList.add('w-full', 'p-2', 'bg-white', 'rounded-2xl', 'shadow-md');
+                    canvas.classList.add('w-full', 'p-2', 'bg-white', 'rounded-2xl', 'shadow-md', 'col-span-6');
                     canvas.height = 300;
                     // 要素を追加
                     container.appendChild(canvas);

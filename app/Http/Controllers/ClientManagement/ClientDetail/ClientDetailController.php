@@ -18,7 +18,12 @@ class ClientDetailController extends Controller
         // ページヘッダーをセッションに格納
         session(['page_header' => '顧客詳細']);
         // 顧客を取得
-        $client = Client::getSpecify($request->client_id)->first();
+        $client = Client::getSpecify($request->client_id)
+                    ->with([
+                        'client_services',
+                        'base_clients.item_sub_categories.item_category',
+                    ])
+                    ->first();
         return view('client_management.client_detail.index')->with([
             'client' => $client,
         ]);

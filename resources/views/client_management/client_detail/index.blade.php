@@ -1,10 +1,11 @@
 <x-app-layout>
     <x-page-back :url="session('back_url_1')" />
-    <div class="py-5 space-y-8 w-1/2">
-        <x-client-management.client-detail.client-info :client="$client" />
-
-        
+    <div class="py-5 grid grid-cols-12 gap-5">
+        <x-client-management.client-detail.header :client="$client" />
+        <x-client-management.client-detail.overview :client="$client" />
+        <x-client-management.client-detail.base-info :client="$client" />
+        <x-client-management.client-detail.client-sales-chart />
     </div>
-    <x-client-management.client-detail.client-sales-chart />
+    
 </x-app-layout>
 @vite(['resources/js/client_management/client_detail/client_detail.js'])
