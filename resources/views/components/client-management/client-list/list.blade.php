@@ -38,7 +38,14 @@
                             </div>
                         </td>
                         <td class="py-1 px-2 border">{{ $client->bases->pluck('base_name')->implode(' / ') }}</td>
-                        <td class="py-1 px-2 border">{{ $client->client_item_sub_categories->pluck('client_item_category.client_item_category_name')->unique()->implode(' / ') }}</td>
+                        <td class="py-1 px-2 border">
+                            {{
+                                $client->base_clients
+                                    ->flatMap(fn($base_client) => $base_client->item_sub_categories->pluck('item_category.item_category_name'))
+                                    ->unique()
+                                    ->implode(' / ')
+                            }}
+                        </td>
                         <td class="py-1 px-2 border">{{ $client->client_services->pluck('client_service_name')->implode(' / ') }}</td>
                         <td class="py-1 px-2 border text-center">{{ $client->industry->industry_name }}</td>
                         <td class="py-1 px-2 border text-center">{{ $client->account_type->account_type_name }}</td>

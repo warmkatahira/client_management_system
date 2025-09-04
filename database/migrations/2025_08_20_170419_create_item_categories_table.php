@@ -11,9 +11,9 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('client_item_categories', function (Blueprint $table) {
-            $table->increments('client_item_category_id');
-            $table->string('client_item_category_name', 50)->unique();
+        Schema::create('item_categories', function (Blueprint $table) {
+            $table->increments('item_category_id');
+            $table->string('item_category_name', 50)->unique();
             $table->unsignedInteger('sort_order')->default(10000);
             $table->timestamps();
         });
@@ -24,6 +24,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('client_item_categories');
+        Schema::dropIfExists('item_categories');
     }
 };

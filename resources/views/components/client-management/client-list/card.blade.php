@@ -12,7 +12,14 @@
             </div>
             <p class="mt-3 text-base font-bold text-gray-800 text-center">{{ $client->client_name }}</p>
             <p class="text-xs text-gray-500 mt-1">{{ $client->bases->pluck('short_base_name')->implode(' / ') }}</p>
-            <p class="text-xs text-gray-500">{{ $client->client_item_sub_categories->pluck('client_item_category.client_item_category_name')->unique()->implode(' / ') }}</p>
+            <p class="text-xs text-gray-500">
+                {{ 
+                    $client->base_clients
+                            ->flatMap(fn($base_client) => $base_client->item_sub_categories->pluck('item_category.item_category_name'))
+                            ->unique()
+                            ->implode(' / ')
+                }}
+            </p>
             <div class="flex gap-5 mt-4">
                 <a href="{{ route('client_detail.index', ['client_id' => $client->client_id]) }}" class="btn bg-theme-main text-white py-1 px-5 rounded-full">詳細</a>
                 @if($client->client_url)

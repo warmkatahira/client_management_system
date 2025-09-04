@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 use App\Models\Base;
 use App\Models\Industry;
 use App\Models\AccountType;
-use App\Models\ClientItemCategory;
+use App\Models\ItemCategory;
 use App\Models\ClientService;
 // サービス
 use App\Services\ClientManagement\ClientList\ClientSearchService;
@@ -45,7 +45,7 @@ class ClientListController extends Controller
         // 取引種別を取得
         $account_types = AccountType::getAll()->get();
         // 取扱品目(大)を取得
-        $client_item_categories = ClientItemCategory::getAll()->get();
+        $item_categories = ItemCategory::getAll()->get();
         // 提供内容を取得
         $client_services = ClientService::getAll()->get();
         return view('client_management.client_list.index')->with([
@@ -53,7 +53,7 @@ class ClientListController extends Controller
             'bases' => $bases,
             'industries' => $industries,
             'account_types' => $account_types,
-            'client_item_categories' => $client_item_categories,
+            'item_categories' => $item_categories,
             'client_services' => $client_services,
         ]);
     }

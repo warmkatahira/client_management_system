@@ -6,6 +6,8 @@ use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 // モデル
 use App\Models\Client;
+use App\Models\BaseClient;
+use App\Models\BaseClientItemSubCategory;
 
 class ClientSeeder extends Seeder
 {
@@ -29,6 +31,14 @@ class ClientSeeder extends Seeder
             'sort_order'                => 1,
             'updated_by'                => 1,
         ]);
+        BaseClient::create([
+            'client_id' => 1,
+            'base_id'   => '1st',
+        ]);
+        BaseClientItemSubCategory::create([
+            'base_client_id'             => 1,
+            'item_sub_category_id'       => 1,
+        ]);
         Client::create([
             'client_code'               => 'C-00002',
             'client_name'               => 'コンフェックス',
@@ -43,6 +53,18 @@ class ClientSeeder extends Seeder
             'industry_id'               => 2,
             'sort_order'                => 2,
             'updated_by'                => 1,
+        ]);
+        BaseClient::create([
+            'client_id' => 2,
+            'base_id'   => '2nd',
+        ]);
+        BaseClientItemSubCategory::create([
+            'base_client_id'             => 2,
+            'item_sub_category_id'       => 2,
+        ]);
+        BaseClientItemSubCategory::create([
+            'base_client_id'             => 2,
+            'item_sub_category_id'       => 3,
         ]);
         Client::create([
             'client_code'               => 'C-00003',
@@ -59,6 +81,14 @@ class ClientSeeder extends Seeder
             'sort_order'                => 3,
             'updated_by'                => 1,
         ]);
+        BaseClient::create([
+            'client_id' => 3,
+            'base_id'   => 'lc',
+        ]);
+        BaseClientItemSubCategory::create([
+            'base_client_id'             => 3,
+            'item_sub_category_id'       => 1,
+        ]);
         Client::create([
             'client_code'               => 'C-00004',
             'client_name'               => 'PIA',
@@ -73,6 +103,22 @@ class ClientSeeder extends Seeder
             'industry_id'               => 2,
             'sort_order'                => 4,
             'updated_by'                => 1,
+        ]);
+        BaseClient::create([
+            'client_id' => 4,
+            'base_id'   => 'lp',
+        ]);
+        BaseClient::create([
+            'client_id' => 4,
+            'base_id'   => 'lc',
+        ]);
+        BaseClientItemSubCategory::create([
+            'base_client_id'             => 4,
+            'item_sub_category_id'       => 1,
+        ]);
+        BaseClientItemSubCategory::create([
+            'base_client_id'             => 5,
+            'item_sub_category_id'       => 1,
         ]);
         Client::create([
             'client_code'               => 'C-00005',
@@ -89,6 +135,14 @@ class ClientSeeder extends Seeder
             'sort_order'                => 5,
             'updated_by'                => 1,
         ]);
+        BaseClient::create([
+            'client_id' => 5,
+            'base_id'   => 'lsp',
+        ]);
+        BaseClientItemSubCategory::create([
+            'base_client_id'             => 6,
+            'item_sub_category_id'       => 1,
+        ]);
         Client::create([
             'client_code'               => 'C-00006',
             'client_name'               => 'バナナスピリッツ',
@@ -103,6 +157,14 @@ class ClientSeeder extends Seeder
             'industry_id'               => 2,
             'sort_order'                => 6,
             'updated_by'                => 1,
+        ]);
+        BaseClient::create([
+            'client_id' => 6,
+            'base_id'   => 'ls',
+        ]);
+        BaseClientItemSubCategory::create([
+            'base_client_id'             => 7,
+            'item_sub_category_id'       => 5,
         ]);
         Client::create([
             'client_code'               => 'C-00007',
@@ -119,6 +181,14 @@ class ClientSeeder extends Seeder
             'sort_order'                => 7,
             'updated_by'                => 1,
         ]);
+        BaseClient::create([
+            'client_id' => 7,
+            'base_id'   => 'lp',
+        ]);
+        BaseClientItemSubCategory::create([
+            'base_client_id'             => 8,
+            'item_sub_category_id'       => 6,
+        ]);
         Client::create([
             'client_code'               => 'C-00008',
             'client_name'               => 'ホダカ',
@@ -133,6 +203,14 @@ class ClientSeeder extends Seeder
             'industry_id'               => 1,
             'sort_order'                => 8,
             'updated_by'                => 1,
+        ]);
+        BaseClient::create([
+            'client_id' => 8,
+            'base_id'   => '3rd',
+        ]);
+        BaseClientItemSubCategory::create([
+            'base_client_id'             => 9,
+            'item_sub_category_id'       => 7,
         ]);
         Client::create([
             'client_code'               => 'C-00009',
@@ -149,6 +227,14 @@ class ClientSeeder extends Seeder
             'sort_order'                => 9,
             'updated_by'                => 1,
         ]);
+        BaseClient::create([
+            'client_id' => 9,
+            'base_id'   => 'ls',
+        ]);
+        BaseClientItemSubCategory::create([
+            'base_client_id'             => 10,
+            'item_sub_category_id'       => 4,
+        ]);
         Client::create([
             'client_code'               => 'C-00010',
             'client_name'               => 'ブルーイング',
@@ -163,6 +249,26 @@ class ClientSeeder extends Seeder
             'industry_id'               => 2,
             'sort_order'                => 10,
             'updated_by'                => 1,
+        ]);
+        BaseClient::create([
+            'client_id' => 10,
+            'base_id'   => 'lsp',
+        ]);
+        BaseClient::create([
+            'client_id' => 10,
+            'base_id'   => 'lc',
+        ]);
+        BaseClientItemSubCategory::create([
+            'base_client_id'             => 11,
+            'item_sub_category_id'       => 1,
+        ]);
+        BaseClientItemSubCategory::create([
+            'base_client_id'             => 12,
+            'item_sub_category_id'       => 1,
+        ]);
+        BaseClientItemSubCategory::create([
+            'base_client_id'             => 12,
+            'item_sub_category_id'       => 4,
         ]);
         Client::create([
             'client_code'               => 'C-00011',
@@ -179,6 +285,22 @@ class ClientSeeder extends Seeder
             'sort_order'                => 11,
             'updated_by'                => 1,
         ]);
+        BaseClient::create([
+            'client_id' => 11,
+            'base_id'   => 'lsp',
+        ]);
+        BaseClient::create([
+            'client_id' => 11,
+            'base_id'   => 'hiroshima',
+        ]);
+        BaseClientItemSubCategory::create([
+            'base_client_id'             => 13,
+            'item_sub_category_id'       => 4,
+        ]);
+        BaseClientItemSubCategory::create([
+            'base_client_id'             => 14,
+            'item_sub_category_id'       => 4,
+        ]);
         Client::create([
             'client_code'               => 'C-00012',
             'client_name'               => 'ウエニ貿易',
@@ -194,6 +316,14 @@ class ClientSeeder extends Seeder
             'sort_order'                => 12,
             'updated_by'                => 1,
         ]);
+        BaseClient::create([
+            'client_id' => 12,
+            'base_id'   => 'lp',
+        ]);
+        BaseClientItemSubCategory::create([
+            'base_client_id'             => 15,
+            'item_sub_category_id'       => 1,
+        ]);
         Client::create([
             'client_code'               => 'C-00013',
             'client_name'               => 'ツインクル',
@@ -208,6 +338,14 @@ class ClientSeeder extends Seeder
             'industry_id'               => 2,
             'sort_order'                => 12,
             'updated_by'                => 1,
+        ]);
+        BaseClient::create([
+            'client_id' => 13,
+            'base_id'   => 'lp',
+        ]);
+        BaseClientItemSubCategory::create([
+            'base_client_id'             => 16,
+            'item_sub_category_id'       => 5,
         ]);
     }
 }

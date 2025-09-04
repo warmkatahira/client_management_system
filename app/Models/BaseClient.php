@@ -15,4 +15,19 @@ class BaseClient extends Model
         'client_id',
         'base_id',
     ];
+    // basesテーブルとのリレーション
+    public function base()
+    {
+        return $this->belongsTo(Base::class, 'base_id', 'base_id');
+    }
+    // item_sub_categoriesテーブルとのリレーション
+    public function item_sub_categories()
+    {
+        return $this->belongsToMany(
+            ItemSubCategory::class,
+            'base_client_item_sub_category',
+            'base_client_id',
+            'item_sub_category_id'
+        );
+    }
 }

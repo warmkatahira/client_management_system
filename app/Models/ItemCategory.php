@@ -4,13 +4,13 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class ClientItemCategory extends Model
+class ItemCategory extends Model
 {
     // 主キーカラムを変更
-    protected $primaryKey = 'client_item_category_id';
+    protected $primaryKey = 'item_category_id';
     // 操作可能なカラムを定義
     protected $fillable = [
-        'client_item_category_name',
+        'item_category_name',
         'sort_order',
     ];
     // 全てのレコードを取得

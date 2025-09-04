@@ -21,7 +21,7 @@ class ClientSearchService
             'search_client_code',
             'search_client_name',
             'search_is_active',
-            'search_client_item_category_id',
+            'search_item_category_id',
             'search_client_service_id',
         ]);
     }
@@ -41,7 +41,7 @@ class ClientSearchService
             session(['search_client_code' => $request->search_client_code]);
             session(['search_client_name' => $request->search_client_name]);
             session(['search_is_active' => $request->search_is_active]);
-            session(['search_client_item_category_id' => $request->search_client_item_category_id]);
+            session(['search_item_category_id' => $request->search_item_category_id]);
             session(['search_client_service_id' => $request->search_client_service_id]);
         }
     }
@@ -75,9 +75,8 @@ class ClientSearchService
                 }, 'min_base_sort_order')
                 ->with([
                     'bases',
-                    'client_item_sub_categories',
                     'client_services',
-                    'client_item_sub_categories.client_item_category',
+                    'base_clients.item_sub_categories.item_category',
                 ]);
         // 管轄倉庫の条件がある場合
         if(session('search_base_id') != null){
@@ -112,10 +111,10 @@ class ClientSearchService
             $query->where('is_active', session('search_is_active'));
         }
         // 取扱品目(大)の条件がある場合
-        if(session('search_client_item_category_id') != null){
+        if(session('search_item_category_id') != null){
             // 条件を指定して取得
-            $query->whereHas('client_item_sub_categories', function ($q) {
-                $q->where('client_item_sub_categories.client_item_category_id', session('search_client_item_category_id'));
+            $query->whereHas('item_sub_categories', function ($q) {
+                $q->where('item_sub_categories.item_category_id', session('search_item_category_id'));
             });
         }
         // 提供内容の条件がある場合
