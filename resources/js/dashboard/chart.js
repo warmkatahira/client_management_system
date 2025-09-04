@@ -276,8 +276,6 @@ function getClientsCountByBase(bases)
 // 売上ランク別の顧客数データを取得
 function getSalesRank(sales_rank_counts)
 {
-    // 使用するカラーを取得
-    const colors = colorMap[0];
     // 売上ランク別の情報を格納する配列を初期化
     let clients_count_arr = [];
     // 売上ランクの分だけループ処理
