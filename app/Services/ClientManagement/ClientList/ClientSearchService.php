@@ -74,7 +74,7 @@ class ClientSearchService
                     ->whereColumn('base_client.client_id', 'clients.client_id');
                 }, 'min_base_sort_order')
                 ->with([
-                    'client_services',
+                    'base_clients.services',
                     'base_clients.item_sub_categories.item_category',
                 ]);
         // 管轄倉庫の条件がある場合

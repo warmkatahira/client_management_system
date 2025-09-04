@@ -24,11 +24,11 @@ class DatabaseSeeder extends Seeder
             PrefectureSeeder::class,
             ItemCategorySeeder::class,
             ItemSubCategorySeeder::class,
-            ClientServiceSeeder::class,
+            ServiceSeeder::class,
             ClientSeeder::class,
             SalesRankSeeder::class,
             BaseClientSalesSeeder::class,
-            ClientClientServiceSeeder::class,
+            BaseClientServiceSeeder::class,
         ]);
     }
 }

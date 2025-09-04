@@ -47,12 +47,6 @@ class Client extends Model
         return $this->belongsToMany(Base::class, 'base_client', 'client_id', 'base_id')
                     ->orderBy('bases.sort_order', 'asc');
     }
-    // client_client_serviceテーブルとのリレーション
-    public function client_services()
-    {
-        return $this->belongsToMany(ClientService::class, 'client_client_service', 'client_id', 'client_service_id')
-                    ->orderBy('client_services.sort_order', 'asc');
-    }
     // company_typesテーブルとのリレーション
     public function company_type()
     {

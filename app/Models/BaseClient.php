@@ -30,4 +30,14 @@ class BaseClient extends Model
             'item_sub_category_id'
         );
     }
+    // servicesテーブルとのリレーション
+    public function services()
+    {
+        return $this->belongsToMany(
+            Service::class,
+            'base_client_service',
+            'base_client_id',
+            'service_id'
+        );
+    }
 }

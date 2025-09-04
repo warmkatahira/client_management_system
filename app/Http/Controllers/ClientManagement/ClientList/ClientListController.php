@@ -9,7 +9,7 @@ use App\Models\Base;
 use App\Models\Industry;
 use App\Models\AccountType;
 use App\Models\ItemCategory;
-use App\Models\ClientService;
+use App\Models\Service;
 // サービス
 use App\Services\ClientManagement\ClientList\ClientSearchService;
 // トレイト
@@ -47,14 +47,14 @@ class ClientListController extends Controller
         // 取扱品目(大)を取得
         $item_categories = ItemCategory::getAll()->get();
         // 提供内容を取得
-        $client_services = ClientService::getAll()->get();
+        $services = Service::getAll()->get();
         return view('client_management.client_list.index')->with([
             'clients' => $clients,
             'bases' => $bases,
             'industries' => $industries,
             'account_types' => $account_types,
             'item_categories' => $item_categories,
-            'client_services' => $client_services,
+            'services' => $services,
         ]);
     }
 }

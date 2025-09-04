@@ -20,7 +20,7 @@ class ClientDetailController extends Controller
         // 顧客を取得
         $client = Client::getSpecify($request->client_id)
                     ->with([
-                        'client_services',
+                        'base_clients.services',
                         'base_clients.item_sub_categories.item_category',
                     ])
                     ->first();

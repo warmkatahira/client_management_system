@@ -4,13 +4,13 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class ClientService extends Model
+class Service extends Model
 {
     // 主キーカラムを変更
-    protected $primaryKey = 'client_service_id';
+    protected $primaryKey = 'service_id';
     // 操作可能なカラムを定義
     protected $fillable = [
-        'client_service_name',
+        'service_name',
         'sort_order',
     ];
     // 全てのレコードを取得

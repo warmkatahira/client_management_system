@@ -5,7 +5,7 @@
         <x-client-management.client-list.display-switch />
     </div>
     <div class="flex flex-row gap-x-5 items-start">
-        <x-client-management.client-list.search route="client_list.index" :bases="$bases" :industries="$industries" :accountTypes="$account_types" :ItemCategories="$item_categories" :clientServices="$client_services" />
+        <x-client-management.client-list.search route="client_list.index" :bases="$bases" :industries="$industries" :accountTypes="$account_types" :itemCategories="$item_categories" :services="$services" />
         @if(session('display_type') === 'list')
             <x-client-management.client-list.list :clients="$clients" />
         @endif

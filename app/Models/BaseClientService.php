@@ -4,15 +4,15 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class ClientClientService extends Model
+class BaseClientService extends Model
 {
     // テーブル名を定義
-    protected $table = 'client_client_service';
+    protected $table = 'base_client_service';
     // 主キーを使用しない
-    protected $primaryKey = 'client_client_service_id';
+    protected $primaryKey = 'base_client_service_id';
     // 操作可能なカラムを定義
     protected $fillable = [
-        'client_id',
-        'client_service_id',
+        'base_client_id',
+        'service_id',
     ];
 }

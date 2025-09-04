@@ -5,20 +5,20 @@ namespace Database\Seeders;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 // モデル
-use App\Models\ClientClientService;
+use App\Models\BaseClientService;
 
-class ClientClientServiceSeeder extends Seeder
+class BaseClientServiceSeeder extends Seeder
 {
     /**
      * Run the database seeds.
      */
     public function run(): void
     {
-        for($i = 1; $i <= 13; $i++){
+        for($i = 1; $i <= 16; $i++){
             for($k = 1; $k <= 4; $k++){
-                ClientClientService::create([
-                    'client_id'         => $i,
-                    'client_service_id' => $k,
+                BaseClientService::create([
+                    'base_client_id'    => $i,
+                    'service_id'        => $k,
                 ]);
             }
         }

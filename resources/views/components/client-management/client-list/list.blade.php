@@ -46,7 +46,15 @@
                                     ->implode(' / ')
                             }}
                         </td>
-                        <td class="py-1 px-2 border">{{ $client->client_services->pluck('client_service_name')->implode(' / ') }}</td>
+                        <td class="py-1 px-2 border">
+                            {{
+                                $client->base_clients
+                                    ->flatMap(fn($base_client) => $base_client->services)
+                                    ->pluck('service_name')
+                                    ->unique()
+                                    ->implode(' / ')
+                            }}
+                        </td>
                         <td class="py-1 px-2 border text-center">{{ $client->industry->industry_name }}</td>
                         <td class="py-1 px-2 border text-center">{{ $client->account_type->account_type_name }}</td>
                         <td class="py-1 px-2 border">{{ $client->client_code }}</td>

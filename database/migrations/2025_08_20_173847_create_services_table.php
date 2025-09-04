@@ -11,9 +11,9 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('client_services', function (Blueprint $table) {
-            $table->increments('client_service_id');
-            $table->string('client_service_name', 20)->unique();
+        Schema::create('services', function (Blueprint $table) {
+            $table->increments('service_id');
+            $table->string('service_name', 20)->unique();
             $table->unsignedInteger('sort_order')->default(10000);
             $table->timestamps();
         });
@@ -24,6 +24,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('client_services');
+        Schema::dropIfExists('services');
     }
 };
