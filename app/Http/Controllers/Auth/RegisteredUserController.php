@@ -42,6 +42,7 @@ class RegisteredUserController extends Controller
             'email' => $request->email,
             'company_id' => 'warm',
             'password' => Hash::make($request->password),
+            'must_change_password' => 0,
         ]);
 
         event(new Registered($user));
@@ -54,7 +55,7 @@ class RegisteredUserController extends Controller
         // Toを設定
         $mail->to($to_users);
         // 件名を設定
-        $mail->subject('【smooth】ユーザー登録通知');
+        $mail->subject('【CMS】ユーザー登録通知');
         // メールを送信
         Mail::send($mail);
         // +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-

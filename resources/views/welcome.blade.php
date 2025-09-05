@@ -44,6 +44,8 @@
         <script src="https://unpkg.com/tippy.js@6"></script>
     </head>
     <body class="min-h-screen flex items-center justify-center">
+        <!-- アラート表示 -->
+        <x-alert/>
         <div id="animated-background" class="bg-gradient-to-r from-pink-100 via-purple-100 to-blue-100 min-h-screen w-full flex flex-col items-center justify-center">
             <div class="bg-white bg-opacity-80 rounded-3xl shadow-xl p-12 text-center max-w-md w-full">
                 <img src="{{ asset('image/warm_logo.svg') }}" class="welcome_logo mb-5">

@@ -23,6 +23,7 @@ class UserSeeder extends Seeder
             'status' => 1,
             'role_id' => 'system_admin',
             'profile_image_file_name' => 'katahira.png',
+            'must_change_password' => 0,
         ]);
         User::create([
             'user_id' => 'user',
@@ -32,6 +33,7 @@ class UserSeeder extends Seeder
             'password' => bcrypt('user1111'),
             'status' => 1,
             'role_id' => 'admin',
+            'must_change_password' => 0,
         ]);
     }
 }

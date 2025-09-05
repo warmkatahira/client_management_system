@@ -23,6 +23,7 @@ return new class extends Migration
             $table->string('role_id', 15)->default('user');
             $table->string('profile_image_file_name', 50)->default('no_image.png');
             $table->timestamp('last_login_at')->nullable();
+            $table->boolean('must_change_password')->default(1);
             $table->rememberToken();
             $table->timestamps();
             // 外部キー

@@ -18,11 +18,11 @@
     </head>
     <body style="font-family: 'Kosugi Maru';">
         <div style="font-size: 12px;">
-            <p>※このメールはsmoothから自動配信されています。</p>
+            <p>※このメールはCMS(顧客管理システム)から自動配信されています。</p>
             <p>以下のユーザーからアカウント承認申請がきています。</p>
             <div>
                 <p>{{ 'ユーザーID：'.$user->user_id }}</p>
-                <p>{{ 'ユーザー名：'.$user->last_name.' '.$user->first_name }}</p>
+                <p>{{ 'ユーザー名：'.$user->full_name }}</p>
                 <p>{{ 'メールアドレス：'.$user->email }}</p>
             </div>
         </div>

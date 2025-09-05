@@ -32,6 +32,7 @@ class User extends Authenticatable
         'role_id',
         'profile_image_file_name',
         'last_login_at',
+        'must_change_password',
     ];
     // 全てのレコードを取得
     public static function getAll()

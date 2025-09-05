@@ -18,7 +18,7 @@
     </head>
     <body style="font-family: 'Kosugi Maru';">
         <div style="font-size: 12px;">
-            <p>※このメールはsmoothから自動配信されています。</p>
+            <p>※このメールはCMS(顧客管理システム)から自動配信されています。</p>
             <p>以下のアカウントが承認されました。</p>
             <div>
                 <p>{{ 'ユーザーID：'.$user->user_id }}</p>
