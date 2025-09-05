@@ -19,6 +19,10 @@
   @include font.Merienda;
 }
 
-tbody tr:hover {
+tbody tr:hover:not(.toggle_detail tr) {
+  background-color: #e2e8f0;
+}
+
+tr.toggle_detail table tbody tr:hover {
   background-color: #e2e8f0;
 }
