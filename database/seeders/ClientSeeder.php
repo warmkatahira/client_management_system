@@ -30,6 +30,7 @@ class ClientSeeder extends Seeder
             'industry_id'               => 2,
             'sort_order'                => 1,
             'updated_by'                => 1,
+            'collection_term'           => 30,
         ]);
         BaseClient::create([
             'client_id' => 1,
@@ -53,6 +54,7 @@ class ClientSeeder extends Seeder
             'industry_id'               => 2,
             'sort_order'                => 2,
             'updated_by'                => 1,
+            'collection_term'           => 30,
         ]);
         BaseClient::create([
             'client_id' => 2,
@@ -80,6 +82,7 @@ class ClientSeeder extends Seeder
             'industry_id'               => 2,
             'sort_order'                => 3,
             'updated_by'                => 1,
+            'collection_term'           => 30,
         ]);
         BaseClient::create([
             'client_id' => 3,
@@ -103,6 +106,7 @@ class ClientSeeder extends Seeder
             'industry_id'               => 2,
             'sort_order'                => 4,
             'updated_by'                => 1,
+            'collection_term'           => 30,
         ]);
         BaseClient::create([
             'client_id' => 4,
@@ -134,6 +138,7 @@ class ClientSeeder extends Seeder
             'industry_id'               => 2,
             'sort_order'                => 5,
             'updated_by'                => 1,
+            'collection_term'           => 30,
         ]);
         BaseClient::create([
             'client_id' => 5,
@@ -157,6 +162,7 @@ class ClientSeeder extends Seeder
             'industry_id'               => 2,
             'sort_order'                => 6,
             'updated_by'                => 1,
+            'collection_term'           => 30,
         ]);
         BaseClient::create([
             'client_id' => 6,
@@ -180,6 +186,7 @@ class ClientSeeder extends Seeder
             'industry_id'               => 2,
             'sort_order'                => 7,
             'updated_by'                => 1,
+            'collection_term'           => 30,
         ]);
         BaseClient::create([
             'client_id' => 7,
@@ -203,6 +210,7 @@ class ClientSeeder extends Seeder
             'industry_id'               => 1,
             'sort_order'                => 8,
             'updated_by'                => 1,
+            'collection_term'           => 30,
         ]);
         BaseClient::create([
             'client_id' => 8,
@@ -226,6 +234,7 @@ class ClientSeeder extends Seeder
             'industry_id'               => 2,
             'sort_order'                => 9,
             'updated_by'                => 1,
+            'collection_term'           => 30,
         ]);
         BaseClient::create([
             'client_id' => 9,
@@ -249,6 +258,7 @@ class ClientSeeder extends Seeder
             'industry_id'               => 2,
             'sort_order'                => 10,
             'updated_by'                => 1,
+            'collection_term'           => 30,
         ]);
         BaseClient::create([
             'client_id' => 10,
@@ -284,6 +294,7 @@ class ClientSeeder extends Seeder
             'industry_id'               => 2,
             'sort_order'                => 11,
             'updated_by'                => 1,
+            'collection_term'           => 30,
         ]);
         BaseClient::create([
             'client_id' => 11,
@@ -315,6 +326,7 @@ class ClientSeeder extends Seeder
             'industry_id'               => 2,
             'sort_order'                => 12,
             'updated_by'                => 1,
+            'collection_term'           => 30,
         ]);
         BaseClient::create([
             'client_id' => 12,
@@ -338,6 +350,7 @@ class ClientSeeder extends Seeder
             'industry_id'               => 2,
             'sort_order'                => 12,
             'updated_by'                => 1,
+            'collection_term'           => 30,
         ]);
         BaseClient::create([
             'client_id' => 13,

@@ -8,6 +8,7 @@ use App\Http\Controllers\Setting\SettingMenu\SettingMenuController;
 use App\Http\Controllers\Setting\MasterManagement\MasterManagementMenu\MasterManagementMenuController;
 // +-+-+-+-+-+-+-+- 取扱品目 +-+-+-+-+-+-+-+-
 use App\Http\Controllers\Setting\MasterManagement\ItemCategory\ItemCategoryController;
+use App\Http\Controllers\Setting\MasterManagement\ItemCategory\ItemCategoryDownloadController;
 
 Route::middleware('common')->group(function (){
     // +-+-+-+-+-+-+-+- 設定メニュー +-+-+-+-+-+-+-+-
@@ -21,5 +22,8 @@ Route::middleware('common')->group(function (){
     // +-+-+-+-+-+-+-+- 取扱品目 +-+-+-+-+-+-+-+-
     Route::controller(ItemCategoryController::class)->prefix('item_category')->name('item_category.')->group(function(){
         Route::get('', 'index')->name('index');
+    });
+    Route::controller(ItemCategoryDownloadController::class)->prefix('item_category_download')->name('item_category_download.')->group(function(){
+        Route::get('download', 'download')->name('download');
     });
 });

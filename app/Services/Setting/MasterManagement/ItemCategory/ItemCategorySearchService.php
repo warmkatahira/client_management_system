@@ -15,7 +15,6 @@ class ItemCategorySearchService
     public function deleteSession()
     {
         session()->forget([
-            '',
         ]);
     }
 
@@ -27,7 +26,6 @@ class ItemCategorySearchService
         }
         // 「search」なら検索が実行されているので、検索条件をセット
         if($request->search_type === 'search'){
-            session(['search_base_id' => $request->search_base_id]);
         }
     }
 
@@ -39,12 +37,8 @@ class ItemCategorySearchService
                     ->with([
                         'user',
                         'item_sub_categories.user',
-                    ]);
-        // の条件がある場合
-        if(session('search_industry_id') != null){
-            // 条件を指定して取得
-            $query->where('clients.industry_id', session('search_industry_id'));
-        }
+                    ])
+                    ->withCount('item_sub_categories');
         // 並び替えを実施
         return $query->orderBy('sort_order', 'asc')->orderBy('item_category_id', 'asc');
     }

@@ -11,6 +11,7 @@
                     <th class="font-thin py-1 px-2 text-center">取扱品目名(大)</th>
                     <th class="font-thin py-1 px-2 text-center">提供内容</th>
                     <th class="font-thin py-1 px-2 text-center">業種名</th>
+                    <th class="font-thin py-1 px-2 text-center">回収期間</th>
                     <th class="font-thin py-1 px-2 text-center">取引種別名</th>
                     <th class="font-thin py-1 px-2 text-center">顧客コード</th>
                     <th class="font-thin py-1 px-2 text-center">都道府県</th>
@@ -55,6 +56,7 @@
                             }}
                         </td>
                         <td class="py-1 px-2 border text-center">{{ $client->industry->industry_name }}</td>
+                        <td class="py-1 px-2 border text-right">{{ number_format($client->collection_term) }}日</td>
                         <td class="py-1 px-2 border text-center">{{ $client->account_type->account_type_name }}</td>
                         <td class="py-1 px-2 border">{{ $client->client_code }}</td>
                         <td class="py-1 px-2 border text-center">{{ $client->prefecture->prefecture_name }}</td>

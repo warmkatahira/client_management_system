@@ -5,7 +5,6 @@
         <x-pagination :pages="$item_categories" />
     </div>
     <div class="flex flex-row gap-x-5 items-start">
-        <x-setting.master-management.item-category.search route="item_category.index" />
         <x-setting.master-management.item-category.list :itemCategories="$item_categories" />
     </div>
 </x-app-layout>

@@ -4,7 +4,7 @@
     "name": "chartjs-plugin-datalabels.esm"
   },
   "resources/css/app.css": {
-    "file": "assets/app-CjBH2-sh.css",
+    "file": "assets/app-BUBQBhlN.css",
     "src": "resources/css/app.css",
     "isEntry": true
   },
@@ -36,9 +36,15 @@
     "isEntry": true
   },
   "resources/js/client_management/client_detail/client_detail.js": {
-    "file": "assets/client_detail-BW33-iRr.js",
+    "file": "assets/client_detail-l0sNRNKZ.js",
     "name": "client_detail",
     "src": "resources/js/client_management/client_detail/client_detail.js",
+    "isEntry": true
+  },
+  "resources/js/client_management/client_detail/client_sales_chart.js": {
+    "file": "assets/client_sales_chart-BW33-iRr.js",
+    "name": "client_sales_chart",
+    "src": "resources/js/client_management/client_detail/client_sales_chart.js",
     "isEntry": true,
     "imports": [
       "_chartjs-plugin-datalabels.esm-CglBOSix.js",

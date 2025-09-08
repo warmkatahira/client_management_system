@@ -22,6 +22,7 @@ class Client extends Model
         'company_type_id',
         'industry_id',
         'account_type_id',
+        'collection_term',
         'sort_order',
         'is_active',
         'updated_by',
@@ -123,6 +124,7 @@ class Client extends Model
             '取扱品目(大)',
             '提供内容',
             '業種名',
+            '回収期間',
             '取引種別名',
             '顧客コード',
             '顧客郵便番号',
@@ -131,6 +133,7 @@ class Client extends Model
             '顧客電話番号',
             '顧客インボイス番号',
             '顧客HP',
+            '最終更新者',
             '最終更新日時',
         ];
     }

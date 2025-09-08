@@ -25,6 +25,7 @@ return new class extends Migration
             $table->unsignedInteger('company_type_id');
             $table->unsignedInteger('industry_id');
             $table->unsignedInteger('account_type_id');
+            $table->unsignedTinyInteger('collection_term');
             $table->unsignedInteger('sort_order')->default(10000);
             $table->boolean('is_active')->default(1);
             $table->unsignedInteger('updated_by')->nullable();

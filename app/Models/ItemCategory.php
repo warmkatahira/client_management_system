@@ -29,4 +29,14 @@ class ItemCategory extends Model
     {
         return $this->hasMany(ItemSubCategory::class, 'item_category_id', 'item_category_id');
     }
+    // ダウンロード時のヘッダーを定義
+    public static function downloadHeaderAtItemCategory()
+    {
+        return [
+            '取扱品目名(大)',
+            '取扱品目名(小)',
+            '最終更新者',
+            '最終更新日時',
+        ];
+    }
 }

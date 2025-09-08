@@ -5,6 +5,7 @@
                 <tr class="text-white bg-black whitespace-nowrap">
                     <th class="font-thin py-1 px-2 text-center">操作</th>
                     <th class="font-thin py-1 px-2 text-center">取扱品目名(大)</th>
+                    <th class="font-thin py-1 px-2 text-center">取扱品目(小)関連数</th>
                     <th class="font-thin py-1 px-2 text-center">並び順</th>
                     <th class="font-thin py-1 px-2 text-center">最終更新</th>
                 </tr>
@@ -19,6 +20,7 @@
                             </div>
                         </td>
                         <td class="py-1 px-2 border">{{ $item_category->item_category_name }}</td>
+                        <td class="py-1 px-2 border text-right">{{ number_format($item_category->item_sub_categories_count) }}</td>
                         <td class="py-1 px-2 border text-right">{{ number_format($item_category->sort_order) }}</td>
                         <td class="py-1 px-2 border text-center">
                             <div class="flex items-center justify-center gap-2">
@@ -30,7 +32,7 @@
                         </td>
                     </tr>
                     <tr class="toggle_detail hidden">
-                        <td colspan="4" class="p-0">
+                        <td colspan="5" class="p-0">
                             <table class="w-full text-xs border-t border-gray-300">
                                 <thead>
                                     <tr class="text-white bg-black">

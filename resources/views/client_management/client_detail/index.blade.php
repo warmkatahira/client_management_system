@@ -6,6 +6,10 @@
         <x-client-management.client-detail.base-info :client="$client" />
         <x-client-management.client-detail.client-sales-chart />
     </div>
-    
 </x-app-layout>
-@vite(['resources/js/client_management/client_detail/client_detail.js'])
+@vite(
+    [
+        'resources/js/client_management/client_detail/client_detail.js',
+        'resources/js/client_management/client_detail/client_sales_chart.js',
+    ]
+)
