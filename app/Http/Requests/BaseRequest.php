@@ -71,17 +71,6 @@ class BaseRequest extends FormRequest
             'shipper_tel'               => '荷送人電話番号',
             'shipper_email'             => '荷送人メールアドレス',
             'shipper_invoice_no'        => '荷送人インボイス番号',
-            // 自動処理
-            'auto_process_id'           => '自動処理',
-            'auto_process_name'         => '自動処理名',
-            'action_type'               => 'アクション区分',
-            'action_column_name'        => 'アクションカラム名',
-            'action_value'              => 'アクション値',
-            'condition_match_type'      => '条件一致区分',
-            'is_active'                 => '有効/無効',
-            'column_name.*'             => '条件項目',
-            'value.*'                   => '条件値',
-            'operator.*'                => '比較方法',
             // その他
             'quantity_threshold'        => '数量閾値',
             'prefecture_id'             => '都道府県',

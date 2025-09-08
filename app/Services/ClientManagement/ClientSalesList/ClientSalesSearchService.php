@@ -86,7 +86,7 @@ class ClientSalesSearchService
             // 条件を指定して取得
             $query->where('client_name', 'LIKE', '%'.session('search_client_name').'%');
         }
-        // 有効/無効の条件がある場合
+        // 取引中/停止の条件がある場合
         if(session('search_is_active') != null){
             // 条件を指定して取得
             $query->where('is_active', session('search_is_active'));

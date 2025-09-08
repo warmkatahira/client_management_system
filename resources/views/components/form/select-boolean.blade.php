@@ -7,7 +7,7 @@
     </label>
     <select id="{{ $id }}" name="{{ $name }}" class="w-96 text-sm">
         <option value="" @if((string)old($name, $value) === '') selected @endif></option>
-        <option value="0" @if((string)old($name, $value) === '0') selected @endif>無効</option>
-        <option value="1" @if((string)old($name, $value) === '1') selected @endif>有効</option>
+        <option value="1" @if((string)old($name, $value) === '1') selected @endif>{{ $label1 }}</option>
+        <option value="0" @if((string)old($name, $value) === '0') selected @endif>{{ $label0 }}</option>
     </select>
 </div>

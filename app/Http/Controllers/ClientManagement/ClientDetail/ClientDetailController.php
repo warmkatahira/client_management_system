@@ -22,6 +22,8 @@ class ClientDetailController extends Controller
                     ->with([
                         'base_clients.services',
                         'base_clients.item_sub_categories.item_category',
+                        'industry',
+                        'account_type',
                     ])
                     ->first();
         return view('client_management.client_detail.index')->with([

@@ -88,7 +88,7 @@ class Client extends Model
     // is_activeの値によって文字列を返すアクセサ
     public function getIsActiveTextAttribute()
     {
-        return $this->is_active ? '有効' : '無効';
+        return $this->is_active ? '取引中' : '停止';
     }
     // base_clientsテーブルとのリレーション
     public function base_clients()
@@ -118,7 +118,7 @@ class Client extends Model
     public static function downloadHeaderAtClientList()
     {
         return [
-            '有効/無効',
+            '取引中/停止',
             '顧客名',
             '管轄倉庫名',
             '取扱品目(大)',
@@ -141,7 +141,7 @@ class Client extends Model
     public static function downloadHeaderAtClientSalesList()
     {
         return [
-            '有効/無効',
+            '取引中/停止',
             '売上年月',
             '倉庫名',
             '顧客コード',
