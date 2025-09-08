@@ -2,7 +2,7 @@
     <div class="item_category_list bg-white overflow-x-auto overflow-y-auto border border-gray-600">
         <table class="text-xs">
             <thead class="bg-black">
-                <tr class="text-white bg-black whitespace-nowrap">
+                <tr class="text-white bg-black whitespace-nowrap sticky top-0">
                     <th class="font-thin py-1 px-2 text-center">操作</th>
                     <th class="font-thin py-1 px-2 text-center">取扱品目名(大)</th>
                     <th class="font-thin py-1 px-2 text-center">取扱品目(小)関連数</th>
