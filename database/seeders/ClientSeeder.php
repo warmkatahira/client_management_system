@@ -19,6 +19,7 @@ class ClientSeeder extends Seeder
         Client::create([
             'client_code'               => 1403,
             'client_name'               => 'Zoff',
+            'representative_name'       => '上野博史',
             'client_postal_code'        => '107-0061',
             'prefecture_id'             => 13,
             'client_address'            => '港区北青山3-6-1 オーク表参道6階',
@@ -43,6 +44,7 @@ class ClientSeeder extends Seeder
         Client::create([
             'client_code'               => 905,
             'client_name'               => 'コンフェックス',
+            'representative_name'       => '昆靖',
             'client_postal_code'        => '151-8590',
             'prefecture_id'             => 13,
             'client_address'            => '渋谷区代々木3丁目38-7',
@@ -71,6 +73,7 @@ class ClientSeeder extends Seeder
         Client::create([
             'client_code'               => 2703,
             'client_name'               => 'フロムアイズ',
+            'representative_name'       => '杉浦武司',
             'client_postal_code'        => '101-0054',
             'prefecture_id'             => 13,
             'client_address'            => '千代田区神田錦町2-2-1 KANDA SQUARE 11階',
@@ -95,6 +98,7 @@ class ClientSeeder extends Seeder
         Client::create([
             'client_code'               => 2601,
             'client_name'               => 'PIA',
+            'representative_name'       => '見原博道',
             'client_postal_code'        => '141-0032',
             'prefecture_id'             => 13,
             'client_address'            => '品川区大崎1-2-2',
@@ -127,6 +131,7 @@ class ClientSeeder extends Seeder
         Client::create([
             'client_code'               => 101,
             'client_name'               => 'インタービア',
+            'representative_name'       => '河西優',
             'client_postal_code'        => '108-0023',
             'prefecture_id'             => 13,
             'client_address'            => '港区芝浦4丁目12番31号 VORT芝浦WaterFront3階',
@@ -151,6 +156,7 @@ class ClientSeeder extends Seeder
         Client::create([
             'client_code'               => 2502,
             'client_name'               => 'バナナスピリッツ',
+            'representative_name'       => '米山博',
             'client_postal_code'        => '105-0014',
             'prefecture_id'             => 13,
             'client_address'            => '港区芝3丁目15-13YODAビル10F',
@@ -175,6 +181,7 @@ class ClientSeeder extends Seeder
         Client::create([
             'client_code'               => 2719,
             'client_name'               => 'Fun Standard',
+            'representative_name'       => '大屋良介',
             'client_postal_code'        => '816-0954',
             'prefecture_id'             => 40,
             'client_address'            => '大野城市紫台16-6 パセオ南ヶ丘1001',
@@ -199,6 +206,7 @@ class ClientSeeder extends Seeder
         Client::create([
             'client_code'               => 2901,
             'client_name'               => 'ホダカ',
+            'representative_name'       => '堀田宗男',
             'client_postal_code'        => '343-8520',
             'prefecture_id'             => 11,
             'client_address'            => '越谷市流通団地1-1-9',
@@ -223,6 +231,7 @@ class ClientSeeder extends Seeder
         Client::create([
             'client_code'               => 4001,
             'client_name'               => 'ルラシオン',
+            'representative_name'       => '杉本崇',
             'client_postal_code'        => '062-0035',
             'prefecture_id'             => 1,
             'client_address'            => '札幌市豊平区西岡五条1-16-23',
@@ -247,6 +256,7 @@ class ClientSeeder extends Seeder
         Client::create([
             'client_code'               => 2706,
             'client_name'               => 'ブルーイング',
+            'representative_name'       => '村上克也',
             'client_postal_code'        => '130-0003',
             'prefecture_id'             => 13,
             'client_address'            => '墨田区横川5-10-1-916',
@@ -283,6 +293,7 @@ class ClientSeeder extends Seeder
         Client::create([
             'client_code'               => 204,
             'client_name'               => 'WELF',
+            'representative_name'       => '大谷圭一郎',
             'client_postal_code'        => '107-0062',
             'prefecture_id'             => 13,
             'client_address'            => '港区南青山2-2-15 ウィン青山1042',
@@ -315,6 +326,7 @@ class ClientSeeder extends Seeder
         Client::create([
             'client_code'               => 201,
             'client_name'               => 'ウエニ貿易',
+            'representative_name'       => '宮上光喜',
             'client_postal_code'        => '110-0008',
             'prefecture_id'             => 13,
             'client_address'            => '台東区池之端1-6-17',
@@ -339,6 +351,7 @@ class ClientSeeder extends Seeder
         Client::create([
             'client_code'               => 1702,
             'client_name'               => 'ツインクル',
+            'representative_name'       => '山本謙司',
             'client_postal_code'        => '579-8038',
             'prefecture_id'             => 27,
             'client_address'            => '東大阪市箱殿町11-11',

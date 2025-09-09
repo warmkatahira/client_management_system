@@ -12,6 +12,7 @@ class Client extends Model
     protected $fillable = [
         'client_code',
         'client_name',
+        'representative_name',
         'client_postal_code',
         'prefecture_id',
         'client_address',
@@ -137,6 +138,7 @@ class Client extends Model
             '顧客住所',
             '顧客電話番号',
             '顧客インボイス番号',
+            '代表取締役名',
             '顧客HP',
             '最終更新者',
             '最終更新日時',

@@ -15,6 +15,7 @@
                     <th class="font-thin py-1 px-2 text-center">取引種別名</th>
                     <th class="font-thin py-1 px-2 text-center">顧客コード</th>
                     <th class="font-thin py-1 px-2 text-center">都道府県</th>
+                    <th class="font-thin py-1 px-2 text-center">代表取締役名</th>
                     <th class="font-thin py-1 px-2 text-center">顧客HP</th>
                     <th class="font-thin py-1 px-2 text-center">最終更新</th>
                 </tr>
@@ -60,6 +61,7 @@
                         <td class="py-1 px-2 border text-center">{{ $client->account_type->account_type_name }}</td>
                         <td class="py-1 px-2 border">{{ $client->client_code }}</td>
                         <td class="py-1 px-2 border text-center">{{ $client->prefecture->prefecture_name }}</td>
+                        <td class="py-1 px-2 border text-center">{{ $client->representative_name }}</td>
                         <td class="py-1 px-2 border text-center">
                             @if($client->client_url)
                                 <a href="{{ $client->client_url }}" target="_blank" rel="noopener noreferrer" class="link-btn">
