@@ -5,7 +5,8 @@
                 <tr class="text-white bg-black whitespace-nowrap sticky top-0">
                     <th class="font-thin py-1 px-2 text-center">操作</th>
                     <th class="font-thin py-1 px-2 text-center">取扱品目名(大)</th>
-                    <th class="font-thin py-1 px-2 text-center">取扱品目(小)関連数</th>
+                    <th class="font-thin py-1 px-2 text-center">顧客数</th>
+                    <th class="font-thin py-1 px-2 text-center">取扱品目(小)設定数</th>
                     <th class="font-thin py-1 px-2 text-center">並び順</th>
                     <th class="font-thin py-1 px-2 text-center">最終更新</th>
                 </tr>
@@ -20,6 +21,7 @@
                             </div>
                         </td>
                         <td class="py-1 px-2 border">{{ $item_category->item_category_name }}</td>
+                        <td class="py-1 px-2 border text-right">{{ number_format($item_category->clients_count) }}</td>
                         <td class="py-1 px-2 border text-right">{{ number_format($item_category->item_sub_categories_count) }}</td>
                         <td class="py-1 px-2 border text-right">{{ number_format($item_category->sort_order) }}</td>
                         <td class="py-1 px-2 border text-center">
@@ -32,11 +34,12 @@
                         </td>
                     </tr>
                     <tr class="toggle_detail hidden">
-                        <td colspan="5" class="p-0">
+                        <td colspan="6" class="p-0">
                             <table class="w-full text-xs border-t border-gray-300">
                                 <thead>
                                     <tr class="text-white bg-black">
                                         <th class="font-thin py-1 px-2 text-center">取扱品目名(小)</th>
+                                        <th class="font-thin py-1 px-2 text-center">顧客数</th>
                                         <th class="font-thin py-1 px-2 text-center">並び順</th>
                                         <th class="font-thin py-1 px-2 text-center">最終更新</th>
                                     </tr>
@@ -45,6 +48,7 @@
                                     @foreach($item_category->item_sub_categories as $item_sub_category)
                                         <tr>
                                             <td class="py-1 px-2 border-b border-black">{{ $item_sub_category->item_sub_category_name }}</td>
+                                            <td class="py-1 px-2 border-x border-b border-black text-right">{{ number_format($item_sub_category->base_clients_count) }}</td>
                                             <td class="py-1 px-2 border-x border-b border-black text-right">{{ number_format($item_sub_category->sort_order) }}</td>
                                             <td class="py-1 px-2 border-b border-black">
                                                 <div class="flex items-center justify-center gap-2">

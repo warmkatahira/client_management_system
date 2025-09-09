@@ -37,8 +37,18 @@ class ItemCategorySearchService
                     ->with([
                         'user',
                         'item_sub_categories.user',
+                        'item_sub_categories' => function ($query) {
+                            $query->withCount('base_clients');
+                        },
                     ])
-                    ->withCount('item_sub_categories');
+                    ->withCount('item_sub_categories')
+                    ->withCount([
+                        'item_sub_categories as clients_count' => function ($q) {
+                            $q->join('base_client_item_sub_category', 'item_sub_categories.item_sub_category_id', '=', 'base_client_item_sub_category.item_sub_category_id')
+                            ->join('clients', 'clients.client_id', '=', 'base_client_item_sub_category.base_client_id')
+                            ->select(DB::raw('COUNT(DISTINCT clients.client_id)'));
+                        }
+                    ]);
         // 並び替えを実施
         return $query->orderBy('sort_order', 'asc')->orderBy('item_category_id', 'asc');
     }
