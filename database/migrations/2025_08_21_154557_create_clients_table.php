@@ -25,7 +25,7 @@ return new class extends Migration
             $table->unsignedInteger('company_type_id');
             $table->unsignedInteger('industry_id');
             $table->unsignedInteger('account_type_id');
-            $table->unsignedTinyInteger('collection_term');
+            $table->unsignedInteger('collection_term_id');
             $table->unsignedInteger('sort_order')->default(10000);
             $table->boolean('is_active')->default(1);
             $table->unsignedInteger('updated_by')->nullable();
@@ -36,6 +36,7 @@ return new class extends Migration
             $table->foreign('account_type_id')->references('account_type_id')->on('account_types')->cascadeOnUpdate();
             $table->foreign('prefecture_id')->references('prefecture_id')->on('prefectures')->cascadeOnUpdate();
             $table->foreign('updated_by')->references('user_no')->on('users')->cascadeOnUpdate();
+            $table->foreign('collection_term_id')->references('collection_term_id')->on('collection_terms')->cascadeOnUpdate();
         });
     }
 

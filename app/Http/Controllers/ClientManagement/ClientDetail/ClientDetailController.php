@@ -20,10 +20,12 @@ class ClientDetailController extends Controller
         // 顧客を取得
         $client = Client::getSpecify($request->client_id)
                     ->with([
-                        'base_clients.services',
-                        'base_clients.item_sub_categories.item_category',
+                        'user',
                         'industry',
                         'account_type',
+                        'collection_term',
+                        'base_clients.services',
+                        'base_clients.item_sub_categories.item_category',
                     ])
                     ->first();
         return view('client_management.client_detail.index')->with([

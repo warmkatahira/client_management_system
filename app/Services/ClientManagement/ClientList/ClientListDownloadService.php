@@ -44,7 +44,7 @@ class ClientListDownloadService
                                     ->unique()
                                     ->implode(' / '),
                         $client->industry->industry_name,
-                        $client->collection_term.'日',
+                        $client->collection_term->collection_term.'日',
                         $client->account_type->account_type_name,
                         $client->client_code,
                         $client->client_postal_code,

@@ -22,7 +22,7 @@ class Client extends Model
         'company_type_id',
         'industry_id',
         'account_type_id',
-        'collection_term',
+        'collection_term_id',
         'sort_order',
         'is_active',
         'updated_by',
@@ -62,6 +62,11 @@ class Client extends Model
     public function account_type()
     {
         return $this->belongsTo(AccountType::class, 'account_type_id', 'account_type_id');
+    }
+    // collection_termsテーブルとのリレーション
+    public function collection_term()
+    {
+        return $this->belongsTo(CollectionTerm::class, 'collection_term_id', 'collection_term_id');
     }
     // prefecturesテーブルとのリレーション
     public function prefecture()

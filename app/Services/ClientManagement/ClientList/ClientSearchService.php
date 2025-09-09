@@ -75,6 +75,9 @@ class ClientSearchService
                 }, 'min_base_sort_order')
                 ->with([
                     'user',
+                    'industry',
+                    'account_type',
+                    'collection_term',
                     'base_clients.services',
                     'base_clients.item_sub_categories.item_category',
                 ]);

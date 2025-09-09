@@ -9,7 +9,7 @@
         </div>
         <div>
             <span class="text-sm border-b-4 border-theme-main py-1">回収期間</span>
-            <p class="ml-3 mt-2">{{ number_format($client->collection_term) }}日</p>
+            <p class="ml-3 mt-2">{{ number_format($client->collection_term->collection_term) }}日</p>
         </div>
         <div>
             <span class="text-sm border-b-4 border-theme-main py-1">取引種別名</span>
