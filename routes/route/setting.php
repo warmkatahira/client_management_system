@@ -9,6 +9,12 @@ use App\Http\Controllers\Setting\MasterManagement\MasterManagementMenu\MasterMan
 // +-+-+-+-+-+-+-+- 取扱品目 +-+-+-+-+-+-+-+-
 use App\Http\Controllers\Setting\MasterManagement\ItemCategory\ItemCategoryController;
 use App\Http\Controllers\Setting\MasterManagement\ItemCategory\ItemCategoryDownloadController;
+// +-+-+-+-+-+-+-+- 業種 +-+-+-+-+-+-+-+-
+use App\Http\Controllers\Setting\MasterManagement\Industry\IndustryController;
+use App\Http\Controllers\Setting\MasterManagement\Industry\IndustryDownloadController;
+// +-+-+-+-+-+-+-+- 提供内容 +-+-+-+-+-+-+-+-
+use App\Http\Controllers\Setting\MasterManagement\Service\ServiceController;
+use App\Http\Controllers\Setting\MasterManagement\Service\ServiceDownloadController;
 
 Route::middleware('common')->group(function (){
     // +-+-+-+-+-+-+-+- 設定メニュー +-+-+-+-+-+-+-+-
@@ -24,6 +30,20 @@ Route::middleware('common')->group(function (){
         Route::get('', 'index')->name('index');
     });
     Route::controller(ItemCategoryDownloadController::class)->prefix('item_category_download')->name('item_category_download.')->group(function(){
+        Route::get('download', 'download')->name('download');
+    });
+    // +-+-+-+-+-+-+-+- 業種 +-+-+-+-+-+-+-+-
+    Route::controller(IndustryController::class)->prefix('industry')->name('industry.')->group(function(){
+        Route::get('', 'index')->name('index');
+    });
+    Route::controller(IndustryDownloadController::class)->prefix('industry_download')->name('industry_download.')->group(function(){
+        Route::get('download', 'download')->name('download');
+    });
+    // +-+-+-+-+-+-+-+- 提供内容 +-+-+-+-+-+-+-+-
+    Route::controller(ServiceController::class)->prefix('service')->name('service.')->group(function(){
+        Route::get('', 'index')->name('index');
+    });
+    Route::controller(ServiceDownloadController::class)->prefix('service_download')->name('service_download.')->group(function(){
         Route::get('download', 'download')->name('download');
     });
 });

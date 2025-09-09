@@ -35,6 +35,7 @@ class ItemCategoryDownloadService
                         $row = [
                             $item_category->item_category_name,
                             $item_sub_category->item_sub_category_name,
+                            $item_sub_category->sort_order,
                             $item_category->user->full_name,
                             CarbonImmutable::parse($item_sub_category->updated_at)->isoFormat('Y年MM月DD日(ddd) HH:mm:ss'),
                         ];

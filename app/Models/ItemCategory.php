@@ -35,6 +35,7 @@ class ItemCategory extends Model
         return [
             '取扱品目名(大)',
             '取扱品目名(小)',
+            '並び順',
             '最終更新者',
             '最終更新日時',
         ];

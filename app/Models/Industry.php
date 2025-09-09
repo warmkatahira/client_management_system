@@ -18,4 +18,18 @@ class Industry extends Model
     {
         return self::orderBy('sort_order', 'asc');
     }
+    // clientsテーブルとのリレーション
+    public function clients()
+    {
+        return $this->hasMany(Client::class, 'industry_id', 'industry_id');
+    }
+    // ダウンロード時のヘッダーを定義
+    public static function downloadHeaderAtIndustry()
+    {
+        return [
+            '業種名',
+            '並び順',
+            '最終更新日時',
+        ];
+    }
 }

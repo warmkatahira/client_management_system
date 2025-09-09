@@ -18,4 +18,28 @@ class Service extends Model
     {
         return self::orderBy('sort_order', 'asc');
     }
+    // base_client_serviceテーブルとのリレーション
+    public function clients()
+    {
+        return $this->belongsToMany(Client::class, 'base_client_service', 'service_id', 'base_client_id');
+    }
+    // base_clientsテーブルとのリレーション
+    public function base_clients()
+    {
+        return $this->belongsToMany(
+            BaseClient::class,
+            'base_client_service',
+            'service_id',
+            'base_client_id'
+        );
+    }
+    // ダウンロード時のヘッダーを定義
+    public static function downloadHeaderAtService()
+    {
+        return [
+            '提供内容名',
+            '並び順',
+            '最終更新日時',
+        ];
+    }
 }

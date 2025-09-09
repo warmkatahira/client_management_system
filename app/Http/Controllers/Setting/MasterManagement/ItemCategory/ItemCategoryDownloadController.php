@@ -16,8 +16,6 @@ class ItemCategoryDownloadController extends Controller
 {   
     public function download(Request $request)
     {
-        // ページヘッダーをセッションに格納
-        session(['page_header' => '顧客リスト']);
         // インスタンス化
         $ItemCategorySearchService = new ItemCategorySearchService;
         $ItemCategoryDownloadService = new ItemCategoryDownloadService;
