@@ -17,7 +17,7 @@ class ClientSeeder extends Seeder
     public function run(): void
     {
         Client::create([
-            'client_code'               => 'C-00001',
+            'client_code'               => 1403,
             'client_name'               => 'Zoff',
             'client_postal_code'        => '107-0061',
             'prefecture_id'             => 13,
@@ -41,7 +41,7 @@ class ClientSeeder extends Seeder
             'item_sub_category_id'       => 1,
         ]);
         Client::create([
-            'client_code'               => 'C-00002',
+            'client_code'               => 905,
             'client_name'               => 'コンフェックス',
             'client_postal_code'        => '151-8590',
             'prefecture_id'             => 13,
@@ -69,7 +69,7 @@ class ClientSeeder extends Seeder
             'item_sub_category_id'       => 3,
         ]);
         Client::create([
-            'client_code'               => 'C-00003',
+            'client_code'               => 2703,
             'client_name'               => 'フロムアイズ',
             'client_postal_code'        => '101-0054',
             'prefecture_id'             => 13,
@@ -93,7 +93,7 @@ class ClientSeeder extends Seeder
             'item_sub_category_id'       => 1,
         ]);
         Client::create([
-            'client_code'               => 'C-00004',
+            'client_code'               => 2601,
             'client_name'               => 'PIA',
             'client_postal_code'        => '141-0032',
             'prefecture_id'             => 13,
@@ -125,7 +125,7 @@ class ClientSeeder extends Seeder
             'item_sub_category_id'       => 1,
         ]);
         Client::create([
-            'client_code'               => 'C-00005',
+            'client_code'               => 101,
             'client_name'               => 'インタービア',
             'client_postal_code'        => '108-0023',
             'prefecture_id'             => 13,
@@ -149,7 +149,7 @@ class ClientSeeder extends Seeder
             'item_sub_category_id'       => 1,
         ]);
         Client::create([
-            'client_code'               => 'C-00006',
+            'client_code'               => 2502,
             'client_name'               => 'バナナスピリッツ',
             'client_postal_code'        => '105-0014',
             'prefecture_id'             => 13,
@@ -173,7 +173,7 @@ class ClientSeeder extends Seeder
             'item_sub_category_id'       => 5,
         ]);
         Client::create([
-            'client_code'               => 'C-00007',
+            'client_code'               => 2719,
             'client_name'               => 'Fun Standard',
             'client_postal_code'        => '816-0954',
             'prefecture_id'             => 40,
@@ -197,7 +197,7 @@ class ClientSeeder extends Seeder
             'item_sub_category_id'       => 6,
         ]);
         Client::create([
-            'client_code'               => 'C-00008',
+            'client_code'               => 2901,
             'client_name'               => 'ホダカ',
             'client_postal_code'        => '343-8520',
             'prefecture_id'             => 11,
@@ -221,7 +221,7 @@ class ClientSeeder extends Seeder
             'item_sub_category_id'       => 7,
         ]);
         Client::create([
-            'client_code'               => 'C-00009',
+            'client_code'               => 4001,
             'client_name'               => 'ルラシオン',
             'client_postal_code'        => '062-0035',
             'prefecture_id'             => 1,
@@ -245,7 +245,7 @@ class ClientSeeder extends Seeder
             'item_sub_category_id'       => 4,
         ]);
         Client::create([
-            'client_code'               => 'C-00010',
+            'client_code'               => 2706,
             'client_name'               => 'ブルーイング',
             'client_postal_code'        => '130-0003',
             'prefecture_id'             => 13,
@@ -281,7 +281,7 @@ class ClientSeeder extends Seeder
             'item_sub_category_id'       => 4,
         ]);
         Client::create([
-            'client_code'               => 'C-00011',
+            'client_code'               => 204,
             'client_name'               => 'WELF',
             'client_postal_code'        => '107-0062',
             'prefecture_id'             => 13,
@@ -313,7 +313,7 @@ class ClientSeeder extends Seeder
             'item_sub_category_id'       => 4,
         ]);
         Client::create([
-            'client_code'               => 'C-00012',
+            'client_code'               => 201,
             'client_name'               => 'ウエニ貿易',
             'client_postal_code'        => '110-0008',
             'prefecture_id'             => 13,
@@ -337,7 +337,7 @@ class ClientSeeder extends Seeder
             'item_sub_category_id'       => 1,
         ]);
         Client::create([
-            'client_code'               => 'C-00013',
+            'client_code'               => 1702,
             'client_name'               => 'ツインクル',
             'client_postal_code'        => '579-8038',
             'prefecture_id'             => 27,

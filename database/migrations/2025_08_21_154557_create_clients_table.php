@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('clients', function (Blueprint $table) {
             $table->increments('client_id');
-            $table->string('client_code', 50)->unique();
+            $table->unsignedInteger('client_code')->unique();
             $table->string('client_name', 100)->unique();
             $table->string('client_postal_code', 8)->nullable();
             $table->unsignedInteger('prefecture_id')->nullable();
