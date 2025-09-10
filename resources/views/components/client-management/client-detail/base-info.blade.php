@@ -8,11 +8,11 @@
                 // item_categoryごとにitem_sub_categoryをグループ化
                 $item_categories = $base_client->item_sub_categories->groupBy(fn($sub) => $sub->item_category->item_category_name);
             @endphp
-            <div class="{{ $client->base_clients->count() === 1 ? 'col-span-12' : 'col-span-6' }} bg-gray-100 rounded-xl p-3 text-xs">
-                <p class="text-sm font-bold underline mb-3">{{ $base_client->base->base_name }}</p>
+            <div class="{{ $client->base_clients->count() === 1 ? 'col-span-12' : 'col-span-6' }} bg-gradient-to-r from-theme-sub-g to-theme-main text-white  rounded-xl p-3 text-xs">
+                <p class="text-base underline mb-3">{{ $base_client->base->base_name }}</p>
                 <div class="flex flex-row">
                     <div class="pl-5">
-                        <p class="font-semibold">取扱品目</p>
+                        <p class="text-sm">取扱品目</p>
                         @foreach($item_categories as $item_category_name => $item_sub_categories)
                             <p class="">・{{ $item_category_name }}</p>
                             <div class="ml-4">
@@ -23,7 +23,7 @@
                         @endforeach
                     </div>
                     <div class="pl-5">
-                        <p class="font-semibold">提供内容</p>
+                        <p class="text-sm">提供内容</p>
                         <div class="ml-4">
                             @foreach($base_client->services as $service)
                                 <p class="">・{{ $service->service_name }}</p>

@@ -20,6 +20,7 @@ export default {
             colors: {
                 theme: {
                     'main'          : "#20b2aa",
+                    'sub-g'         : "#66CDAA",
                     'sub'           : "#FFD700",
                     'pink'          : "#f472b6",
                     'purple'        : "#c084fc",
