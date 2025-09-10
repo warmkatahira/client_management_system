@@ -1,5 +1,5 @@
 <div class="bg-white rounded-2xl shadow-md p-6 col-span-6">
-    <p class="text-lg font-semibold mb-4 flex items-center">
+    <p class="text-lg mb-4 flex items-center">
         <span class="mr-1"><i class="las la-warehouse la-lg"></i></span>倉庫情報
     </p>
     <div class="grid grid-cols-12 gap-5">

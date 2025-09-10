@@ -26,7 +26,7 @@
             <img src="{{ asset('storage/client_images/'.$client->client_image_file_name) }}" class="w-20 h-16 object-contain image_fade_in_modal_open">
         </div>
         <div>
-            <p class="text-2xl font-bold text-gray-800">{{ $client->full_client_name }}</p>
+            <p class="text-2xl text-gray-800">{{ $client->full_client_name }}</p>
             <p class="text-gray-500">顧客コード: {{ $client->client_code }}</p>
         </div>
     </div>
