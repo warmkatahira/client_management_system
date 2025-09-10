@@ -5,7 +5,7 @@
         <x-client-management.client-detail.sales-summary :salesSummaries="$sales_summaries" />
         <x-client-management.client-detail.overview :client="$client" />
         <x-client-management.client-detail.base-info :client="$client" />
-        <x-client-management.client-detail.client-sales-chart />
+        <x-client-management.client-detail.sales-chart />
     </div>
 </x-app-layout>
 @vite(

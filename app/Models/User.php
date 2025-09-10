@@ -49,7 +49,7 @@ class User extends Authenticatable
     {
         return $this->belongsTo(Role::Class, 'role_id', 'role_id');
     }
-    // 「last_name」と「first_name」を結合して返すアクセサ
+    // フルネームを返すアクセサ
     public function getFullNameAttribute(): string
     {
         return $this->last_name . ' ' . $this->first_name;

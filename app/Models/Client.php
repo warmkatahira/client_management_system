@@ -79,7 +79,7 @@ class Client extends Model
     {
         return $this->prefecture->prefecture_name.$this->client_address;
     }
-    // is_activeの値によって文字列を返すアクセサ
+    // 完全な会社名を返すアクセサ
     public function getFullClientNameAttribute()
     {
         // 会社種別の前後位置が「前」の場合
