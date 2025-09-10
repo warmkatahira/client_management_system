@@ -14,7 +14,7 @@
             </thead>
             <tbody class="bg-white">
                 @foreach($operationLogs as $operation_log)
-                    <tr class="text-left hover:bg-theme-sub cursor-default whitespace-nowrap">
+                    <tr class="text-left cursor-default whitespace-nowrap">
                         <td class="py-1 px-2 border">{{ CarbonImmutable::parse($operation_log['operation_date'])->isoFormat('YYYY年MM月DD日(ddd)') }}</td>
                         <td class="py-1 px-2 border">{{ CarbonImmutable::parse($operation_log['operation_time'])->isoFormat('HH時mm分ss秒') }}</td>
                         <td class="py-1 px-2 border">{{ $operation_log['user_name'] }}</td>

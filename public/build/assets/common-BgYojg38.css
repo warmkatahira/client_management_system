@@ -1,0 +1,1 @@
+@charset "UTF-8";.btn{transition:opacity .3s ease;cursor:pointer}.btn:hover{opacity:.7}.merienda{font-family:Merienda}tbody tr:hover:not(.toggle_detail tr){background-color:#e2e8f0}tr.toggle_detail table tbody tr:hover{background-color:#e2e8f0}

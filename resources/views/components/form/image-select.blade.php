@@ -6,7 +6,7 @@
         @endif
     </label>
     <p id="image_file_name" class="pl-3 py-2.5 bg-white w-96 border border-black"></p>
-    <label class="btn bg-theme-sub text-center border border-black ml-3 py-2.5 px-5 cursor-pointer">
+    <label class="btn bg-theme-sub-y text-center border border-black ml-3 py-2.5 px-5 cursor-pointer">
         画像を選択
         <input type="file" id="image_file" name="image_file" class="hidden">
     </label>

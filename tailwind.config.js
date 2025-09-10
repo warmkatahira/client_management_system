@@ -21,7 +21,7 @@ export default {
                 theme: {
                     'main'          : "#20b2aa",
                     'sub-g'         : "#66CDAA",
-                    'sub'           : "#FFD700",
+                    'sub-y'         : "#FFD700",
                     'pink'          : "#f472b6",
                     'purple'        : "#c084fc",
                     'body'          : "#ebe6e6",
