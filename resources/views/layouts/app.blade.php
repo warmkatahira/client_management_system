@@ -73,7 +73,7 @@
     <body>
         <!-- ナビゲーションメニュー -->
         @include('layouts.navigation')
-        <div class="pl-20 pr-3 pt-3 mb-3">
+        <div class="pl-20 pr-3 pt-3 pb-3">
             <!-- ページヘッダー -->
             <x-page-header />
             <!-- バリデーションエラー -->
@@ -83,7 +83,7 @@
             <!-- ローディング -->
             <x-loading />
             <!-- ページコンテンツ -->
-            <main>
+            <main class=" max-w-9xl">
                 {{ $slot }}
             </main>
         </div>

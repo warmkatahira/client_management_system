@@ -47,6 +47,10 @@
                 <span class="text-sm border-b-4 border-theme-main py-1">電話番号</span>
                 <p class="ml-3 mt-2">{{ $client->client_tel ?? '未登録' }}</p>
             </div>
+             <div>
+                <span class="text-sm border-b-4 border-theme-main py-1">代表取締役名</span>
+                <p class="ml-3 mt-2">{{ $client->representative_name }}</p>
+            </div>
         </div>
     </div>
 </div>

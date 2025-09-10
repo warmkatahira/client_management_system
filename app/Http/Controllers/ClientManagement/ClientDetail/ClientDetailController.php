@@ -6,10 +6,12 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 // モデル
 use App\Models\Client;
+use App\Models\BaseClientSale;
 // サービス
 use App\Services\ClientManagement\ClientDetail\ClientSearchService;
 // その他
 use Carbon\CarbonImmutable;
+use Illuminate\Support\Facades\DB;
 
 class ClientDetailController extends Controller
 {
@@ -28,8 +30,30 @@ class ClientDetailController extends Controller
                         'base_clients.item_sub_categories.item_category',
                     ])
                     ->first();
+        // 
+        $sales_summaries = BaseClientSale::query()
+                    ->join('base_client', 'base_client.base_client_id', '=', 'base_client_sales.base_client_id')
+                    ->join('bases', 'bases.base_id', '=', 'base_client.base_id')
+                    ->where('base_client.client_id', $client->client_id)
+                    ->whereBetween('base_client_sales.year_month', [
+                        now()->year . '-01',
+                        now()->year . '-12',
+                    ])
+                    ->select(
+                        'base_client_sales.base_client_id',
+                        'bases.base_name',
+                        DB::raw('SUM(base_client_sales.amount) as total_amount'),
+                        DB::raw('COUNT(*) as month_count'),
+                        DB::raw('SUM(base_client_sales.amount) / COUNT(*) as monthly_average')
+                    )
+                    ->groupBy('base_client_sales.base_client_id', 'bases.base_name')
+                    ->orderBy('bases.sort_order', 'asc')
+                    ->get();
+//dd($totals);
+
         return view('client_management.client_detail.index')->with([
             'client' => $client,
+            'sales_summaries' => $sales_summaries,
         ]);
     }
 
