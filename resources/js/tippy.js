@@ -4,4 +4,14 @@ tippy('.tippy_user_full_name', {
     duration: 500,
     allowHTML: true,
     placement: 'right',
+    theme: 'tippy_main_theme',
+});
+
+// グーグルマップに遷移するツールチップ
+tippy('.tippy_jump_google_map', {
+    content: '<i class="las la-map-marked-alt la-lg"></i>Googleマップを表示',
+    duration: 500,
+    allowHTML: true,
+    placement: 'right',
+    theme: 'tippy_main_theme',
 });

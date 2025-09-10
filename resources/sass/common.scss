@@ -1,4 +1,5 @@
 @use 'font' as font;
+@use 'color' as color;
 
 /*  ホバーアニメーション  */
 .btn {
@@ -7,6 +8,13 @@
 }
 .btn:hover {
   opacity: .7;
+}
+.link-btn {
+  color: #3b82f6;
+  text-decoration: underline;
+}
+.link-btn:hover {
+  color: #1e40af;
 }
 .merienda {
   @include font.Merienda;
@@ -18,4 +26,13 @@ tbody tr:hover:not(.toggle_detail tr) {
 
 tr.toggle_detail table tbody tr:hover {
   background-color: #e2e8f0;
+}
+
+/*  ツールチップのデザイン  */
+.tippy-box[data-theme~='tippy_main_theme'] {
+  background-color: color.$main;
+  color: #fff;
+}
+.tippy-box[data-theme~='tippy_main_theme'][data-placement^='right'] > .tippy-arrow::before {
+  border-right-color: color.$main;
 }

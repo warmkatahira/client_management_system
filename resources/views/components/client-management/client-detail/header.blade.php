@@ -38,7 +38,7 @@
                 <p class="ml-3">
                     <a href="https://www.google.com/maps/search/?api=1&query={{ urlencode($client->full_client_address) }}"
                         target="_blank"
-                        class="link-btn">
+                        class="link-btn tippy_jump_google_map">
                         {{ $client->full_client_address }}
                     </a>
                 </p>
