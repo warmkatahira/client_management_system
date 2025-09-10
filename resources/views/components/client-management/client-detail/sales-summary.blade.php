@@ -9,7 +9,7 @@
         </div>
         <div class="grid grid-cols-12 gap-5">
             @foreach($salesSummaries as $sales_summary)
-                <div class="col-span-6 bg-gray-100 rounded-xl p-3">
+                <div class="{{ $salesSummaries->count() === 1 ? 'col-span-12' : 'col-span-6' }} bg-gray-100 rounded-xl p-3">
                     <p class="text-sm font-bold underline mb-3">{{ $sales_summary->base_name }}</p>
                     <div class="flex flex-col">
                         <div class="pl-5 flex flex-row gap-5 items-center">

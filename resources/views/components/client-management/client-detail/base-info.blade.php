@@ -8,7 +8,7 @@
                 // item_categoryごとにitem_sub_categoryをグループ化
                 $item_categories = $base_client->item_sub_categories->groupBy(fn($sub) => $sub->item_category->item_category_name);
             @endphp
-            <div class="col-span-6 bg-gray-100 rounded-xl p-3 text-xs">
+            <div class="{{ $client->base_clients->count() === 1 ? 'col-span-12' : 'col-span-6' }} bg-gray-100 rounded-xl p-3 text-xs">
                 <p class="text-sm font-bold underline mb-3">{{ $base_client->base->base_name }}</p>
                 <div class="flex flex-row">
                     <div class="pl-5">
