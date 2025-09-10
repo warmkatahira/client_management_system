@@ -21,7 +21,7 @@
             @endif
         </div>
     </div>
-    <div class="flex flex-row items-center gap-5 bg-gray-100 rounded-xl">
+    <div class="flex flex-row items-center gap-5 bg-gray-100 rounded-xl border">
         <div class="flex items-center justify-center p-3">
             <img src="{{ asset('storage/client_images/'.$client->client_image_file_name) }}" class="w-20 h-16 object-contain image_fade_in_modal_open">
         </div>
