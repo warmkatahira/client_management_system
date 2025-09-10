@@ -58,7 +58,7 @@
             @for ($i = $start_page; $i <= $end_page; $i++)
                 @if($i == $paginator->currentPage())
                     <span aria-current="page">
-                        <span class="bg-theme-main relative inline-flex items-center px-4 py-2 -ml-px text-sm font-medium text-gray-600 border border-gray-300 cursor-default leading-5">{{ $i }}</span>
+                        <span class="bg-theme-sub-y relative inline-flex items-center px-4 py-2 -ml-px text-sm font-medium text-gray-600 border border-gray-300 cursor-default leading-5">{{ $i }}</span>
                     </span>
                 @else
                     <a href="{{ $paginator->url($i) }}" class="bg-white relative inline-flex items-center px-4 py-2 -ml-px text-sm font-medium text-gray-600 border border-gray-300 leading-5 hover:text-gray-500 focus:z-10 focus:outline-none focus:ring ring-gray-300 focus:border-blue-300 active:bg-gray-100 active:text-gray-700 transition ease-in-out duration-150" aria-label="{{ __('Go to page :page', ['page' => $i]) }}">
