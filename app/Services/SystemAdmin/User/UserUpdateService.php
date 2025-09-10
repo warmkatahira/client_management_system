@@ -20,11 +20,10 @@ class UserUpdateService
         // 値をセット
         $user->last_name = $request->last_name;
         $user->first_name = $request->first_name;
-        $user->status = $request->status;
+        $user->is_active = $request->is_active;
         $user->role_id = $request->role_id;
-        $user->company_id = $request->company_id;
         // ステータスが0から1に変更された場合
-        if($user->isDirty('status') && $user->status == 1 && $user->getOriginal('status') == 0){
+        if($user->isDirty('is_active') && $user->is_active == 1 && $user->getOriginal('is_active') == 0){
             // ユーザーに承認メールを送信
             $this->sendMail($request);
         }

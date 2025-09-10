@@ -1,0 +1,1 @@
+.disable_scrollbar::-webkit-scrollbar{display:none}.client_list,.client_sales_list{width:100%;height:calc(100vh - 120px)}.item_category_list{width:100%;height:calc(100vh - 170px)}.user_list,.operation_log_list{width:100%;height:calc(100vh - 120px)}

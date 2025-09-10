@@ -20,7 +20,7 @@ class UserSeeder extends Seeder
             'first_name' => '',
             'email' => 't.katahira@warm.co.jp',
             'password' => bcrypt('katahira134'),
-            'status' => 1,
+            'is_active' => 1,
             'role_id' => 'system_admin',
             'profile_image_file_name' => 'katahira.png',
             'must_change_password' => 0,
@@ -31,7 +31,7 @@ class UserSeeder extends Seeder
             'first_name' => '',
             'email' => 'test@warm.co.jp',
             'password' => bcrypt('user1111'),
-            'status' => 1,
+            'is_active' => 1,
             'role_id' => 'admin',
             'must_change_password' => 0,
         ]);

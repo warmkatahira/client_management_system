@@ -21,6 +21,12 @@
     height: calc(100vh - 170px);
 }
 
+// ユーザーリスト用
+.user_list {
+    width: 100%;
+    height: calc(100vh - 120px);
+}
+
 // 操作ログ用
 .operation_log_list {
     width: 100%;

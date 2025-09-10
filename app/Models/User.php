@@ -28,7 +28,7 @@ class User extends Authenticatable
         'first_name',
         'email',
         'password',
-        'status',
+        'is_active',
         'role_id',
         'profile_image_file_name',
         'last_login_at',
@@ -54,10 +54,10 @@ class User extends Authenticatable
     {
         return $this->last_name . ' ' . $this->first_name;
     }
-    // 「status」に基づいて、有効 or 無効を返すアクセサ
-    public function getStatusTextAttribute(): string
+    // 「is_active」に基づいて、有効 or 無効を返すアクセサ
+    public function getIsActiveTextAttribute(): string
     {
-        return $this->status ? '有効' : '無効';
+        return $this->is_active ? '有効' : '無効';
     }
     // パスワードリセットの通知をカスタマイズ
     public function sendPasswordResetNotification($token)

@@ -61,7 +61,6 @@ class BaseRequest extends FormRequest
             'first_name'                => '名',
             'email'                     => 'メールアドレス',
             'password'                  => 'パスワード',
-            'status'                    => 'ステータス',
             // 荷送人
             'shipper_id'                => '荷送人',
             'shipper_company_name'      => '荷送人会社名',
