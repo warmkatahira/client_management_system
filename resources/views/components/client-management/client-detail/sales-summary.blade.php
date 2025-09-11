@@ -15,8 +15,8 @@
         <div class="grid grid-cols-12 gap-5">
             @foreach($salesSummaries as $sales_summary)
                 <div class="{{ $salesSummaries->count() === 1 ? 'col-span-12' : 'col-span-6' }} bg-gradient-to-r from-theme-sub-g to-theme-main text-white rounded-xl p-3">
-                    <p class="text-base underline mb-3">{{ $sales_summary->base_name }}</p>
-                    <div class="flex flex-col">
+                    <p class="text-base mb-3">{{ $sales_summary->base_name }}</p>
+                    <div class="flex flex-col gap-1">
                         <div class="pl-5 flex flex-row gap-5 items-center">
                             <p class="w-1/2 text-base">年間売上</p>
                             <p class="w-1/2 text-2xl text-right">{{ number_format($sales_summary->total_amount) }}<span class="text-sm ml-2">円</span></p>

@@ -9,7 +9,7 @@
                 $item_categories = $base_client->item_sub_categories->groupBy(fn($sub) => $sub->item_category->item_category_name);
             @endphp
             <div class="{{ $client->base_clients->count() === 1 ? 'col-span-12' : 'col-span-6' }} bg-gradient-to-r from-theme-sub-g to-theme-main text-white  rounded-xl p-3 text-xs">
-                <p class="text-base underline mb-3">{{ $base_client->base->base_name }}</p>
+                <p class="text-base mb-3">{{ $base_client->base->base_name }}</p>
                 <div class="flex flex-row">
                     <div class="pl-5">
                         <p class="text-sm">取扱品目</p>
