@@ -24,11 +24,21 @@ function createChart(){
         dataType: 'json',
         success: function(data){
             try {
+                // base_client_id のリストを今年・昨年からまとめて取得
+                const baseClientIds = new Set([
+                    ...Object.keys(data['current_year_client_sales']),
+                    ...Object.keys(data['last_year_client_sales'])
+                ]);
                 const container = document.getElementById('client_sales_chart_div');
                 container.innerHTML = '';
-                $.each(data['last_year_client_sales'], function(base_client_id, sales) {
-                    // 倉庫名取得
-                    const base_name = sales[0].base_name;
+                baseClientIds.forEach(base_client_id => {
+                    // 売上データを格納
+                    const salesCurrent = data['current_year_client_sales'][base_client_id] || [];
+                    const salesLast    = data['last_year_client_sales'][base_client_id] || [];
+                    // データがない場合はスキップ
+                    if (salesCurrent.length === 0 && salesLast.length === 0) return;
+                    // 倉庫名を取得
+                    const base_name = (salesCurrent[0] || salesLast[0]).base_name;
                     // canvas要素を作る
                     const canvas = document.createElement('canvas');
                     canvas.id = 'client_sales_chart_' + base_client_id;
@@ -135,8 +145,11 @@ function getClientsSalesChart(data, target_base_client_id, base_name)
             lastYearMonthJpArr.push(sale['year_month_jp']);
         });
     });
-    return [
-        {
+    // 配列を初期化
+    const datasets = [];
+    // 今年のデータがある場合
+    if(currentYearArr.length > 0){
+        datasets.push({
             type: 'line',
             label: '売上推移（' + base_name + `@${currentYear}年）`,
             data: currentYearArr,
@@ -147,8 +160,11 @@ function getClientsSalesChart(data, target_base_client_id, base_name)
             pointHoverRadius: 7,
             yAxisID: "y-axis-1",
             yearMonthJp: currentYearMonthJpArr,
-        },
-        {
+        });
+    }
+    // 昨年のデータがある場合
+    if(lastYearArr.length > 0){
+        datasets.push({
             type: 'line',
             label: '売上推移（' + base_name + `@${lastYear}年）`,
             data: lastYearArr,
@@ -160,6 +176,7 @@ function getClientsSalesChart(data, target_base_client_id, base_name)
             borderDash: [5, 5],
             yAxisID: "y-axis-1",
             yearMonthJp: lastYearMonthJpArr,
-        }
-    ];
+        });
+    }
+    return datasets;
 }
