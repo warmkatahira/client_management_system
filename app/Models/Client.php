@@ -114,11 +114,7 @@ class Client extends Model
         )
         ->join('bases', 'base_client.base_id', 'bases.base_id')
         ->select('base_client_sales.*', 'bases.base_name')
-        ->selectRaw("DATE_FORMAT(CONCAT(base_client_sales.year_month,'-01'), '%Y年%m月') as year_month_jp")
-        ->whereBetween('base_client_sales.year_month', [
-            now()->year . '-01',
-            now()->year . '-12',
-        ]);
+        ->selectRaw("DATE_FORMAT(CONCAT(base_client_sales.year_month,'-01'), '%Y年%m月') as year_month_jp");
     }
     // ダウンロード時のヘッダーを定義
     public static function downloadHeaderAtClientList()

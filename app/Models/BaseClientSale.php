@@ -14,4 +14,12 @@ class BaseClientSale extends Model
         'year_month',
         'amount',
     ];
+    // 指定した年で抽出するスコープ
+    public function scopeForYear($query, $year)
+    {
+        return $query->whereBetween('base_client_sales.year_month', [
+            $year . '-01',
+            $year . '-12',
+        ]);
+    }
 }

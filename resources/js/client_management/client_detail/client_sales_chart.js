@@ -26,7 +26,7 @@ function createChart(){
             try {
                 const container = document.getElementById('client_sales_chart_div');
                 container.innerHTML = '';
-                $.each(data['client_sales'], function(base_client_id, sales) {
+                $.each(data['last_year_client_sales'], function(base_client_id, sales) {
                     // 倉庫名取得
                     const base_name = sales[0].base_name;
                     // canvas要素を作る
@@ -37,10 +37,10 @@ function createChart(){
                     canvas.height = 300;
                     // 要素を追加
                     container.appendChild(canvas);
-                    // ラベルを作成
-                    const labels = sales.map(sale => sale.year_month_jp);
+                    // ラベルを作成(1から12月)
+                    const labels = Array.from({ length: 12 }, (_, i) => (i + 1) + '月');
                     // 売上データを取得
-                    const datasets = getClientsSalesChart(data['client_sales'], base_client_id, base_name);
+                    const datasets = getClientsSalesChart(data, base_client_id, base_name);
                     // Chart.js初期化
                     const ctx = canvas.getContext('2d');
                     new Chart(ctx, {
@@ -68,6 +68,11 @@ function createChart(){
                                 },
                                 tooltip: {
                                     callbacks: {
+                                        title: function(context) {
+                                            const dataset = context[0].dataset;
+                                            const monthLabel = dataset.yearMonthJp[context[0].dataIndex];
+                                            return monthLabel;
+                                        },
                                         label: function(context) {
                                             return context.formattedValue + '円';
                                         }
@@ -96,35 +101,65 @@ function createChart(){
 }
 
 // 売上データを取得
-function getClientsSalesChart(client_sales, target_base_client_id, base_name)
+function getClientsSalesChart(data, target_base_client_id, base_name)
 {
     // 使用するカラーを取得
-    const colors = colorMap[0];
+    const currentColors = colorMap[0];
+    const lastColors    = colorMap[1];
     // 配列を初期化
-    let client_sales_arr = [];
-    // 売上の分だけループ処理
-    $.each(client_sales, function(base_client_id, sales) {
-        // 対象のbase_client_idではない場合
-        if(parseInt(base_client_id) !== parseInt(target_base_client_id)){
+    let currentYearArr = [];
+    let lastYearArr    = [];
+    let currentYearMonthJpArr = [];
+    let lastYearMonthJpArr = [];
+    // 今年の年を取得
+    const currentYear = data['current_year_client_sales'].length === 0 ? '' : data['current_year_client_sales'][target_base_client_id][0]['year_month'].split('-')[0];
+    // 今年の売上データを格納
+    $.each(data['current_year_client_sales'], function(base_client_id, sales) {
+        if (parseInt(base_client_id) !== parseInt(target_base_client_id)) {
             return;
         }
-        // 売上金額を格納
         $.each(sales, function(index, sale) {
-            client_sales_arr.push(sale['amount']);
+            currentYearArr.push(sale['amount']);
+            currentYearMonthJpArr.push(sale['year_month_jp']);
+        });
+    });
+    // 昨年の年を取得
+    const lastYear = data['last_year_client_sales'].length === 0 ? '' : data['last_year_client_sales'][target_base_client_id][0]['year_month'].split('-')[0];
+    // 昨年の売上データを格納
+    $.each(data['last_year_client_sales'], function(base_client_id, sales) {
+        if (parseInt(base_client_id) !== parseInt(target_base_client_id)) {
+            return;
+        }
+        $.each(sales, function(index, sale) {
+            lastYearArr.push(sale['amount']);
+            lastYearMonthJpArr.push(sale['year_month_jp']);
         });
     });
     return [
         {
             type: 'line',
-            label: '売上推移(' + base_name + ')',
-            data: client_sales_arr,
-            borderColor: colors.borderColor,
-            backgroundColor: colors.backgroundColor,
-            pointBackgroundColor: colors.borderColor,
+            label: '売上推移（' + base_name + `@${currentYear}年）`,
+            data: currentYearArr,
+            borderColor: currentColors.borderColor,
+            backgroundColor: currentColors.backgroundColor,
+            pointBackgroundColor: currentColors.borderColor,
             pointRadius: 5,
             pointHoverRadius: 7,
             yAxisID: "y-axis-1",
-            borderRadius: 30,
+            yearMonthJp: currentYearMonthJpArr,
+        },
+        {
+            type: 'line',
+            label: '売上推移（' + base_name + `@${lastYear}年）`,
+            data: lastYearArr,
+            borderColor: lastColors.borderColor,
+            backgroundColor: lastColors.backgroundColor,
+            pointBackgroundColor: lastColors.borderColor,
+            pointRadius: 5,
+            pointHoverRadius: 7,
+            borderDash: [5, 5],
+            yAxisID: "y-axis-1",
+            yearMonthJp: lastYearMonthJpArr,
         }
     ];
 }

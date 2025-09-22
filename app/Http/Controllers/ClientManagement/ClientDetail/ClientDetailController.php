@@ -30,7 +30,7 @@ class ClientDetailController extends Controller
                         'base_clients.item_sub_categories.item_category',
                     ])
                     ->first();
-        // 
+        // 売上サマリーを取得
         $sales_summaries = BaseClientSale::query()
                     ->join('base_client', 'base_client.base_client_id', '=', 'base_client_sales.base_client_id')
                     ->join('bases', 'bases.base_id', '=', 'base_client.base_id')
@@ -49,8 +49,6 @@ class ClientDetailController extends Controller
                     ->groupBy('base_client_sales.base_client_id', 'bases.base_name')
                     ->orderBy('bases.sort_order', 'asc')
                     ->get();
-//dd($totals);
-
         return view('client_management.client_detail.index')->with([
             'client' => $client,
             'sales_summaries' => $sales_summaries,
@@ -61,16 +59,29 @@ class ClientDetailController extends Controller
     {
         // 顧客を取得
         $client = Client::getSpecify($request->client_id)->first();
-        // 売上を倉庫×顧客単位で取得
-        $client_sales = $client->base_client_sales->groupBy('base_client_id');
-        // 現在の年を取得
-        $year = CarbonImmutable::now()->year;
+        // 今年の売上を倉庫×顧客単位で取得
+        $client_sales = $client->base_client_sales()->forYear(CarbonImmutable::now()->year)->get()->groupBy('base_client_id');
+        // 今年の売上を取得
+        $current_year_client_sales = $this->getSales($client_sales, CarbonImmutable::now()->year);
+        // 昨年の売上を倉庫×顧客単位で取得
+        $client_sales = $client->base_client_sales()->forYear(CarbonImmutable::now()->subYear()->year)->get()->groupBy('base_client_id');
+        // 昨年の売上を取得
+        $last_year_client_sales = $this->getSales($client_sales, CarbonImmutable::now()->subYear()->year);
+        return response()->json([
+            'current_year_client_sales' => $current_year_client_sales,
+            'last_year_client_sales' => $last_year_client_sales,
+        ]);
+    }
+
+    // 指定した年の売上を取得
+    public function getSales($client_sales, $year)
+    {
         // 1月〜12月の配列を作成（yyyy-mm形式）
         $months = collect(range(1, 12))->map(function ($m) use ($year) {
             return sprintf('%d-%02d', $year, $m);
         });
         // 倉庫×顧客単位で月データを補完
-        $client_sales = $client_sales->map(function ($sales, $base_client_id) use ($months) {
+        return $client_sales->map(function ($sales, $base_client_id) use ($months) {
             // 倉庫名を取得
             $base_name = optional($sales->first())->base_name ?? '不明';
             // 月単位で処理を行う
@@ -85,8 +96,5 @@ class ClientDetailController extends Controller
                 ];
             });
         });
-        return response()->json([
-            'client_sales' => $client_sales,
-        ]);
     }
 }
