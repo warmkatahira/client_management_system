@@ -73,8 +73,6 @@ function createChart(){
                     // headerDivにタイトルと操作Divを追加
                     headerDiv.appendChild(title);
                     headerDiv.appendChild(controlDiv);
-
-
                     // 折れ線ボタン
                     const lineBtn = document.createElement('button');
                     lineBtn.type = 'button';
@@ -82,7 +80,6 @@ function createChart(){
                     lineBtn.innerHTML = '<img src="/icon/line_chart.svg" class="w-6 h-6">';
                     lineBtn.dataset.baseClientId = base_client_id;
                     lineBtn.dataset.chartType = 'line';
-
                     // 棒グラフボタン
                     const barBtn = document.createElement('button');
                     barBtn.type = 'button';
@@ -90,11 +87,9 @@ function createChart(){
                     barBtn.innerHTML = '<img src="/icon/bar_chart.svg" class="w-6 h-6">';
                     barBtn.dataset.baseClientId = base_client_id;
                     barBtn.dataset.chartType = 'bar';
-
                     // controlDivに追加（selectと追加ボタンの右に横並びで追加）
                     controlDiv.appendChild(lineBtn);
                     controlDiv.appendChild(barBtn);
-
                     // wrapperにheaderDivを追加
                     wrapper.appendChild(headerDiv);
                     // canvas要素を作る
