@@ -79,7 +79,7 @@ function createChart(){
                     const canvas = document.createElement('canvas');
                     canvas.id = 'client_sales_chart_' + base_client_id;
                     // クラスを追加
-                    canvas.classList.add('w-full');
+                    canvas.classList.add('w-full', 'bg-white');
                     canvas.height = 300;
                     // canvasをwrapperに追加
                     wrapper.appendChild(canvas);
