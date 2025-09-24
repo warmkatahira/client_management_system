@@ -46,7 +46,7 @@ function createChart(){
                     title.classList.add('text-base');
                     // セレクトとボタン用のdiv
                     const controlDiv = document.createElement('div');
-                    controlDiv.classList.add('flex', 'items-center', 'gap-2');
+                    controlDiv.classList.add('flex', 'items-center');
                     // select要素を作成
                     const yearSelect = document.createElement('select');
                     yearSelect.id = 'yearSelect_' + base_client_id;
@@ -64,7 +64,7 @@ function createChart(){
                     }
                     // button要素を作成
                     const addBtn = document.createElement('button');
-                    addBtn.classList.add('btn', 'bg-btn-enter', 'text-white', 'rounded-lg', 'px-5', 'py-2', 'add_year_button');
+                    addBtn.classList.add('btn', 'bg-btn-enter', 'text-white', 'rounded-lg', 'px-5', 'py-2', 'add_year_button', 'mr-5', 'ml-2');
                     addBtn.textContent = '追加';
                     addBtn.dataset.baseClientId = base_client_id;
                     // controlDivにselectとbuttonを追加
@@ -73,6 +73,28 @@ function createChart(){
                     // headerDivにタイトルと操作Divを追加
                     headerDiv.appendChild(title);
                     headerDiv.appendChild(controlDiv);
+
+
+                    // 折れ線ボタン
+                    const lineBtn = document.createElement('button');
+                    lineBtn.type = 'button';
+                    lineBtn.classList.add('btn', 'chart_type_change', 'border', 'border-black', 'p-1', 'bg-theme-sub-y');
+                    lineBtn.innerHTML = '<img src="/icon/line_chart.svg" class="w-6 h-6">';
+                    lineBtn.dataset.baseClientId = base_client_id;
+                    lineBtn.dataset.chartType = 'line';
+
+                    // 棒グラフボタン
+                    const barBtn = document.createElement('button');
+                    barBtn.type = 'button';
+                    barBtn.classList.add('btn', 'chart_type_change', 'border-y', 'border-r', 'border-black', 'p-1');
+                    barBtn.innerHTML = '<img src="/icon/bar_chart.svg" class="w-6 h-6">';
+                    barBtn.dataset.baseClientId = base_client_id;
+                    barBtn.dataset.chartType = 'bar';
+
+                    // controlDivに追加（selectと追加ボタンの右に横並びで追加）
+                    controlDiv.appendChild(lineBtn);
+                    controlDiv.appendChild(barBtn);
+
                     // wrapperにheaderDivを追加
                     wrapper.appendChild(headerDiv);
                     // canvas要素を作る
@@ -197,7 +219,7 @@ function getClientsSalesChart(client_sales, target_base_client_id)
     return datasets;
 }
 
-// グラフを作成
+// グラフを追加
 $(document).on('click', '.add_year_button', function () {
     // AJAX通信のURLを定義
     const ajax_url = '/client_detail/ajax_get_sales_data';
@@ -238,4 +260,23 @@ $(document).on('click', '.add_year_button', function () {
             alert('グラフの生成に失敗しました。');
         }
     });
+});
+
+// チャート種別を切り替え
+$(document).on('click', '.chart_type_change', function () {
+    // チャート種別を取得
+    const chart_type = $(this).data('chart-type');
+    // 倉庫顧客IDを取得
+    const base_client_id = $(this).data('base-client-id');
+    // グラフを取得
+    const chart = Chart.getChart('client_sales_chart_' + base_client_id);
+    // 全datasetのtypeを変更
+    chart.data.datasets.forEach(ds => {
+        ds.type = chart_type;
+    });
+    chart.update();
+    // 同じwrapper内のボタン全てをリセット
+    $(`#client_sales_wrapper_${base_client_id} .chart_type_change`).removeClass('bg-theme-sub-y');
+    // クリックしたボタンに背景色を追加
+    $(this).addClass('bg-theme-sub-y');
 });
