@@ -58,23 +58,45 @@ class ClientDetailController extends Controller
     public function ajax_get_chart_data(Request $request)
     {
         // 顧客を取得
-        $client = Client::getSpecify($request->client_id)->first();
+        $client = Client::getSpecify($request->client_id)->with('base_clients.base')->first();
+        // 倉庫×顧客情報を取得
+        $base_clients = $client->base_clients;
+        // 倉庫名を結果に追加
+        $base_clients = $client->base_clients->map(function($bc){
+            return [
+                'base_client_id' => $bc->base_client_id,
+                'base_name' => $bc->base->base_name,
+            ];
+        });
         // 今年の売上を倉庫×顧客単位で取得
         $client_sales = $client->base_client_sales()->forYear(CarbonImmutable::now()->year)->get()->groupBy('base_client_id');
-        // 今年の売上を取得
-        $current_year_client_sales = $this->getSales($client_sales, CarbonImmutable::now()->year);
-        // 昨年の売上を倉庫×顧客単位で取得
-        $client_sales = $client->base_client_sales()->forYear(CarbonImmutable::now()->subYear()->year)->get()->groupBy('base_client_id');
-        // 昨年の売上を取得
-        $last_year_client_sales = $this->getSales($client_sales, CarbonImmutable::now()->subYear()->year);
+        // 取得した売上を整理
+        $client_sales = $this->formatSales($client_sales, CarbonImmutable::now()->year);
         return response()->json([
-            'current_year_client_sales' => $current_year_client_sales,
-            'last_year_client_sales' => $last_year_client_sales,
+            'base_clients' => $base_clients,
+            'client_sales' => $client_sales,
         ]);
     }
 
-    // 指定した年の売上を取得
-    public function getSales($client_sales, $year)
+    public function ajax_get_sales_data(Request $request)
+    {
+        // 顧客を取得
+        $client = Client::getSpecify($request->client_id)->first();
+        // 指定された年の指定された倉庫顧客IDの売上を取得
+        $client_sales = $client->base_client_sales()->forYear($request->year)->get()->groupBy('base_client_id')
+                            ->filter(function($items, $key) use ($request) {
+                                return (string)$key === (string)$request->base_client_id;
+                            });
+        // 取得した売上を整理
+        $client_sales = $this->formatSales($client_sales, $request->year);
+        return response()->json([
+            'client_sales' => $client_sales,
+            'base_client_id' => $request->base_client_id,
+        ]);
+    }
+
+    // 取得した売上を整理
+    public function formatSales($client_sales, $year)
     {
         // 1月〜12月の配列を作成（yyyy-mm形式）
         $months = collect(range(1, 12))->map(function ($m) use ($year) {

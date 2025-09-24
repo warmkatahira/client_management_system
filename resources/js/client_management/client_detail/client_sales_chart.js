@@ -24,33 +24,71 @@ function createChart(){
         dataType: 'json',
         success: function(data){
             try {
-                // base_client_id のリストを今年・昨年からまとめて取得
-                const baseClientIds = new Set([
-                    ...Object.keys(data['current_year_client_sales']),
-                    ...Object.keys(data['last_year_client_sales'])
-                ]);
                 const container = document.getElementById('client_sales_chart_div');
                 container.innerHTML = '';
-                baseClientIds.forEach(base_client_id => {
+                data['base_clients'].forEach(base_client => {
+                    // 倉庫顧客IDと倉庫名を取得
+                    const base_client_id = base_client.base_client_id;
+                    const base_name = base_client.base_name;
                     // 売上データを格納
-                    const salesCurrent = data['current_year_client_sales'][base_client_id] || [];
-                    const salesLast    = data['last_year_client_sales'][base_client_id] || [];
-                    // データがない場合はスキップ
-                    if (salesCurrent.length === 0 && salesLast.length === 0) return;
-                    // 倉庫名を取得
-                    const base_name = (salesCurrent[0] || salesLast[0]).base_name;
+                    const client_sales = data['client_sales'][base_client_id] || [];
+                    // ラッパー用のdivを作成
+                    const wrapper = document.createElement('div');
+                    wrapper.classList.add('w-full', 'p-2', 'bg-white', 'rounded-2xl', 'shadow-md', 'col-span-6'); 
+                    // 必要ならidも設定
+                    wrapper.id = 'client_sales_wrapper_' + base_client_id;
+                    // タイトル＋操作ボタン用のdivを作成
+                    const headerDiv = document.createElement('div');
+                    headerDiv.classList.add('flex', 'justify-between', 'items-center', 'px-5'); 
+                    // タイトル用のpタグを作成
+                    const title = document.createElement('p');
+                    title.textContent = '売上推移(' + base_name + ')';
+                    title.classList.add('text-base');
+                    // セレクトとボタン用のdiv
+                    const controlDiv = document.createElement('div');
+                    controlDiv.classList.add('flex', 'items-center', 'gap-2');
+                    // select要素を作成
+                    const yearSelect = document.createElement('select');
+                    yearSelect.id = 'yearSelect_' + base_client_id;
+                    yearSelect.classList.add('text-sm', 'rounded-lg');
+                    yearSelect.dataset.baseClientId = base_client_id;
+                    // 今年を取得
+                    const currentYear = new Date().getFullYear();
+                    // 過去5年分（今年を除く）を追加
+                    for(let i = 1; i <= 5; i++){
+                        const year = currentYear - i;
+                        const option = document.createElement('option');
+                        option.value = year;
+                        option.textContent = year + '年';
+                        yearSelect.appendChild(option);
+                    }
+                    // button要素を作成
+                    const addBtn = document.createElement('button');
+                    addBtn.classList.add('btn', 'bg-btn-enter', 'text-white', 'rounded-lg', 'px-5', 'py-2', 'add_year_button');
+                    addBtn.textContent = '追加';
+                    addBtn.dataset.baseClientId = base_client_id;
+                    // controlDivにselectとbuttonを追加
+                    controlDiv.appendChild(yearSelect);
+                    controlDiv.appendChild(addBtn);
+                    // headerDivにタイトルと操作Divを追加
+                    headerDiv.appendChild(title);
+                    headerDiv.appendChild(controlDiv);
+                    // wrapperにheaderDivを追加
+                    wrapper.appendChild(headerDiv);
                     // canvas要素を作る
                     const canvas = document.createElement('canvas');
                     canvas.id = 'client_sales_chart_' + base_client_id;
                     // クラスを追加
-                    canvas.classList.add('w-full', 'p-2', 'bg-white', 'rounded-2xl', 'shadow-md', 'col-span-6');
+                    canvas.classList.add('w-full');
                     canvas.height = 300;
-                    // 要素を追加
-                    container.appendChild(canvas);
+                    // canvasをwrapperに追加
+                    wrapper.appendChild(canvas);
+                    // wrapperをcontainerに追加
+                    container.appendChild(wrapper);
                     // ラベルを作成(1から12月)
                     const labels = Array.from({ length: 12 }, (_, i) => (i + 1) + '月');
                     // 売上データを取得
-                    const datasets = getClientsSalesChart(data, base_client_id, base_name);
+                    const datasets = getClientsSalesChart(client_sales, base_client_id);
                     // Chart.js初期化
                     const ctx = canvas.getContext('2d');
                     new Chart(ctx, {
@@ -88,10 +126,10 @@ function createChart(){
                                         }
                                     },
                                     bodyFont: {
-                                        size: 14,       // ツールチップ本文のフォントサイズ
+                                        size: 16,       // ツールチップ本文のフォントサイズ
                                     },
                                     titleFont: {
-                                        size: 16,       // タイトルのフォントサイズ
+                                        size: 18,       // ツールチップタイトルのフォントサイズ
                                     },
                                     padding: 12,        // 内側の余白
                                     boxPadding: 6,      // カラーボックスの余白
@@ -111,72 +149,93 @@ function createChart(){
 }
 
 // 売上データを取得
-function getClientsSalesChart(data, target_base_client_id, base_name)
+function getClientsSalesChart(client_sales, target_base_client_id)
 {
     // 使用するカラーを取得
-    const currentColors = colorMap[0];
-    const lastColors    = colorMap[1];
+    const chart = Chart.getChart('client_sales_chart_' + target_base_client_id);
+    const colorArray = Object.values(colorMap);
+    const existingDatasets = chart ? chart.data.datasets.length : 0;
+    const colors = colorArray[existingDatasets % colorArray.length];
     // 配列を初期化
-    let currentYearArr = [];
-    let lastYearArr    = [];
-    let currentYearMonthJpArr = [];
-    let lastYearMonthJpArr = [];
-    // 今年の年を取得
-    const currentYear = data['current_year_client_sales'].length === 0 ? '' : data['current_year_client_sales'][target_base_client_id][0]['year_month'].split('-')[0];
-    // 今年の売上データを格納
-    $.each(data['current_year_client_sales'], function(base_client_id, sales) {
-        if (parseInt(base_client_id) !== parseInt(target_base_client_id)) {
-            return;
+    let yearArr = [];
+    let yearMonthJpArr = [];
+    // 年を取得
+    const year = client_sales.length === 0 ? '' : client_sales[0]['year_month'].split('-')[0];
+    // グラフがある場合
+    if(chart){
+        // 既に存在する年であるかチェック
+        const exists = chart.data.datasets.some(ds => ds.year === year);
+        // 既に存在している場合
+        if(exists){
+            // 追加させないので、[]を返す
+            return [];
         }
-        $.each(sales, function(index, sale) {
-            currentYearArr.push(sale['amount']);
-            currentYearMonthJpArr.push(sale['year_month_jp']);
-        });
-    });
-    // 昨年の年を取得
-    const lastYear = data['last_year_client_sales'].length === 0 ? '' : data['last_year_client_sales'][target_base_client_id][0]['year_month'].split('-')[0];
-    // 昨年の売上データを格納
-    $.each(data['last_year_client_sales'], function(base_client_id, sales) {
-        if (parseInt(base_client_id) !== parseInt(target_base_client_id)) {
-            return;
-        }
-        $.each(sales, function(index, sale) {
-            lastYearArr.push(sale['amount']);
-            lastYearMonthJpArr.push(sale['year_month_jp']);
-        });
+    }
+    // 売上データを格納
+    $.each(client_sales, function(index, sales) {
+        yearArr.push(sales['amount']);
+        yearMonthJpArr.push(sales['year_month_jp']);
     });
     // 配列を初期化
     const datasets = [];
-    // 今年のデータがある場合
-    if(currentYearArr.length > 0){
+    // データがある場合
+    if(yearArr.length > 0){
         datasets.push({
             type: 'line',
-            label: '売上推移（' + base_name + `@${currentYear}年）`,
-            data: currentYearArr,
-            borderColor: currentColors.borderColor,
-            backgroundColor: currentColors.backgroundColor,
-            pointBackgroundColor: currentColors.borderColor,
+            label: year + '年',
+            data: yearArr,
+            borderColor: colors.borderColor,
+            backgroundColor: colors.backgroundColor,
+            pointBackgroundColor: colors.borderColor,
             pointRadius: 5,
             pointHoverRadius: 7,
             yAxisID: "y-axis-1",
-            yearMonthJp: currentYearMonthJpArr,
-        });
-    }
-    // 昨年のデータがある場合
-    if(lastYearArr.length > 0){
-        datasets.push({
-            type: 'line',
-            label: '売上推移（' + base_name + `@${lastYear}年）`,
-            data: lastYearArr,
-            borderColor: lastColors.borderColor,
-            backgroundColor: lastColors.backgroundColor,
-            pointBackgroundColor: lastColors.borderColor,
-            pointRadius: 5,
-            pointHoverRadius: 7,
-            borderDash: [5, 5],
-            yAxisID: "y-axis-1",
-            yearMonthJp: lastYearMonthJpArr,
+            yearMonthJp: yearMonthJpArr,
+            year: year,
         });
     }
     return datasets;
 }
+
+// グラフを作成
+$(document).on('click', '.add_year_button', function () {
+    // AJAX通信のURLを定義
+    const ajax_url = '/client_detail/ajax_get_sales_data';
+    // 倉庫顧客IDを取得
+    const base_client_id = $(this).data('base-client-id');
+    $.ajax({
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        },
+        url: ajax_url,
+        type: 'GET',
+        data: {
+            'client_id': $('#client_id').val(),
+            'year': $('#yearSelect_' + base_client_id).val(),
+            'base_client_id': base_client_id,
+        },
+        dataType: 'json',
+        success: function(data){
+            try {
+                // 売上データを格納
+                const client_sales = data['client_sales'][data['base_client_id']] || [];
+                // データがない場合はスキップ
+                if (client_sales.length === 0) return;
+                // グラフを追加するキャンバスを取得
+                const canvas_id = 'client_sales_chart_' + data['base_client_id'];
+                // 売上データを取得
+                const datasets = getClientsSalesChart(client_sales, data['base_client_id']);
+                // グラフを取得
+                const chart = Chart.getChart(canvas_id);
+                // グラフを追加して更新
+                chart.data.datasets.push(...datasets);
+                chart.update();
+            } catch (e) {
+                alert('グラフの生成に失敗しました。');
+            }
+        },
+        error: function(){
+            alert('グラフの生成に失敗しました。');
+        }
+    });
+});

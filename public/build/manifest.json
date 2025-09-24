@@ -24,7 +24,7 @@
     ]
   },
   "resources/js/chart_color.js": {
-    "file": "assets/chart_color-DSS5FTIa.js",
+    "file": "assets/chart_color-CmXEACsr.js",
     "name": "chart_color",
     "src": "resources/js/chart_color.js",
     "isEntry": true
@@ -42,7 +42,7 @@
     "isEntry": true
   },
   "resources/js/client_management/client_detail/client_sales_chart.js": {
-    "file": "assets/client_sales_chart-0q5HoXYv.js",
+    "file": "assets/client_sales_chart-BG0T9q7R.js",
     "name": "client_sales_chart",
     "src": "resources/js/client_management/client_detail/client_sales_chart.js",
     "isEntry": true,
@@ -64,7 +64,7 @@
     "isEntry": true
   },
   "resources/js/dashboard/chart.js": {
-    "file": "assets/chart-vZVTiuUt.js",
+    "file": "assets/chart-BIEXIRfm.js",
     "name": "chart",
     "src": "resources/js/dashboard/chart.js",
     "isEntry": true,
