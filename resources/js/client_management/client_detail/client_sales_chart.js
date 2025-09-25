@@ -112,7 +112,6 @@ function createChart(){
                     // Chart.js初期化
                     const ctx = canvas.getContext('2d');
                     new Chart(ctx, {
-                        type: 'line',
                         data: {
                             labels: labels,
                             datasets: datasets
@@ -129,6 +128,9 @@ function createChart(){
                                         stepSize: 1000000
                                     }
                                 },
+                                x: {
+                                    offset: true,  // 端のバーを少し内側にずらす
+                                }
                             },
                             plugins: {
                                 legend: {
@@ -200,8 +202,11 @@ function getClientsSalesChart(client_sales, target_base_client_id)
     const datasets = [];
     // データがある場合
     if(amountArr.length > 0){
+        // 現在のタイプを取得（取得できない場合は'line'をセット）
+        const current_type = chart?.data?.datasets?.[0]?.type ?? 'line';
+        // 配列に追加
         datasets.push({
-            type: 'line',
+            type: current_type,
             label: term_number + '期',
             data: amountArr,
             borderColor: colors.borderColor,
@@ -212,6 +217,7 @@ function getClientsSalesChart(client_sales, target_base_client_id)
             yAxisID: "y-axis-1",
             yearMonthJp: yearMonthJpArr,
             term_number: term_number,
+            borderRadius: 30,
         });
     }
     return datasets;

@@ -68,7 +68,7 @@ function createChart(){
                 const clients_count_chart_by_base_ctx = document.getElementById("clients_count_chart_by_base").getContext("2d");
                 const sales_rank_chart_ctx = document.getElementById("sales_rank_chart").getContext("2d");
                 // Chart.js を使って新しい折れ線グラフ(Line Chart)を作成する
-                const clients_count_chart_by_region = new Chart(clients_count_chart_by_region_ctx, {
+                new Chart(clients_count_chart_by_region_ctx, {
                     // グラフに表示するデータ
                     data: clients_count_chart_by_region_data,
                     // オプション設定
@@ -110,7 +110,7 @@ function createChart(){
                         }
                     }
                 });
-                const clients_count_chart_by_base = new Chart(clients_count_chart_by_base_ctx, {
+                new Chart(clients_count_chart_by_base_ctx, {
                     // グラフに表示するデータ
                     data: clients_count_chart_by_base_data,
                     // オプション設定
@@ -152,7 +152,7 @@ function createChart(){
                         }
                     }
                 });
-                const sales_rank_chart = new Chart(sales_rank_chart_ctx, {
+                new Chart(sales_rank_chart_ctx, {
                     // グラフに表示するデータ
                     data: sales_rank_chart_data,
                     // オプション設定
