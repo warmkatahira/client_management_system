@@ -76,17 +76,33 @@ function createChart(){
                     // 折れ線ボタン
                     const lineBtn = document.createElement('button');
                     lineBtn.type = 'button';
-                    lineBtn.classList.add('btn', 'chart_type_change', 'border', 'border-black', 'p-1', 'bg-theme-sub-y');
+                    lineBtn.classList.add('btn', 'chart_type_change', 'border', 'border-black', 'p-1', 'tippy_line_chart', 'bg-theme-sub-y');
                     lineBtn.innerHTML = '<img src="/icon/line_chart.svg" class="w-6 h-6">';
                     lineBtn.dataset.baseClientId = base_client_id;
                     lineBtn.dataset.chartType = 'line';
+                    // 折れ線グラフのツールチップ
+                    tippy(lineBtn, {
+                        content: '折れ線グラフで表示',
+                        duration: 500,
+                        allowHTML: true,
+                        placement: 'right',
+                        theme: 'tippy_main_theme',
+                    });
                     // 棒グラフボタン
                     const barBtn = document.createElement('button');
                     barBtn.type = 'button';
-                    barBtn.classList.add('btn', 'chart_type_change', 'border-y', 'border-r', 'border-black', 'p-1');
+                    barBtn.classList.add('btn', 'chart_type_change', 'border-y', 'border-r', 'border-black', 'p-1', 'tippy_bar_chart');
                     barBtn.innerHTML = '<img src="/icon/bar_chart.svg" class="w-6 h-6">';
                     barBtn.dataset.baseClientId = base_client_id;
                     barBtn.dataset.chartType = 'bar';
+                    // 棒グラフのツールチップ
+                    tippy(barBtn, {
+                        content: '棒グラフで表示',
+                        duration: 500,
+                        allowHTML: true,
+                        placement: 'right',
+                        theme: 'tippy_main_theme',
+                    });
                     // controlDivに追加（selectと追加ボタンの右に横並びで追加）
                     controlDiv.appendChild(lineBtn);
                     controlDiv.appendChild(barBtn);
