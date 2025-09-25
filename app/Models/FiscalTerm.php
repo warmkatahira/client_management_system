@@ -15,9 +15,9 @@ class FiscalTerm extends Model
         'term_end',
     ];
     // 指定したレコードを取得
-    public static function getSpecifyByStartEnd($start, $end)
+    public static function getSpecifyByStartEnd($date)
     {
-        return self::where('term_start', '<=', $start)->where('term_end', '>=', $end);
+        return self::where('term_start', '<=', $date)->where('term_end', '>=', $date);
     }
     // 指定したレコードを取得
     public static function getSpecifyByTermNumber($term_number)

@@ -17,7 +17,7 @@ class ClientDetailService
         // 現在の日時を取得
         $nowDate = CarbonImmutable::now();
         // 今期を取得
-        $current_fiscal_term = FiscalTerm::getSpecifyByStartEnd($nowDate->format('Y-m'), $nowDate->format('Y-m'))->first();
+        $current_fiscal_term = FiscalTerm::getSpecifyByStartEnd($nowDate->format('Y-m'))->first();
         // 前期を取得
         $last_term_number = intval($current_fiscal_term->term_number) - 1;
         $last_fiscal_term = FiscalTerm::getSpecifyByTermNumber($last_term_number)->first();
