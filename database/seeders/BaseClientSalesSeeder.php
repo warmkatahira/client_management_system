@@ -20,7 +20,7 @@ class BaseClientSalesSeeder extends Seeder
         $base_clients = BaseClient::pluck('base_client_id');
         // Carbonを使って開始月と終了月を設定
         $start = CarbonImmutable::create(2022, 1, 1);
-        $end   = CarbonImmutable::create(2025, 9, 1);
+        $end   = CarbonImmutable::create(2025, 10, 1);
         // 月ごとにループ
         for($date = $start; $date->lte($end); $date = $date->addMonth()){
             foreach($base_clients as $base_client_id){
