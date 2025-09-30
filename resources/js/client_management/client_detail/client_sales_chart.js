@@ -234,6 +234,8 @@ function getClientsSalesChart(client_sales, target_base_client_id)
             yearMonthJp: yearMonthJpArr,
             term_number: term_number,
             borderRadius: 30,
+            fill: true,     // 線の下を塗りつぶす
+            tension: 0.4,   // 曲線をなめらかに
         });
     }
     return datasets;

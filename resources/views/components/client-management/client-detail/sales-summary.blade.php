@@ -4,8 +4,8 @@
     </p>
     <div class="flex flex-col gap-5">
         <div class="flex flex-col gap-3 items-center bg-gradient-to-r from-theme-sub-g to-theme-main text-white rounded-2xl shadow-lg p-6">
-            <x-client-management.client-detail.sales-summary-total-info label="合計売上" :termNumber="$term['last_fiscal_term']->term_number" :amount="$lastTermSalesSummaries->sum('total_amount')" />
-            <x-client-management.client-detail.sales-summary-total-info label="合計売上" :termNumber="$term['current_fiscal_term']->term_number" :amount="$currentTermSalesSummaries->sum('total_amount')" />
+            <x-client-management.client-detail.sales-summary-info-1 label="合計売上" :termNumber="$term['last_fiscal_term']->term_number" :amount="$lastTermSalesSummaries->sum('total_amount')" />
+            <x-client-management.client-detail.sales-summary-info-1 label="合計売上" :termNumber="$term['current_fiscal_term']->term_number" :amount="$currentTermSalesSummaries->sum('total_amount')" />
         </div>
         <div class="grid grid-cols-12 gap-5">
             @foreach($currentTermSalesSummaries as $sales_summary)

@@ -83,7 +83,7 @@
             <!-- ローディング -->
             <x-loading />
             <!-- ページコンテンツ -->
-            <main class=" max-w-9xl">
+            <main class="max-w-9xl">
                 {{ $slot }}
             </main>
         </div>

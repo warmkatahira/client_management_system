@@ -40,32 +40,6 @@ class ClientDetailController extends Controller
         $current_term_sales_summaries = $ClientDetailService->getSalesSummary($client, $term['current_term_start'], $term['current_term_end']);
         // 前期の売上サマリーを取得
         $last_term_sales_summaries = $ClientDetailService->getSalesSummary($client, $term['last_term_start'], $term['last_term_end']);
-
-
-
-
-        // 期の情報を取得
-        $term = $ClientDetailService->getTermInfo();
-        // 顧客を取得
-        $client = Client::getSpecify($request->client_id)->with('base_clients.base')->first();
-        // 倉庫×顧客情報を取得
-        $base_clients = $client->base_clients;
-        // 倉庫名を結果に追加
-        $base_clients = $client->base_clients->map(function($bc){
-            return [
-                'base_client_id' => $bc->base_client_id,
-                'base_name' => $bc->base->base_name,
-            ];
-        });
-        // 今年の売上を倉庫×顧客単位で取得
-        $client_sales = $client->base_client_sales()->forTerm($term['current_term_start'], $term['current_term_end'])->get()->groupBy('base_client_id');
-        
-        // 取得した売上を整理
-        $client_sales = $this->formatSales($client_sales, $term['current_term_start'], $term['current_term_end']);
-
-        //dd($client_sales);
-
-
         return view('client_management.client_detail.index')->with([
             'client' => $client,
             'term' => $term,
@@ -131,8 +105,8 @@ class ClientDetailController extends Controller
         // 配列を初期化
         $months = [];
         // 開始と終了の年月を変数に格納
-        $current = CarbonImmutable::createFromFormat('Y-m', $term_start);
-        $end     = CarbonImmutable::createFromFormat('Y-m', $term_end);
+        $current = CarbonImmutable::createFromFormat('Y-m', $term_start)->startOfMonth();
+        $end     = CarbonImmutable::createFromFormat('Y-m', $term_end)->startOfMonth();
         // 開始から終了の配列を作成（yyyy-mm形式）
         while($current->lessThanOrEqualTo($end)){
             $months[] = $current->format('Y-m');
