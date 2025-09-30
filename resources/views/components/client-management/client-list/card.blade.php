@@ -11,7 +11,13 @@
                 <img src="{{ asset('storage/client_images/'.$client->client_image_file_name) }}" class="w-40 h-28 object-contain image_fade_in_modal_open">
             </div>
             <p class="mt-3 text-base font-bold text-gray-800 text-center">{{ $client->client_name }}</p>
-            <p class="text-xs text-gray-500 mt-1">{{ $client->bases->pluck('short_base_name')->implode(' / ') }}</p>
+            <p class="mt-1 flex flex-wrap gap-1 mb-1">
+                @foreach($client->bases as $base)
+                    <span class="bg-gray-200 text-gray-800 text-xs px-2 py-1 rounded-full">
+                        {{ $base->short_base_name }}
+                    </span>
+                @endforeach
+            </p>
             <p class="text-xs text-gray-500">
                 {{ 
                     $client->base_clients
