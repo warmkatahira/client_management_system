@@ -64,7 +64,7 @@
                         <td class="py-1 px-2 border text-center">{{ $client->representative_name }}</td>
                         <td class="py-1 px-2 border text-center">
                             @if($client->client_url)
-                                <a href="{{ $client->client_url }}" target="_blank" rel="noopener noreferrer" class="link-btn">
+                                <a href="{{ $client->client_url }}" target="_blank" rel="noopener noreferrer" class="link-btn tippy_jump_hp">
                                     <i class="las la-external-link-alt la-2x"></i>
                                 </a>
                             @endif

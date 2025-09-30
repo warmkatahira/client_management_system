@@ -29,7 +29,7 @@
             <div class="flex gap-5 mt-4">
                 <a href="{{ route('client_detail.index', ['client_id' => $client->client_id]) }}" class="btn bg-theme-main text-white py-1 px-5 rounded-full">詳細</a>
                 @if($client->client_url)
-                    <a href="{{ $client->client_url }}" target="_blank" rel="noopener noreferrer" class="btn bg-theme-main text-white py-1 px-5 rounded-full">HP</a>
+                    <a href="{{ $client->client_url }}" target="_blank" rel="noopener noreferrer" class="btn bg-theme-main text-white py-1 px-5 rounded-full tippy_jump_hp">HP</a>
                 @endif
             </div>
         </div>

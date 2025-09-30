@@ -15,3 +15,12 @@ tippy('.tippy_jump_google_map', {
     placement: 'right',
     theme: 'tippy_main_theme',
 });
+
+// HPに遷移するツールチップ
+tippy('.tippy_jump_hp', {
+    content: '<i class="las la-external-link-alt la-lg mr-1"></i>HPを表示',
+    duration: 500,
+    allowHTML: true,
+    placement: 'right',
+    theme: 'tippy_main_theme',
+});
