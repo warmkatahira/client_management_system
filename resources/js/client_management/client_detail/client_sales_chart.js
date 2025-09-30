@@ -139,13 +139,22 @@ function createChart(){
                                     type: "linear",
                                     position: "left",
                                     ticks: {
-                                        max: 100000000,
+                                        max: 50000000,
                                         min: 0,
-                                        stepSize: 1000000
+                                        stepSize: 500000
                                     }
                                 },
                                 x: {
                                     offset: true,  // 端のバーを少し内側にずらす
+                                }
+                            },
+                            animation: {
+                                onProgress: (animation) => {
+                                console.log(animation.currentStep / animation.numSteps);
+                                },
+                                delay: (ctx) => {
+                                let index = ctx.dataIndex;
+                                return index * 80;
                                 }
                             },
                             plugins: {
