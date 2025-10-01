@@ -3,7 +3,7 @@
         <div class="flex flex-row items-end">
             <img src="{{ asset('storage/profile_images/' . $user->profile_image_file_name) }}" class="w-24 mr-10">
             <div class="flex flex-row mt-3">
-                <button type="button" id="profile_image_update_modal_open" class="btn bg-theme-main text-sm p-3"><i class="las la-image la-lg mr-1"></i>プロフィール画像更新</button>
+                <button type="button" id="profile_image_update_modal_open" class="btn bg-theme-main text-white text-sm p-3"><i class="las la-image la-lg mr-1"></i>プロフィール画像更新</button>
             </div>
         </div>
         <div class="flex flex-col mt-5 gap-y-3">
