@@ -22,7 +22,7 @@ class ClientSearchService
             'search_client_name',
             'search_is_active',
             'search_item_category_id',
-            'search_client_service_id',
+            'search_service_id',
         ]);
     }
 
@@ -42,7 +42,7 @@ class ClientSearchService
             session(['search_client_name' => $request->search_client_name]);
             session(['search_is_active' => $request->search_is_active]);
             session(['search_item_category_id' => $request->search_item_category_id]);
-            session(['search_client_service_id' => $request->search_client_service_id]);
+            session(['search_service_id' => $request->search_service_id]);
         }
     }
 
@@ -121,10 +121,10 @@ class ClientSearchService
             });
         }
         // 提供内容の条件がある場合
-        if(session('search_client_service_id') != null){
+        if(session('search_service_id') != null){
             // 条件を指定して取得
-            $query->whereHas('client_services', function ($q){
-                $q->where('client_services.client_service_id', session('search_client_service_id'));
+            $query->whereHas('base_client_service', function ($q){
+                $q->where('base_client_service.service_id', session('search_service_id'));
             });
         }
         // 並び替えを実施

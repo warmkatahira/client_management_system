@@ -116,6 +116,19 @@ class Client extends Model
         ->select('base_client_sales.*', 'bases.base_name')
         ->selectRaw("DATE_FORMAT(CONCAT(base_client_sales.year_month,'-01'), '%Y年%m月') as year_month_jp");
     }
+    // base_client_servicesを取得（中間テーブル経由）
+    public function base_client_service()
+    {
+        return $this->hasManyThrough(
+            BaseClientService::class, // 最終的に取得したいテーブル
+            BaseClient::class,     // 中間テーブル
+            'client_id',           // 中間テーブルの外部キー（Clientを参照）
+            'base_client_id',      // 最終テーブルの外部キー（BaseClientを参照）
+            'client_id',           // Clientのローカルキー
+            'base_client_id'       // BaseClientのローカルキー
+        )
+        ->select('base_client_service.*');
+    }
     // ダウンロード時のヘッダーを定義
     public static function downloadHeaderAtClientList()
     {
