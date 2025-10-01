@@ -90,7 +90,8 @@ function createChart(){
                                 labels: {
                                     // 凡例がpointStyleに従う
                                     usePointStyle: true
-                                }
+                                },
+                                onClick: (e) => null,
                             },
                             tooltip: {
                                 callbacks: {
@@ -132,7 +133,8 @@ function createChart(){
                                 labels: {
                                     // 凡例がpointStyleに従う
                                     usePointStyle: true
-                                }
+                                },
+                                onClick: (e) => null,
                             },
                             tooltip: {
                                 callbacks: {
@@ -163,7 +165,8 @@ function createChart(){
                                 labels: {
                                     boxWidth: 0,            // 色の四角を非表示にする
                                     usePointStyle: false    // 点スタイルも使わない
-                                }
+                                },
+                                onClick: (e) => null,
                             },
                             tooltip: {
                                 callbacks: {
