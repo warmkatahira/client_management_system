@@ -91,7 +91,7 @@ function createChart(){
                                     // 凡例がpointStyleに従う
                                     usePointStyle: true
                                 },
-                                onClick: (e) => null,
+                                onClick: (e) => null,   // 凡例のクリック動作を無効化
                             },
                             tooltip: {
                                 callbacks: {
@@ -134,7 +134,7 @@ function createChart(){
                                     // 凡例がpointStyleに従う
                                     usePointStyle: true
                                 },
-                                onClick: (e) => null,
+                                onClick: (e) => null,   // 凡例のクリック動作を無効化
                             },
                             tooltip: {
                                 callbacks: {
@@ -166,7 +166,7 @@ function createChart(){
                                     boxWidth: 0,            // 色の四角を非表示にする
                                     usePointStyle: false    // 点スタイルも使わない
                                 },
-                                onClick: (e) => null,
+                                onClick: (e) => null,   // 凡例のクリック動作を無効化
                             },
                             tooltip: {
                                 callbacks: {
