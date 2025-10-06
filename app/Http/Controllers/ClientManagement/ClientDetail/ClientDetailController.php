@@ -21,6 +21,8 @@ class ClientDetailController extends Controller
     {
         // ページヘッダーをセッションに格納
         session(['page_header' => '顧客詳細']);
+        // 現在のURLを取得
+        session(['back_url_2' => url()->full()]);
         // インスタンス化
         $ClientDetailService = new ClientDetailService;
         // 顧客を取得

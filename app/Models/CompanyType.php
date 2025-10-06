@@ -20,4 +20,9 @@ class CompanyType extends Model
     {
         return self::orderBy('sort_order', 'asc');
     }
+    // company_type_nameとcompany_type_short_nameを返すアクセサ
+    public function getCompanyTypeNameTextAttribute(): string
+    {
+        return $this->company_type_name.'('.$this->company_type_short_name.')';
+    }
 }

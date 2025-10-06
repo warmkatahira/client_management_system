@@ -4,7 +4,7 @@
     "name": "chartjs-plugin-datalabels.esm"
   },
   "resources/css/app.css": {
-    "file": "assets/app-C4Ga5ng4.css",
+    "file": "assets/app-BpW28cv6.css",
     "src": "resources/css/app.css",
     "isEntry": true
   },
@@ -62,6 +62,15 @@
     "name": "client_sales_list",
     "src": "resources/js/client_management/client_sales_list/client_sales_list.js",
     "isEntry": true
+  },
+  "resources/js/client_management/client_update/client_update.js": {
+    "file": "assets/client_update-Dj3eRJpJ.js",
+    "name": "client_update",
+    "src": "resources/js/client_management/client_update/client_update.js",
+    "isEntry": true,
+    "imports": [
+      "resources/js/loading.js"
+    ]
   },
   "resources/js/dashboard/chart.js": {
     "file": "assets/chart-D-qIuiKe.js",

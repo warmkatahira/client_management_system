@@ -35,6 +35,7 @@ export default defineConfig({
                 'resources/js/client_management/client_sales_list/client_sales_list.js',
                 'resources/js/client_management/client_detail/client_detail.js',
                 'resources/js/client_management/client_detail/client_sales_chart.js',
+                'resources/js/client_management/client_update/client_update.js',
                 // 設定
                 'resources/js/setting/master_management/item_category/item_category.js',
                 // システム管理

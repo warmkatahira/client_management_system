@@ -12,13 +12,10 @@
             </dpan>
         </div>
         <div class="ml-auto">
-            @if($client->client_url)
-                <a href="{{ $client->client_url }}" target="_blank" rel="noopener noreferrer"
-                    class="btn inline-flex items-center px-5 py-2.5 bg-theme-main text-white text-sm rounded-full shadow-md">
-                    <i class="las la-external-link-alt la-lg mr-1"></i>
-                    HPへ移動
-                </a>
-            @endif
+            <a href="{{ route('client_update.basic_info', ['client_id' => $client->client_id]) }}" class="btn inline-flex items-center px-5 py-2.5 bg-theme-main text-white text-sm rounded-full shadow-md">
+                <i class="las la-pen la-lg mr-1"></i>
+                更新
+            </a>
         </div>
     </div>
     <div class="flex flex-row items-center gap-5 bg-gray-100 rounded-xl border shadow-lg">
@@ -47,10 +44,19 @@
                 <span class="text-sm border-b-4 border-theme-main py-1">電話番号</span>
                 <p class="ml-3 mt-2">{{ $client->client_tel ?? '未登録' }}</p>
             </div>
-             <div>
+            <div>
                 <span class="text-sm border-b-4 border-theme-main py-1">代表取締役名</span>
                 <p class="ml-3 mt-2">{{ $client->representative_name }}</p>
             </div>
+            @if($client->client_url)
+                <div class="col-start-1">
+                    <a href="{{ $client->client_url }}" target="_blank" rel="noopener noreferrer"
+                        class="btn inline-flex items-center px-5 py-2.5 bg-theme-main text-white text-sm rounded-full shadow-md">
+                        <i class="las la-external-link-alt la-lg mr-1"></i>
+                        HPへ移動
+                    </a>
+                </div>
+            @endif
         </div>
     </div>
 </div>

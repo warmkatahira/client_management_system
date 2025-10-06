@@ -1,5 +1,5 @@
 <x-app-layout>
-    <x-page-back :url="route('system_admin_menu.index')" />
+    <x-button.page-back :url="route('system_admin_menu.index')" />
     <div class="mt-5">
         <form method="POST" action="{{ route('user_update.update') }}" id="user_update_form">
             @csrf

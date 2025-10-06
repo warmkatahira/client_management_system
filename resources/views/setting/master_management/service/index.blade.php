@@ -1,5 +1,5 @@
 <x-app-layout>
-    <x-page-back :url="route('master_management_menu.index')" />
+    <x-button.page-back :url="route('master_management_menu.index')" />
     <div class="flex flex-row my-3">
         <x-setting.master-management.service.operation-div />
         <x-pagination :pages="$services" />

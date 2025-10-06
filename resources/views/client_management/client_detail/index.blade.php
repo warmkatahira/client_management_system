@@ -1,7 +1,7 @@
 <x-app-layout>
-    <x-page-back :url="session('back_url_1')" />
+    <x-button.page-back :url="session('back_url_1')" />
     <div class="py-5 grid grid-cols-12 gap-5">
-        <x-client-management.client-detail.header :client="$client" />
+        <x-client-management.client-detail.basic-info :client="$client" />
         <x-client-management.client-detail.sales-summary :currentTermSalesSummaries="$current_term_sales_summaries" :lastTermSalesSummaries="$last_term_sales_summaries" :term="$term" :term="$term" />
         <x-client-management.client-detail.overview :client="$client" />
         <x-client-management.client-detail.base-info :client="$client" />
