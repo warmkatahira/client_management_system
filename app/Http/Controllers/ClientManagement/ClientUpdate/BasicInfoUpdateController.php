@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\ClientManagement\ClientDetail;
+namespace App\Http\Controllers\ClientManagement\ClientUpdate;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
@@ -9,16 +9,16 @@ use App\Models\Client;
 use App\Models\Prefecture;
 use App\Models\CompanyType;
 // サービス
-use App\Services\ClientManagement\ClientUpdate\ClientUpdateService;
+use App\Services\ClientManagement\ClientUpdate\BasicInfoUpdateService;
 // リクエスト
-use App\Http\Requests\ClientManagement\ClientUpdate\ClientUpdateAtBasicInfoRequest;
+use App\Http\Requests\ClientManagement\ClientUpdate\BasicInfoUpdateRequest;
 // その他
 use Carbon\CarbonImmutable;
 use Illuminate\Support\Facades\DB;
 
-class ClientUpdateController extends Controller
+class BasicInfoUpdateController extends Controller
 {
-    public function basic_info_index(Request $request)
+    public function index(Request $request)
     {
         // ページヘッダーをセッションに格納
         session(['page_header' => '顧客情報更新(基本情報)']);
@@ -35,16 +35,16 @@ class ClientUpdateController extends Controller
         ]);
     }
 
-    public function basic_info_update(ClientUpdateAtBasicInfoRequest $request)
+    public function update(BasicInfoUpdateRequest $request)
     {
         try{
             DB::transaction(function () use ($request){
                 // 顧客を取得
                 $client = Client::getSpecify($request->client_id)->first();
                 // インスタンス化
-                $ClientUpdateService = new ClientUpdateService;
+                $BasicInfoUpdateService = new BasicInfoUpdateService;
                 // 顧客情報を更新
-                $ClientUpdateService->updateClientAtBasicInfo($request, $client);
+                $BasicInfoUpdateService->update($request, $client);
             });
         }catch (\Exception $e){
             return redirect()->back()->with([

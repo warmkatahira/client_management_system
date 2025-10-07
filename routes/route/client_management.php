@@ -9,7 +9,8 @@ use App\Http\Controllers\ClientManagement\ClientList\ClientListController;
 use App\Http\Controllers\ClientManagement\ClientList\ClientListDownloadController;
 // +-+-+-+-+-+-+-+- 顧客詳細 +-+-+-+-+-+-+-+-
 use App\Http\Controllers\ClientManagement\ClientDetail\ClientDetailController;
-use App\Http\Controllers\ClientManagement\ClientDetail\ClientUpdateController;
+// +-+-+-+-+-+-+-+- 顧客更新 +-+-+-+-+-+-+-+-
+use App\Http\Controllers\ClientManagement\ClientUpdate\BasicInfoUpdateController;
 // +-+-+-+-+-+-+-+- 顧客売上リスト +-+-+-+-+-+-+-+-
 use App\Http\Controllers\ClientManagement\ClientSalesList\ClientSalesListController;
 use App\Http\Controllers\ClientManagement\ClientSalesList\ClientSalesListDownloadController;
@@ -32,9 +33,9 @@ Route::middleware('common')->group(function (){
         Route::get('ajax_get_chart_data', 'ajax_get_chart_data');
         Route::get('ajax_get_sales_data', 'ajax_get_sales_data');
     });
-    Route::controller(ClientUpdateController::class)->prefix('client_update')->name('client_update.')->group(function(){
-        Route::get('basic_info', 'basic_info_index')->name('basic_info');
-        Route::post('basic_info', 'basic_info_update')->name('basic_info');
+    Route::controller(BasicInfoUpdateController::class)->prefix('basic_info_update')->name('basic_info_update.')->group(function(){
+        Route::get('', 'index')->name('index');
+        Route::post('', 'update')->name('update');
     });
     // +-+-+-+-+-+-+-+- 顧客売上リスト +-+-+-+-+-+-+-+-
     Route::controller(ClientSalesListController::class)->prefix('client_sales_list')->name('client_sales_list.')->group(function(){

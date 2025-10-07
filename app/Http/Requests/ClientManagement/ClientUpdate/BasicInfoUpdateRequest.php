@@ -5,7 +5,7 @@ namespace App\Http\Requests\ClientManagement\ClientUpdate;
 use Illuminate\Foundation\Http\FormRequest;
 use App\Http\Requests\BaseRequest;
 
-class ClientUpdateAtBasicInfoRequest extends BaseRequest
+class BasicInfoUpdateRequest extends BaseRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -23,13 +23,14 @@ class ClientUpdateAtBasicInfoRequest extends BaseRequest
     public function rules(): array
     {
         return [
+            'is_active'                 => 'required|boolean',
             'client_code'               => 'required|integer|min:1|unique:clients,client_code,'.$this->client_id.',client_id',
             'client_name'               => 'required|string|max:100|unique:clients,client_name,'.$this->client_id.',client_id',
             'client_postal_code'        => 'nullable|string|max:8',
             'prefecture_id'             => 'nullable|exists:prefectures,prefecture_id',
             'client_address'            => 'nullable|string|max:255',
             'client_tel'                => 'nullable|string|max:13',
-            'representative_name'       => 'required|string|max:20',
+            'representative_name'       => 'nullable|string|max:20',
             'company_type_id'           => 'required|exists:company_types,company_type_id',
         ];
     }
@@ -41,6 +42,8 @@ class ClientUpdateAtBasicInfoRequest extends BaseRequest
 
     public function attributes()
     {
-        return parent::attributes();
+        return array_merge(parent::attributes(), [
+            'is_active'     => "ステータス",
+        ]);
     }
 }

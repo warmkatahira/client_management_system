@@ -5,7 +5,7 @@
                 <tr class="text-white bg-black whitespace-nowrap">
                     <th id="all_check" class="font-thin py-1 px-2"><i class="las la-check-square la-lg"></i></th>
                     <th class="font-thin py-1 px-2 text-center">操作</th>
-                    <th class="font-thin py-1 px-2 text-center">取引中/停止</th>
+                    <th class="font-thin py-1 px-2 text-center">ステータス</th>
                     <th class="font-thin py-1 px-2 text-center sticky left-0 z-[41] bg-black">顧客名</th>
                     <th class="font-thin py-1 px-2 text-center">管轄倉庫名</th>
                     <th class="font-thin py-1 px-2 text-center">取扱品目名(大)</th>

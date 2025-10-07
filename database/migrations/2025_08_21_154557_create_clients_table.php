@@ -15,7 +15,7 @@ return new class extends Migration
             $table->increments('client_id');
             $table->unsignedInteger('client_code')->unique();
             $table->string('client_name', 100)->unique();
-            $table->string('representative_name', 20);
+            $table->string('representative_name', 20)->nullable();
             $table->string('client_postal_code', 8)->nullable();
             $table->unsignedInteger('prefecture_id')->nullable();
             $table->string('client_address', 255)->nullable();

@@ -5,12 +5,13 @@ namespace App\Services\ClientManagement\ClientUpdate;
 // モデル
 use App\Models\Client;
 
-class ClientUpdateService
+class BasicInfoUpdateService
 {
     // 顧客情報を更新
-    public function updateClientAtBasicInfo($request, $client)
+    public function update($request, $client)
     {
         $client->update($request->only([
+            'is_active',
             'client_code',
             'client_name',
             'client_postal_code',

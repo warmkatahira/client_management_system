@@ -12,7 +12,7 @@
             </dpan>
         </div>
         <div class="ml-auto">
-            <a href="{{ route('client_update.basic_info', ['client_id' => $client->client_id]) }}" class="btn inline-flex items-center px-5 py-2.5 bg-theme-main text-white text-sm rounded-full shadow-md">
+            <a href="{{ route('basic_info_update.index', ['client_id' => $client->client_id]) }}" class="btn inline-flex items-center px-5 py-2.5 bg-theme-main text-white text-sm rounded-full shadow-md">
                 <i class="las la-pen la-lg mr-1"></i>
                 更新
             </a>
