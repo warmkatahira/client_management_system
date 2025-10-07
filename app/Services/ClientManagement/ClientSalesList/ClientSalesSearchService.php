@@ -6,6 +6,7 @@ namespace App\Services\ClientManagement\ClientSalesList;
 use App\Models\Client;
 // 列挙
 use App\Enums\SystemEnum;
+use App\Enums\ClientStatusEnum;
 // その他
 use Illuminate\Support\Facades\DB;
 use Carbon\CarbonImmutable;
@@ -19,7 +20,7 @@ class ClientSalesSearchService
             'search_base_id',
             'search_client_code',
             'search_client_name',
-            'search_is_active',
+            'search_client_status_id',
             'search_sales_year_month_from',
             'search_sales_year_month_to',
         ]);
@@ -30,7 +31,7 @@ class ClientSalesSearchService
     {
         // 変数が存在しない場合は検索が実行されていないので、初期条件をセット
         if(!isset($request->search_type)){
-            session(['search_is_active' => '1']);
+            session(['search_client_status_id' => ClientStatusEnum::ACTIVE]);
             session(['search_sales_year_month_from'   => CarbonImmutable::now()->format('Y-m')]);
             session(['search_sales_year_month_to'     => CarbonImmutable::now()->format('Y-m')]);
         }
@@ -39,7 +40,7 @@ class ClientSalesSearchService
             session(['search_base_id' => $request->search_base_id]);
             session(['search_client_code' => $request->search_client_code]);
             session(['search_client_name' => $request->search_client_name]);
-            session(['search_is_active' => $request->search_is_active]);
+            session(['search_client_status_id' => $request->search_client_status_id]);
             session(['search_sales_year_month_from' => $request->search_sales_year_month_from]);
             session(['search_sales_year_month_to' => $request->search_sales_year_month_to]);
         }
@@ -86,10 +87,10 @@ class ClientSalesSearchService
             // 条件を指定して取得
             $query->where('client_name', 'LIKE', '%'.session('search_client_name').'%');
         }
-        // 取引中/停止の条件がある場合
-        if(session('search_is_active') != null){
+        // ステータスの条件がある場合
+        if(session('search_client_status_id') != null){
             // 条件を指定して取得
-            $query->where('is_active', session('search_is_active'));
+            $query->where('client_status_id', session('search_client_status_id'));
         }
         // 並び替え条件が売上金額順の場合
         if(session('sort_condition') === 'amount') {

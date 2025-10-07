@@ -28,10 +28,11 @@ return new class extends Migration
             $table->unsignedInteger('account_type_id');
             $table->unsignedInteger('collection_term_id');
             $table->unsignedInteger('sort_order')->default(10000);
-            $table->boolean('is_active')->default(1);
+            $table->unsignedInteger('client_status_id');
             $table->unsignedInteger('updated_by')->nullable();
             $table->timestamps();
             // 外部キー制約
+            $table->foreign('client_status_id')->references('client_status_id')->on('client_statuses')->cascadeOnUpdate();
             $table->foreign('industry_id')->references('industry_id')->on('industries')->cascadeOnUpdate();
             $table->foreign('company_type_id')->references('company_type_id')->on('company_types')->cascadeOnUpdate();
             $table->foreign('account_type_id')->references('account_type_id')->on('account_types')->cascadeOnUpdate();

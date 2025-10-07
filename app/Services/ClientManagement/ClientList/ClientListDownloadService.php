@@ -31,7 +31,8 @@ class ClientListDownloadService
                 foreach($clients as $client){
                     // 変数に情報を格納
                     $row = [
-                        $client->is_active_text,
+                        $client->client_status->client_status,
+                        $client->client_code,
                         $client->full_client_name,
                         $client->bases->pluck('base_name')->implode(' / '),
                         $client->base_clients
@@ -46,7 +47,6 @@ class ClientListDownloadService
                         $client->industry->industry_name,
                         $client->collection_term->collection_term.'日',
                         $client->account_type->account_type_name,
-                        $client->client_code,
                         $client->client_postal_code,
                         $client->prefecture->prefecture_name,
                         $client->client_address,

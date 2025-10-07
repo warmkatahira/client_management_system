@@ -11,7 +11,7 @@ class BasicInfoUpdateService
     public function update($request, $client)
     {
         $client->update($request->only([
-            'is_active',
+            'client_status_id',
             'client_code',
             'client_name',
             'client_postal_code',

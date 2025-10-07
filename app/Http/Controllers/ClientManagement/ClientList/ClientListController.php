@@ -10,6 +10,7 @@ use App\Models\Industry;
 use App\Models\AccountType;
 use App\Models\ItemCategory;
 use App\Models\Service;
+use App\Models\ClientStatus;
 // サービス
 use App\Services\ClientManagement\ClientList\ClientSearchService;
 // トレイト
@@ -48,6 +49,8 @@ class ClientListController extends Controller
         $item_categories = ItemCategory::getAll()->get();
         // 提供内容を取得
         $services = Service::getAll()->get();
+        // 顧客ステータスを取得
+        $client_statuses = ClientStatus::getAll()->get();
         return view('client_management.client_list.index')->with([
             'clients' => $clients,
             'bases' => $bases,
@@ -55,6 +58,7 @@ class ClientListController extends Controller
             'account_types' => $account_types,
             'item_categories' => $item_categories,
             'services' => $services,
+            'client_statuses' => $client_statuses,
         ]);
     }
 }

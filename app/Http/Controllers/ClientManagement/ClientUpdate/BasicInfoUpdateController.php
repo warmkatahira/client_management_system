@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use App\Models\Client;
 use App\Models\Prefecture;
 use App\Models\CompanyType;
+use App\Models\ClientStatus;
 // サービス
 use App\Services\ClientManagement\ClientUpdate\BasicInfoUpdateService;
 // リクエスト
@@ -28,10 +29,13 @@ class BasicInfoUpdateController extends Controller
         $prefectures = Prefecture::getAll()->get();
         // 会社種別を取得
         $company_types = CompanyType::getAll()->get();
+        // 顧客ステータスを取得
+        $client_statuses = ClientStatus::getAll()->get();
         return view('client_management.client_update.basic_info')->with([
             'client' => $client,
             'prefectures' => $prefectures,
             'company_types' => $company_types,
+            'client_statuses' => $client_statuses,
         ]);
     }
 

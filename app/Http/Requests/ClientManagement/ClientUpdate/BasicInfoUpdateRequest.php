@@ -23,7 +23,7 @@ class BasicInfoUpdateRequest extends BaseRequest
     public function rules(): array
     {
         return [
-            'is_active'                 => 'required|boolean',
+            'client_status_id'          => 'required|exists:client_statuses,client_status_id',
             'client_code'               => 'required|integer|min:1|unique:clients,client_code,'.$this->client_id.',client_id',
             'client_name'               => 'required|string|max:100|unique:clients,client_name,'.$this->client_id.',client_id',
             'client_postal_code'        => 'nullable|string|max:8',
@@ -42,8 +42,6 @@ class BasicInfoUpdateRequest extends BaseRequest
 
     public function attributes()
     {
-        return array_merge(parent::attributes(), [
-            'is_active'     => "ステータス",
-        ]);
+        return parent::attributes();
     }
 }

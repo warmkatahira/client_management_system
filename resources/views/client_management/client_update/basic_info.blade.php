@@ -3,7 +3,7 @@
     <form method="POST" action="{{ route('basic_info_update.update') }}" id="client_update_form" class="mt-5">
         @csrf
         <div class="flex flex-col gap-3">
-            <x-form.select-boolean label="ステータス" id="is_active" name="is_active" :value="$client->is_active" label1="取引中" label0="停止" required="true" />
+            <x-form.select label="ステータス" id="client_status_id" name="client_status_id" :items="$client_statuses" optionValue="client_status_id" optionText="client_status" :value="$client->client_status_id" required="true" />
             <x-form.input type="tel" label="顧客コード" id="client_code" name="client_code" :value="$client->client_code" required="true" />
             <x-form.select label="会社種別" id="company_type_id" name="company_type_id" :items="$company_types" optionValue="company_type_id" optionText="company_type_name_text" :value="$client->company_type_id" required="true" />
             <x-form.input type="text" label="顧客名" id="client_name" name="client_name" :value="$client->client_name" required="true" />

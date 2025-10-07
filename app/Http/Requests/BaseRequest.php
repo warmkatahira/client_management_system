@@ -31,6 +31,7 @@ class BaseRequest extends FormRequest
     {
         return [
             // 顧客
+            'client_status_id'          => 'ステータス',
             'client_code'               => '顧客コード',
             'client_name'               => '顧客名',
             'client_postal_code'        => '郵便番号',

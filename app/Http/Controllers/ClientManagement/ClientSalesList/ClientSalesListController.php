@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 // モデル
 use App\Models\Base;
+use App\Models\ClientStatus;
 // サービス
 use App\Services\ClientManagement\ClientSalesList\ClientSalesSearchService;
 // トレイト
@@ -36,9 +37,12 @@ class ClientSalesListController extends Controller
         $clients = $this->setPagination($result);
         // 倉庫を取得
         $bases = Base::getAll()->get();
+        // 顧客ステータスを取得
+        $client_statuses = ClientStatus::getAll()->get();
         return view('client_management.client_sales_list.index')->with([
             'clients' => $clients,
             'bases' => $bases,
+            'client_statuses' => $client_statuses,
         ]);
     }
 }

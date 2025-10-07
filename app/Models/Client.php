@@ -25,7 +25,7 @@ class Client extends Model
         'account_type_id',
         'collection_term_id',
         'sort_order',
-        'is_active',
+        'client_status_id',
         'updated_by',
     ];
     // 全てのレコードを取得
@@ -48,6 +48,11 @@ class Client extends Model
     {
         return $this->belongsToMany(Base::class, 'base_client', 'client_id', 'base_id')
                     ->orderBy('bases.sort_order', 'asc');
+    }
+    // client_statusesテーブルとのリレーション
+    public function client_status()
+    {
+        return $this->belongsTo(ClientStatus::class, 'client_status_id', 'client_status_id');
     }
     // company_typesテーブルとのリレーション
     public function company_type()
@@ -91,11 +96,6 @@ class Client extends Model
             return $this->client_name . $this->company_type->company_type_name;
         }
     }
-    // is_activeの値によって文字列を返すアクセサ
-    public function getIsActiveTextAttribute()
-    {
-        return $this->is_active ? '取引中' : '停止';
-    }
     // base_clientsテーブルとのリレーション
     public function base_clients()
     {
@@ -133,7 +133,8 @@ class Client extends Model
     public static function downloadHeaderAtClientList()
     {
         return [
-            '取引中/停止',
+            'ステータス',
+            '顧客コード',
             '顧客名',
             '管轄倉庫名',
             '取扱品目(大)',
@@ -141,7 +142,6 @@ class Client extends Model
             '業種名',
             '回収期間',
             '取引種別名',
-            '顧客コード',
             '顧客郵便番号',
             '顧客都道府県',
             '顧客住所',
@@ -157,7 +157,7 @@ class Client extends Model
     public static function downloadHeaderAtClientSalesList()
     {
         return [
-            '取引中/停止',
+            'ステータス',
             '売上年月',
             '倉庫名',
             '顧客コード',

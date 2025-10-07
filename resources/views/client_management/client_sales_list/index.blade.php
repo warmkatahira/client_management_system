@@ -5,7 +5,7 @@
         <x-client-management.client-sales-list.sort-switch />
     </div>
     <div class="flex flex-row gap-x-5 items-start">
-        <x-client-management.client-sales-list.search route="client_sales_list.index" :bases="$bases" />
+        <x-client-management.client-sales-list.search route="client_sales_list.index" :bases="$bases" :clientStatuses="$client_statuses" />
         <x-client-management.client-sales-list.list :clients="$clients" />
     </div>
 </x-app-layout>

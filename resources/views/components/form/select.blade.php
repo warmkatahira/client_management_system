@@ -23,7 +23,7 @@
     <select id="{{ $id }}" name="{{ $name }}" class="w-1/2 text-sm border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
         <option value=""></option>
         @foreach($items as $item)
-            <option value="{{ $item->$optionValue }}" @if($value === $item->$optionValue) selected @endif>{{ $item->$optionText }}</value>
+            <option value="{{ $item->$optionValue }}" @if(old($name, $value) == $item->$optionValue) selected @endif>{{ $item->$optionText }}</value>
         @endforeach
     </select>
 </div>

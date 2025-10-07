@@ -1,9 +1,9 @@
 <div class="bg-white rounded-2xl shadow-md pt-2 pb-6 px-6 flex flex-col col-span-6">
     <div class="flex flex-row mb-2">
-        @if($client->is_active)
-            <span class="mr-3 text-xs rounded-full px-3 flex items-center bg-btn-enter text-white"><i class="las la-check mr-1"></i>{{ $client->is_active_text }}</span>
+        @if($client->client_status_id == ClientStatusEnum::ACTIVE)
+            <span class="mr-3 text-xs rounded-full px-3 flex items-center bg-btn-enter text-white"><i class="las la-check mr-1"></i>{{ $client->client_status->client_status }}</span>
         @else
-            <span class="mr-3 text-xs rounded-full px-3 flex items-center bg-gray-300"><i class="las la-times mr-1"></i>{{ $client->is_active_text }}</span>
+            <span class="mr-3 text-xs rounded-full px-3 flex items-center bg-gray-300"><i class="las la-times mr-1"></i>{{ $client->client_status->client_status }}</span>
         @endif
         <div class="flex gap-2 text-xs text-gray-500 items-center">
             <img class="profile_image_normal flex-shrink-0 tippy_user_full_name image_fade_in_modal_open" src="{{ asset('storage/profile_images/'.$client->user->profile_image_file_name) }}" data-user-full-name="{{ $client->user->full_name }}">

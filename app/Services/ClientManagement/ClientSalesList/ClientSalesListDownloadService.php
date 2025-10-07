@@ -31,7 +31,7 @@ class ClientSalesListDownloadService
                 foreach($clients as $client){
                     // 変数に情報を格納
                     $row = [
-                        $client->is_active_text,
+                        $client->client_status->client_status,
                         formatYearMonth($client->year_month),
                         $client->base_name,
                         $client->client_code,

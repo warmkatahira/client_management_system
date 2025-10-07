@@ -27,6 +27,7 @@ class DatabaseSeeder extends Seeder
             ItemSubCategorySeeder::class,
             ServiceSeeder::class,
             CollectionTermSeeder::class,
+            ClientStatusSeeder::class,
             ClientSeeder::class,
             SalesRankSeeder::class,
             BaseClientSalesSeeder::class,
