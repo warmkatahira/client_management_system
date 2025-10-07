@@ -48,9 +48,9 @@
                 <span class="text-sm border-b-4 border-theme-main py-1">代表取締役名</span>
                 <p class="ml-3 mt-2">{{ $client->representative_name }}</p>
             </div>
-            @if($client->client_url)
+            @if($client->client_hp)
                 <div class="col-start-1">
-                    <a href="{{ $client->client_url }}" target="_blank" rel="noopener noreferrer"
+                    <a href="{{ $client->client_hp }}" target="_blank" rel="noopener noreferrer"
                         class="btn inline-flex items-center px-5 py-2.5 bg-theme-main text-white text-sm rounded-full shadow-md">
                         <i class="las la-external-link-alt la-lg mr-1"></i>
                         HPへ移動

@@ -32,6 +32,7 @@ class BasicInfoUpdateRequest extends BaseRequest
             'client_tel'                => 'nullable|string|max:13',
             'representative_name'       => 'nullable|string|max:20',
             'company_type_id'           => 'required|exists:company_types,company_type_id',
+            'client_hp'                 => 'nullable|string|max:255',
         ];
     }
 

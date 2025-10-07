@@ -17,7 +17,7 @@ class Client extends Model
         'prefecture_id',
         'client_address',
         'client_tel',
-        'client_url',
+        'client_hp',
         'client_invoice_number',
         'client_image_file_name',
         'company_type_id',

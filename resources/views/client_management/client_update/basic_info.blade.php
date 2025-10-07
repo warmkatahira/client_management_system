@@ -12,6 +12,7 @@
             <x-form.input type="text" label="住所" id="client_address" name="client_address" :value="$client->client_address" />
             <x-form.input type="tel" label="電話番号" id="client_tel" name="client_tel" :value="$client->client_tel" />
             <x-form.input type="text" label="代表取締役名" id="representative_name" name="representative_name" :value="$client->representative_name" />
+            <x-form.input type="text" label="HP" id="client_hp" name="client_hp" :value="$client->client_hp" />
         </div>
         <input type="hidden" name="client_id" value="{{ $client->client_id }}">
         <x-button.enter id="client_update_enter" label="更新" />

@@ -20,6 +20,7 @@ class BasicInfoUpdateService
             'client_tel',
             'representative_name',
             'company_type_id',
+            'client_hp',
         ]));
     }
 }

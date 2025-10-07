@@ -39,6 +39,7 @@ class BaseRequest extends FormRequest
             'client_tel'                => '電話番号',
             'representative_name'       => '代表取締役名',
             'company_type_id'           => '会社種別',
+            'client_hp'                 => 'HP',
             // ユーザー情報
             'user_id'                   => 'ユーザーID',
             'last_name'                 => '姓',

@@ -20,7 +20,7 @@ return new class extends Migration
             $table->unsignedInteger('prefecture_id')->nullable();
             $table->string('client_address', 255)->nullable();
             $table->string('client_tel', 13)->nullable();
-            $table->string('client_url', 255)->nullable();
+            $table->string('client_hp', 255)->nullable();
             $table->string('client_invoice_number', 13)->nullable();
             $table->string('client_image_file_name', 50)->default('no_image.png');
             $table->unsignedInteger('company_type_id');
