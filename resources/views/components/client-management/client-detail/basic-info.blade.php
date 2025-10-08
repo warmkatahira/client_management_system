@@ -39,28 +39,27 @@
         <div class="grid grid-cols-2 gap-5">
             <div>
                 <span class="text-sm border-b-4 border-theme-main py-1">住所</span>
-                <div class="ml-3 mt-2">
-                    @if($client->full_client_address != '未登録')
-                        <p>〒{{ $client->client_postal_code ?? '未登録' }}</p>
+                <p class="ml-3 mt-2">{{ display_value($client->client_postal_code_text) }}</p>
+                <div class="ml-3">
+                    @if(display_value($client->full_client_address) != '未登録')
                         <a href="https://www.google.com/maps/search/?api=1&query={{ urlencode($client->full_client_address) }}"
                             target="_blank"
                             class="link-btn tippy_jump_google_map">
-                            {{ $client->full_client_address }}
+                            {{ display_value($client->full_client_address) }}
                         </a>
                     @else
-                        <p>{{ $client->full_client_address }}</p>
+                        <p>{{ display_value($client->full_client_address) }}</p>
                     @endif
                 </div>
             </div>
             <div>
                 <span class="text-sm border-b-4 border-theme-main py-1">電話番号</span>
-                <p class="ml-3 mt-2">{{ $client->client_tel ?? '未登録' }}</p>
+                <p class="ml-3 mt-2">{{ display_value($client->client_tel) }}</p>
             </div>
             <div>
                 <span class="text-sm border-b-4 border-theme-main py-1">代表取締役名</span>
-                <p class="ml-3 mt-2">{{ $client->representative_name ?? '未登録' }}</p>
+                <p class="ml-3 mt-2">{{ display_value($client->representative_name) }}</p>
             </div>
-            
         </div>
     </div>
 </div>

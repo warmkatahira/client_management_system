@@ -15,3 +15,11 @@ if(!function_exists('formatYearMonth')){
         return CarbonImmutable::createFromFormat('Y-m', $year_month)->format('Y年m月');
     }
 }
+
+if(!function_exists('display_value')){
+    // 値がなければ、未登録を返す
+    function display_value($value)
+    {
+        return $value !== null && $value !== '' ? $value : '未登録';
+    }
+}
