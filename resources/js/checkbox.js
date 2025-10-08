@@ -5,11 +5,11 @@ export default function get_checkbox(){
     let count = 0;
     let all = 0;
     // 取得した要素の分だけループ処理
-    for (let i = 0; i < chk.length; i++) {
+    for(let i = 0; i < chk.length; i++){
         // 要素の数をカウントしている
         all++;
         // チェックボックスがONになっている要素をカウント
-        if (chk[i].checked) {
+        if(chk[i].checked){
             count++;
         }
     }
@@ -21,12 +21,12 @@ $('#all_check').on("click",function(){
     // チェックボックス要素関連の情報を取得
     const [chk, count, all] = get_checkbox();
     // チェックボックスがONの要素数と取得した全ての要素数が同じかどうかでONにするかOFFにするか判定
-    if (count == all) {
+    if(count == all){
         for(let i = 0; i < chk.length; i++) {
             // OFF
             chk[i].checked = false
         }
-    } else {
+    }else{
         for(let i = 0; i < chk.length; i++) {
             // ON
             chk[i].checked = true
