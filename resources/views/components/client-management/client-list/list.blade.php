@@ -60,7 +60,7 @@
                         <td class="py-1 px-2 border text-center">{{ $client->industry->industry_name }}</td>
                         <td class="py-1 px-2 border text-right">{{ number_format($client->collection_term->collection_term) }}日</td>
                         <td class="py-1 px-2 border text-center">{{ $client->account_type->account_type_name }}</td>
-                        <td class="py-1 px-2 border text-center">{{ $client->prefecture->prefecture_name }}</td>
+                        <td class="py-1 px-2 border text-center">{{ $client->prefecture?->prefecture_name }}</td>
                         <td class="py-1 px-2 border text-center">{{ $client->representative_name }}</td>
                         <td class="py-1 px-2 border text-center">
                             @if($client->client_hp)

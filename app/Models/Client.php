@@ -82,7 +82,7 @@ class Client extends Model
     // 完全な住所を返すアクセサ
     public function getFullClientAddressAttribute()
     {
-        return $this->prefecture->prefecture_name.$this->client_address;
+        return ($this->prefecture?->prefecture_name . $this->client_address) ?: '未登録';
     }
     // 完全な会社名を返すアクセサ
     public function getFullClientNameAttribute()
