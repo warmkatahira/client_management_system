@@ -150,7 +150,6 @@ function createChart(){
                             },
                             animation: {
                                 onProgress: (animation) => {
-                                console.log(animation.currentStep / animation.numSteps);
                                 },
                                 delay: (ctx) => {
                                 let index = ctx.dataIndex;

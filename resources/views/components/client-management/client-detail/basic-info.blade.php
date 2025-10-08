@@ -12,19 +12,27 @@
             </dpan>
         </div>
         <div class="ml-auto">
-            <a href="{{ route('basic_info_update.index', ['client_id' => $client->client_id]) }}" class="btn inline-flex items-center px-5 py-2.5 bg-theme-main text-white text-sm rounded-full shadow-md">
+            <a href="{{ $client->client_hp }}" target="_blank" rel="noopener noreferrer"
+                class="btn inline-flex items-center px-5 py-2.5 bg-theme-main text-white text-sm rounded-full shadow-md">
+                <i class="las la-external-link-alt la-lg mr-1"></i>
+                HPへ移動
+            </a>
+            <a href="{{ route('basic_info_update.index', ['client_id' => $client->client_id]) }}"
+                class="btn inline-flex items-center px-5 py-2.5 bg-theme-main text-white text-sm rounded-full shadow-md">
                 <i class="las la-pen la-lg mr-1"></i>
                 更新
             </a>
         </div>
     </div>
-    <div class="flex flex-row items-center gap-5 bg-gray-100 rounded-xl border shadow-lg">
-        <div class="flex items-center justify-center p-3">
-            <img src="{{ asset('storage/client_images/'.$client->client_image_file_name) }}" class="w-20 h-16 object-contain image_fade_in_modal_open">
-        </div>
-        <div>
-            <p class="text-2xl text-gray-800">{{ $client->full_client_name }}</p>
-            <p class="text-gray-500">顧客コード: {{ $client->client_code }}</p>
+    <div class="flex flex-col bg-gray-100 rounded-xl border shadow-lg">
+        <div class="flex flex-row items-center gap-5">
+            <div class="flex items-center justify-center p-3">
+                <img src="{{ asset('storage/client_images/'.$client->client_image_file_name) }}" class="w-20 h-16 object-contain image_fade_in_modal_open">
+            </div>
+            <div>
+                <p class="text-2xl text-gray-800">{{ $client->full_client_name }}</p>
+                <p class="text-gray-500">顧客コード: {{ $client->client_code }}</p>
+            </div>
         </div>
     </div>
     <div class="p-3">
@@ -48,15 +56,7 @@
                 <span class="text-sm border-b-4 border-theme-main py-1">代表取締役名</span>
                 <p class="ml-3 mt-2">{{ $client->representative_name }}</p>
             </div>
-            @if($client->client_hp)
-                <div class="col-start-1">
-                    <a href="{{ $client->client_hp }}" target="_blank" rel="noopener noreferrer"
-                        class="btn inline-flex items-center px-5 py-2.5 bg-theme-main text-white text-sm rounded-full shadow-md">
-                        <i class="las la-external-link-alt la-lg mr-1"></i>
-                        HPへ移動
-                    </a>
-                </div>
-            @endif
+            
         </div>
     </div>
 </div>
