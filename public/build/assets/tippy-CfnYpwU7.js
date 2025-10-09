@@ -1,0 +1,1 @@
+tippy(".tippy_user_full_name",{content:t=>t.dataset.userFullName,duration:500,allowHTML:!0,placement:"right",theme:"tippy_main_theme"});tippy(".tippy_jump_google_map",{content:"Googleマップを表示",duration:500,allowHTML:!0,placement:"right",theme:"tippy_main_theme"});tippy(".tippy_jump_hp",{content:"HPを表示",duration:500,allowHTML:!0,placement:"right",theme:"tippy_main_theme"});

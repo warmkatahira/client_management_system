@@ -9,7 +9,7 @@ tippy('.tippy_user_full_name', {
 
 // グーグルマップに遷移するツールチップ
 tippy('.tippy_jump_google_map', {
-    content: '<i class="las la-map-marked-alt la-lg mr-1"></i>Googleマップを表示',
+    content: 'Googleマップを表示',
     duration: 500,
     allowHTML: true,
     placement: 'right',
@@ -18,7 +18,7 @@ tippy('.tippy_jump_google_map', {
 
 // HPに遷移するツールチップ
 tippy('.tippy_jump_hp', {
-    content: '<i class="las la-external-link-alt la-lg mr-1"></i>HPを表示',
+    content: 'HPを表示',
     duration: 500,
     allowHTML: true,
     placement: 'right',
