@@ -36,7 +36,17 @@ class BasicInfoUpdateRequest extends BaseRequest
             'company_type_id'           => 'required|exists:company_types,company_type_id',
             'client_hp'                 => 'nullable|string|max:255',
             'contract_start_date'       => 'nullable|date',
-            'contract_end_date'         => 'nullable|date|required_if:client_status_id,'.ClientStatusEnum::EXIT,
+            'contract_end_date'         => [
+                                                'nullable',
+                                                'date',
+                                                'required_if:client_status_id,'.ClientStatusEnum::EXIT,
+                                                function($attribute, $value, $fail) {
+                                                    // ClientStatusEnum::EXIT = 3 と仮定
+                                                    if ($this->client_status_id != ClientStatusEnum::EXIT && !is_null($value)) {
+                                                        $fail('「取引終了日」はステータスが「取引終了」以外の場合、空にしてください。');
+                                                    }
+                                                },
+                                           ],
         ];
     }
 
