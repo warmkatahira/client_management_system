@@ -40,6 +40,8 @@ class BaseRequest extends FormRequest
             'representative_name'       => '代表取締役名',
             'company_type_id'           => '会社種別',
             'client_hp'                 => 'HP',
+            'contract_start_date'       => '取引開始日',
+            'contract_end_date'         => '取引終了日',
             // ユーザー情報
             'user_id'                   => 'ユーザーID',
             'last_name'                 => '姓',

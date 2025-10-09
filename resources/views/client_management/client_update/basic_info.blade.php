@@ -13,6 +13,8 @@
             <x-form.input type="tel" label="電話番号" id="client_tel" name="client_tel" :value="$client->client_tel" />
             <x-form.input type="text" label="代表取締役名" id="representative_name" name="representative_name" :value="$client->representative_name" />
             <x-form.input type="text" label="HP" id="client_hp" name="client_hp" :value="$client->client_hp" />
+            <x-form.input type="date" label="取引開始日" id="contract_start_date" name="contract_start_date" :value="$client->contract_start_date" />
+            <x-form.input type="date" label="取引終了日" id="contract_end_date" name="contract_end_date" :value="$client->contract_end_date" />
         </div>
         <input type="hidden" name="client_id" value="{{ $client->client_id }}">
         <x-button.enter id="client_update_enter" label="更新" />

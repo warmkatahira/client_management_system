@@ -33,6 +33,8 @@ class BasicInfoUpdateRequest extends BaseRequest
             'representative_name'       => 'nullable|string|max:20',
             'company_type_id'           => 'required|exists:company_types,company_type_id',
             'client_hp'                 => 'nullable|string|max:255',
+            'contract_start_date'       => 'nullable|date',
+            'contract_end_date'         => 'nullable|date',
         ];
     }
 

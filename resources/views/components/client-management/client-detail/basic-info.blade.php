@@ -36,7 +36,7 @@
         </div>
     </div>
     <div class="p-3">
-        <div class="grid grid-cols-2 gap-5">
+        <div class="grid grid-cols-3 gap-3">
             <div>
                 <span class="text-sm border-b-4 border-theme-main py-1">住所</span>
                 <p class="ml-3 mt-2">{{ display_value($client->client_postal_code_text) }}</p>
@@ -59,6 +59,22 @@
             <div>
                 <span class="text-sm border-b-4 border-theme-main py-1">代表取締役名</span>
                 <p class="ml-3 mt-2">{{ display_value($client->representative_name) }}</p>
+            </div>
+            <div class="col-start-1">
+                <span class="text-sm border-b-4 border-theme-main py-1">取引開始日</span>
+                <p class="ml-3 mt-2">
+                    @if($client->contract_start_date)
+                        {{ CarbonImmutable::parse($client->contract_start_date)->isoFormat('Y年MM月DD日') }}
+                    @endif
+                </p>
+            </div>
+            <div>
+                <span class="text-sm border-b-4 border-theme-main py-1">取引終了日</span>
+                <p class="ml-3 mt-2">
+                    @if($client->contract_end_date)
+                        {{ CarbonImmutable::parse($client->contract_end_date)->isoFormat('Y年MM月DD日') }}
+                    @endif
+                </p>
             </div>
         </div>
     </div>

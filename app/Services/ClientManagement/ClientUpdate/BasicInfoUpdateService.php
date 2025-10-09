@@ -21,6 +21,8 @@ class BasicInfoUpdateService
             'representative_name',
             'company_type_id',
             'client_hp',
+            'contract_start_date',
+            'contract_end_date',
         ]));
     }
 }
