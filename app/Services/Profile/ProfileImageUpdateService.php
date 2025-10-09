@@ -23,7 +23,7 @@ class ProfileImageUpdateService
         // 現在設定されているプロフィール画像ファイル名を取得
         $profile_image_path = storage_path('app/public/profile_images/' . $user->profile_image_file_name);
         // 現在設定されているプロフィール画像が存在しているかつ、初期画像以外なら削除
-        if(file_exists($profile_image_path) && $user->profile_image_file_name != SystemEnum::DEFAULT_PROFILE_IMAGE_FILE_NAME){
+        if(file_exists($profile_image_path) && $user->profile_image_file_name != SystemEnum::DEFAULT_IMAGE_FILE_NAME){
             unlink($profile_image_path);
         }
         return $user;
@@ -57,6 +57,5 @@ class ProfileImageUpdateService
         $user->update([
             'profile_image_file_name' => $profile_image_file_name,
         ]);
-        return;
     }
 }

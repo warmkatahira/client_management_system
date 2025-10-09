@@ -1,4 +1,4 @@
-import start_loading from '../loading';
+import start_loading from './loading';
 
 let cropper;
 
@@ -31,17 +31,17 @@ $('#select_image').on('change', function(event){
 });
 
 // メニューを押下したら
-$('#profile_image_update_modal_open').on("click",function(){
+$('#image_update_modal_open').on("click",function(){
     // モーダルを開く
-    $('#profile_image_update_modal').removeClass('hidden');
+    $('#image_update_modal').removeClass('hidden');
 });
 
 // クリックイベント
 $(document).on('click', function(e){
     // クリックされた要素にモーダルを閉じるクラス名が設定されていれば
-    if(e.target.classList.contains('profile_image_update_modal_close')){
+    if(e.target.classList.contains('image_update_modal_close')){
         // モーダルを閉じる
-        $('#profile_image_update_modal').addClass('hidden');
+        $('#image_update_modal').addClass('hidden');
         // 要素をクリア
         $('#preview').attr('src', '');
         $('#select_image').val('');
@@ -53,7 +53,7 @@ $(document).on('click', function(e){
 });
 
 // 更新が押下されたら
-$('#profile_image_update_enter').on("click",function(){
+$('#image_update_enter').on("click",function(){
     // 処理を実行するか確認
     const result = window.confirm("更新を実行しますか？");
     // 「はい」が押下されたらsubmit、「いいえ」が押下されたら処理キャンセル
@@ -66,7 +66,8 @@ $('#profile_image_update_enter').on("click",function(){
                 $("#crop_data_y").val(cropData.y);
                 $("#crop_data_width").val(cropData.width);
                 $("#crop_data_height").val(cropData.height);
-                $("#profile_image_update_form").submit();
+                $("#update_id").val($(this).data('update-id'));
+                $("#image_update_form").submit();
             });
         }
         if(!cropper){

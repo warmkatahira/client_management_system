@@ -11,6 +11,7 @@ use App\Http\Controllers\ClientManagement\ClientList\ClientListDownloadControlle
 use App\Http\Controllers\ClientManagement\ClientDetail\ClientDetailController;
 // +-+-+-+-+-+-+-+- 顧客更新 +-+-+-+-+-+-+-+-
 use App\Http\Controllers\ClientManagement\ClientUpdate\BasicInfoUpdateController;
+use App\Http\Controllers\ClientManagement\ClientUpdate\ImageUpdateController;
 // +-+-+-+-+-+-+-+- 顧客売上リスト +-+-+-+-+-+-+-+-
 use App\Http\Controllers\ClientManagement\ClientSalesList\ClientSalesListController;
 use App\Http\Controllers\ClientManagement\ClientSalesList\ClientSalesListDownloadController;
@@ -35,6 +36,9 @@ Route::middleware('common')->group(function (){
     });
     Route::controller(BasicInfoUpdateController::class)->prefix('basic_info_update')->name('basic_info_update.')->group(function(){
         Route::get('', 'index')->name('index');
+        Route::post('', 'update')->name('update');
+    });
+    Route::controller(ImageUpdateController::class)->prefix('image_update')->name('image_update.')->group(function(){
         Route::post('', 'update')->name('update');
     });
     // +-+-+-+-+-+-+-+- 顧客売上リスト +-+-+-+-+-+-+-+-

@@ -100,6 +100,15 @@
     "src": "resources/js/image_fade_in.js",
     "isEntry": true
   },
+  "resources/js/image_update.js": {
+    "file": "assets/image_update-CS3n9_C0.js",
+    "name": "image_update",
+    "src": "resources/js/image_update.js",
+    "isEntry": true,
+    "imports": [
+      "resources/js/loading.js"
+    ]
+  },
   "resources/js/loading.js": {
     "file": "assets/loading-ChqFcCVw.js",
     "name": "loading",
@@ -111,15 +120,6 @@
     "name": "navigation",
     "src": "resources/js/navigation.js",
     "isEntry": true
-  },
-  "resources/js/profile/profile.js": {
-    "file": "assets/profile-Bn2X8iwu.js",
-    "name": "profile",
-    "src": "resources/js/profile/profile.js",
-    "isEntry": true,
-    "imports": [
-      "resources/js/loading.js"
-    ]
   },
   "resources/js/search.js": {
     "file": "assets/search-dS6Fl7v2.js",

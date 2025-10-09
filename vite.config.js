@@ -22,6 +22,7 @@ export default defineConfig({
                 'resources/js/chart_color.js',
                 'resources/js/checkbox.js',
                 'resources/js/tippy.js',
+                'resources/js/image_update.js',
                 'resources/sass/dropdown.scss',
                 'resources/sass/height_adjustment.scss',
                 'resources/sass/welcome.scss',
@@ -41,7 +42,6 @@ export default defineConfig({
                 // システム管理
                 'resources/js/system_admin/user/user.js',
                 // プロフィール
-                'resources/js/profile/profile.js',
                 'resources/sass/profile/profile.scss',
                 'resources/sass/profile/profile_image.scss',
             ],

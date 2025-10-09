@@ -8,9 +8,13 @@
         <x-client-management.client-detail.sales-chart />
     </div>
 </x-app-layout>
+<!-- プロフィール画像変更モーダル -->
+<x-image-update-modal title="顧客画像更新" route="image_update.update" :updateId="$client->client_id" />
 @vite(
         [
             'resources/js/client_management/client_detail/client_detail.js',
             'resources/js/client_management/client_detail/client_sales_chart.js',
+            'resources/js/image_update.js',
+            'resources/sass/profile/profile.scss',
         ]
     )

@@ -3,7 +3,7 @@
         <div class="flex flex-row items-end">
             <img src="{{ asset('storage/profile_images/' . $user->profile_image_file_name) }}" class="w-24 mr-10">
             <div class="flex flex-row mt-3">
-                <button type="button" id="profile_image_update_modal_open" class="btn bg-theme-main text-white text-sm p-3"><i class="las la-image la-lg mr-1"></i>プロフィール画像更新</button>
+                <button type="button" id="image_update_modal_open" class="btn bg-theme-main text-white text-sm p-3"><i class="las la-image la-lg mr-1"></i>プロフィール画像更新</button>
             </div>
         </div>
         <div class="flex flex-col mt-5 gap-y-3">
@@ -16,6 +16,6 @@
         </form>
     </div>
     <!-- プロフィール画像変更モーダル -->
-    <x-profile.profile-image-update-modal />
+    <x-image-update-modal title="プロフィール画像更新" route="profile_image_update.update" :updateId="Auth::user()->user_id" />
 </x-app-layout>
-@vite(['resources/js/profile/profile.js', 'resources/sass/profile/profile.scss'])
+@vite(['resources/js/image_update.js', 'resources/sass/profile/profile.scss'])

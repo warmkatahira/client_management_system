@@ -27,7 +27,7 @@
     <div class="flex flex-col bg-gray-100 rounded-xl border shadow-lg">
         <div class="flex flex-row items-center gap-5">
             <div class="flex items-center justify-center p-3">
-                <img src="{{ asset('storage/client_images/'.$client->client_image_file_name) }}" class="w-20 h-16 object-contain image_fade_in_modal_open">
+                <img id="image_update_modal_open" src="{{ asset('storage/client_images/'.$client->client_image_file_name) }}" class="w-20 h-16 object-contain">
             </div>
             <div>
                 <p class="text-2xl text-gray-800">{{ $client->full_client_name }}</p>
