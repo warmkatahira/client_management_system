@@ -68,14 +68,16 @@
                     @endif
                 </p>
             </div>
-            <div>
-                <span class="text-sm border-b-4 border-theme-main py-1">取引終了日</span>
-                <p class="ml-3 mt-2">
-                    @if($client->contract_end_date)
-                        {{ CarbonImmutable::parse($client->contract_end_date)->isoFormat('Y年MM月DD日') }}
-                    @endif
-                </p>
-            </div>
+            @if($client->client_status_id == ClientStatusEnum::EXIT)
+                <div>
+                    <span class="text-sm border-b-4 border-theme-main py-1">取引終了日</span>
+                    <p class="ml-3 mt-2">
+                        @if($client->contract_end_date)
+                            {{ CarbonImmutable::parse($client->contract_end_date)->isoFormat('Y年MM月DD日') }}
+                        @endif
+                    </p>
+                </div>
+            @endif
         </div>
     </div>
 </div>

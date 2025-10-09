@@ -9,21 +9,21 @@ class BaseRequest extends FormRequest
     public function messages()
     {
         return [
-            'required'                          => ":attributeは必須です。",
-            'string'                            => ":attributeは文字列で入力して下さい。",
-            'unique'                            => ":attributeは既に使用されています。",
-            'image'                             => ":attributeは画像ファイルでなければなりません。",
-            'mimes'                             => ":attributeは:values形式のみ許可されています。",
-            'boolean'                           => ":attributeが正しくありません。",
-            'exists'                            => ":attributeがシステムに存在しません。",
-            'integer'                           => ":attributeは数値で入力して下さい。",
+            'required'                          => "「:attribute」は必須です。",
+            'string'                            => "「:attribute」は文字列で入力して下さい。",
+            'unique'                            => "「:attribute」は既に使用されています。",
+            'image'                             => "「:attribute」は画像ファイルでなければなりません。",
+            'mimes'                             => "「:attribute」は:values形式のみ許可されています。",
+            'boolean'                           => "「:attribute」が正しくありません。",
+            'exists'                            => "「:attribute」がシステムに存在しません。",
+            'integer'                           => "「:attribute」は数値で入力して下さい。",
             'email'                             => "有効なメールアドレスを入力して下さい。",
-            'unique'                            => ":attributeは既に使用されています。",
-            'confirmed'                         => ":attributeが確認用と一致しません。",
-            'date'                              => ":attributeが日付ではありません。",
-            'max'                               => ":attributeは:max文字以内で入力して下さい。",
-            'min'                               => ":attributeは:min以上で入力して下さい。",
-            'sort_order.max'                    => ":attributeは:max以下で入力して下さい。",
+            'unique'                            => "「:attribute」は既に使用されています。",
+            'confirmed'                         => "「:attribute」が確認用と一致しません。",
+            'date'                              => "「:attribute」が日付ではありません。",
+            'max'                               => "「:attribute」は:max文字以内で入力して下さい。",
+            'min'                               => "「:attribute」は:min以上で入力して下さい。",
+            'sort_order.max'                    => "「:attribute」は:max以下で入力して下さい。",
         ];
     }
 

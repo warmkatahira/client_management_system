@@ -23,7 +23,7 @@ class ClientStatusSeeder extends Seeder
             'sort_order'        => 2,
         ]);
         ClientStatus::create([
-            'client_status'     => '撤退',
+            'client_status'     => '取引終了',
             'sort_order'        => 3,
         ]);
     }

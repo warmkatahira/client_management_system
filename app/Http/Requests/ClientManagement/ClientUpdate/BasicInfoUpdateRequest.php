@@ -4,6 +4,8 @@ namespace App\Http\Requests\ClientManagement\ClientUpdate;
 
 use Illuminate\Foundation\Http\FormRequest;
 use App\Http\Requests\BaseRequest;
+// 列挙
+use App\Enums\ClientStatusEnum;
 
 class BasicInfoUpdateRequest extends BaseRequest
 {
@@ -34,13 +36,15 @@ class BasicInfoUpdateRequest extends BaseRequest
             'company_type_id'           => 'required|exists:company_types,company_type_id',
             'client_hp'                 => 'nullable|string|max:255',
             'contract_start_date'       => 'nullable|date',
-            'contract_end_date'         => 'nullable|date',
+            'contract_end_date'         => 'nullable|date|required_if:client_status_id,'.ClientStatusEnum::EXIT,
         ];
     }
 
     public function messages()
     {
-        return parent::messages();
+        return array_merge(parent::messages(), [
+            'contract_end_date.required_if'     => "「:attribute」はステータスが「取引終了」の場合、必須です。",
+        ]);
     }
 
     public function attributes()
