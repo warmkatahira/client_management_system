@@ -33,6 +33,7 @@ class ClientSeeder extends Seeder
             'updated_by'                => 1,
             'collection_term_id'        => 2,
             'client_status_id'          => 2,
+            'contract_start_date'       => '2024-11-01',
         ]);
         BaseClient::create([
             'client_id' => 1,
@@ -89,6 +90,7 @@ class ClientSeeder extends Seeder
             'updated_by'                => 1,
             'collection_term_id'        => 2,
             'client_status_id'          => 2,
+            'contract_start_date'       => '2021-01-01',
         ]);
         BaseClient::create([
             'client_id' => 3,
@@ -149,6 +151,7 @@ class ClientSeeder extends Seeder
             'updated_by'                => 1,
             'collection_term_id'        => 2,
             'client_status_id'          => 2,
+            'contract_start_date'       => '2021-12-01',
         ]);
         BaseClient::create([
             'client_id' => 5,
@@ -317,6 +320,7 @@ class ClientSeeder extends Seeder
             'updated_by'                => 1,
             'collection_term_id'        => 2,
             'client_status_id'          => 2,
+            'contract_start_date'       => '2023-02-01',
         ]);
         BaseClient::create([
             'client_id' => 11,

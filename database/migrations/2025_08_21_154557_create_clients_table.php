@@ -29,6 +29,8 @@ return new class extends Migration
             $table->unsignedInteger('collection_term_id');
             $table->unsignedInteger('sort_order')->default(10000);
             $table->unsignedInteger('client_status_id');
+            $table->date('contract_start_date')->nullable();
+            $table->date('contract_end_date')->nullable();
             $table->unsignedInteger('updated_by')->nullable();
             $table->timestamps();
             // 外部キー制約

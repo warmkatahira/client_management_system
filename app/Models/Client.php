@@ -26,6 +26,8 @@ class Client extends Model
         'collection_term_id',
         'sort_order',
         'client_status_id',
+        'contract_start_date',
+        'contract_end_date',
         'updated_by',
     ];
     // 全てのレコードを取得
@@ -154,6 +156,8 @@ class Client extends Model
             '顧客インボイス番号',
             '代表取締役名',
             'HP',
+            '取引開始日',
+            '取引終了日',
             '最終更新者',
             '最終更新日時',
         ];
