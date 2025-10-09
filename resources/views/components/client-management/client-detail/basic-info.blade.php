@@ -26,8 +26,16 @@
     </div>
     <div class="flex flex-col bg-gray-100 rounded-xl border shadow-lg">
         <div class="flex flex-row items-center gap-5">
-            <div class="flex items-center justify-center p-3">
-                <img id="image_update_modal_open" src="{{ asset('storage/client_images/'.$client->client_image_file_name) }}" class="w-20 h-16 object-contain">
+            <div class="relative flex items-center justify-center p-3">
+                <img
+                    src="{{ asset('storage/client_images/'.$client->client_image_file_name) }}"
+                    class="w-20 h-16 object-contain rounded-lg border border-gray-300 image_fade_in_modal_open">
+                <button
+                    type="button"
+                    id="image_update_modal_open"
+                    class="btn absolute top-2 right-2 bg-gray-600 text-white w-7 h-7 pt-0.5 rounded-full">
+                    <i class="las la-camera text-lg"></i>
+                </button>
             </div>
             <div>
                 <p class="text-2xl text-gray-800">{{ $client->full_client_name }}</p>
