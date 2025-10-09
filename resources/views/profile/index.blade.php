@@ -1,9 +1,14 @@
 <x-app-layout>
     <div class="mt-5">
         <div class="flex flex-row items-end">
-            <img src="{{ asset('storage/profile_images/' . $user->profile_image_file_name) }}" class="w-24 mr-10">
-            <div class="flex flex-row mt-3">
-                <button type="button" id="image_update_modal_open" class="btn bg-theme-main text-white text-sm p-3"><i class="las la-image la-lg mr-1"></i>プロフィール画像更新</button>
+            <div class="relative flex items-center justify-center">
+                <img src="{{ asset('storage/profile_images/' . $user->profile_image_file_name) }}" class="w-24 image_fade_in_modal_open">
+                <button
+                    type="button"
+                    id="image_update_modal_open"
+                    class="btn absolute top-[-6px] right-[-6px] bg-gray-600 text-white w-7 h-7 pt-0.5 rounded-full">
+                    <i class="las la-camera text-lg"></i>
+                </button>
             </div>
         </div>
         <div class="flex flex-col mt-5 gap-y-3">
